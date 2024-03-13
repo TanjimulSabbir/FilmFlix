@@ -8,8 +8,8 @@ function Navbar() {
     }
     return (
         <>
-            <nav className={style.navbarContainter}>
-                <div className="navbar-container flex items-center">
+            <nav className={`${style.navbarContainter}`}>
+                <div className="navbar-container flex items-center container mx-auto">
                     <div className="flex space-x-10 items-center w-full">
                         <Link to="/">
                             <img src={logo} alt="search" width={80} height={80} />
