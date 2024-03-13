@@ -1,0 +1,9 @@
+.navbarContainter {
+    background-color: var(--tmdbDarkBlue);
+    color: white;
+    padding: 25px 0;
+}
+
+.SearchBtn {
+    color: var(--tmdbLightBlue);
+}

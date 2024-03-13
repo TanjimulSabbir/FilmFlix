@@ -1,0 +1,8 @@
+.Toggled {
+    background-color: var(--vibrantDarkBlue);
+    color: var(--tmdbLightGreen);
+    border-radius: 15px;
+    transition: all;
+    transition-duration: 2s;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
