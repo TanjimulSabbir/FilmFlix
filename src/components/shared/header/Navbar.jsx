@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { IoSearchSharp } from "react-icons/io5";
-import style from "../../style/navbar.module.css"
+import style from "../../../style/navbar.module.css"
 import logo from "../../../assets/Logo/logo.svg"
 function Navbar() {
     const handleChoice = () => {

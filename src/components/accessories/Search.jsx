@@ -1,4 +1,4 @@
-import style from "../style/search.module.css"
+import style from "../../style/search.module.css"
 function Search() {
     return (
         <div className="relative mt-10">

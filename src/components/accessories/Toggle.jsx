@@ -1,5 +1,5 @@
 import { useState } from "react";
-import style from "../style/Toggle.module.css"
+import style from "../../style/Toggle.module.css"
 
 export default function Toggle({ data, type }) {
     const [slectToggle, setSelectToggle] = useState(data[0].title);

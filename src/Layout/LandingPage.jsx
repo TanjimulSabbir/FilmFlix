@@ -1,4 +1,4 @@
-import Search from "../components/Tools/Search";
+import Search from "../components/accessories/Search";
 import Toggle from "../components/accessories/Toggle";
 
 function LandingPage() {
