@@ -3,7 +3,9 @@ function Home() {
     // https://image.tmdb.org/t/p/original/8uVKfOJUhmybNsVh089EqLHUYEG.jpg
     
     return (
-        <div>Introduction</div>
+        <div>
+            
+        </div>
     )
 }
 

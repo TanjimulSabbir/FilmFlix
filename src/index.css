@@ -27,6 +27,7 @@
     --accountRed: rgb(212, 2, 66);
     --imageBorderRadius: 8px;
     --maxPrimaryPageWidth: 1400px;
+    --darkViolet:#5D3AE9
 }
 
 body {
