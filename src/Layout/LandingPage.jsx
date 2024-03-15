@@ -25,14 +25,14 @@ function LandingPage() {
   if (isLoading) {
     return <p className="text-red-500 text-3xl">Loading...</p>
   }
-
+  console.log(data)
   return (
     <div className="">
       <Search />
       <Toggle data={ToggleData} type="Trending" />
-      <div class="youtube-container">
+      {/* <div class="youtube-container">
         <iframe src="https://www.youtube.com/embed/_YUzQa_1RCE?autoplay=1&mute=0&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&playlist=_YUzQa_1RCE" title="YouTube video player" frameBorder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
+      </div> */}
 
 
       <h2 className="date">On January 2024</h2>
