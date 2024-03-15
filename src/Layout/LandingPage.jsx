@@ -5,7 +5,7 @@ import Toggle from "../components/accessories/Toggle";
 import Slider from "react-slick";
 
 function LandingPage() {
-  const { data, isLoading, isError, error } = useGetMoviesQuery("now_playing");
+  const { data: movies, isLoading, isError, error } = useGetMoviesQuery("now_playing");
 
   const ToggleData = [{ title: "Today", "path": "" }, { title: "This week", path: "" }]
   const settings = {
@@ -25,19 +25,41 @@ function LandingPage() {
   if (isLoading) {
     return <p className="text-red-500 text-3xl">Loading...</p>
   }
-  console.log(data)
+  if (!isLoading) {
+    console.log(movies, error)
+  }
+  // const fetchMovies = async () => {
+  //   try {
+  //     const response = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=95735e862c8d7543ceee5364740d5db4");
+
+  //     if (!response.ok) {
+  //       throw new Error('Network response was not ok');
+  //     }
+
+  //     const data = await response.json();
+  //     console.log(data); // Log the data for debugging
+  //     return data; // Return the data
+  //   } catch (error) {
+  //     console.error('Error fetching movies:', error);
+  //     throw error; // Re-throw the error to be caught by the caller
+  //   }
+  // };
+
+  // Call the function and handle the returned promise
+  // fetchMovies()
+  //   .then(data => {
+  //     // Handle the movie data
+  //     console.log('Movies:', data);
+  //   })
+  //   .catch(error => {
+  //     // Handle any errors
+  //     console.error('Error fetching movies:', error);
+  //   });
+
   return (
     <div className="">
       <Search />
       <Toggle data={ToggleData} type="Trending" />
-      {/* <div class="youtube-container">
-        <iframe src="https://www.youtube.com/embed/_YUzQa_1RCE?autoplay=1&mute=0&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&playlist=_YUzQa_1RCE" title="YouTube video player" frameBorder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div> */}
-
-
-      <h2 className="date">On January 2024</h2>
-      {/* <Banner /> */}
-
     </div>
   )
 }

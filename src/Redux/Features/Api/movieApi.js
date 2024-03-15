@@ -3,7 +3,9 @@ import { apiSlice } from "./apiSlice";
 export const movieApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getMovies: builder.query({
-            query: (type) => `/movie/${type}`
+            query: (type) => ({
+                url: `/movie/now_playing`,
+            })
         })
     })
 })
