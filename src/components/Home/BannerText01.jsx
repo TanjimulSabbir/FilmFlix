@@ -1,9 +1,10 @@
-function BannerText01() {
+function BannerText01({movie}) {
+  const {original_title,release_date,adult}=movie
   return (
     <div>
-      <h2>Damsel</h2>
+      <h2>{original_title}</h2>
       <div>
-        <span>2024</span>
+        <span>{release_date}</span>
         <span>15+</span>
         <span>02 hours 20min</span>
         <span>Mystrious</span>
