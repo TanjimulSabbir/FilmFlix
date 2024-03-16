@@ -3,12 +3,10 @@ import Navbar from "../components/shared/header/Navbar";
 
 function Layout() {
     return (
-        <>
+        <div className="relative">
             <Navbar />
-            <div className="container mx-auto">
-                <Outlet />
-            </div>
-        </>
+            <Outlet />
+        </div>
     )
 }
 

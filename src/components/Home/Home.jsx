@@ -1,4 +1,4 @@
-import SlickSlider from "../accessories/Slider";
+import SlickSlider from "./Slider";
 import Banner from "./Banner";
 
 function Home() {

@@ -8,7 +8,7 @@ function Navbar() {
     }
     return (
         <>
-            <nav className={`${style.navbarContainter}`}>
+            <nav className={`${style.navbarContainter} w-full absolute top-0 z-40`}>
                 <div className="navbar-container flex items-center container mx-auto">
                     <div className="flex space-x-10 items-center w-full">
                         <Link to="/">

@@ -1,5 +1,5 @@
 .navbarContainter {
-    background-color: var(--tmdbDarkBlue);
+    background-color: transparent;
     color: white;
     padding: 25px 0;
 }
