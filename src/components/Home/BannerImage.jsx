@@ -1,4 +1,4 @@
-function HeroImage() {
+function BannerImage() {
     return (
         <div>
 
@@ -6,4 +6,4 @@ function HeroImage() {
     )
 }
 
-export default HeroImage;
+export default BannerImage;
