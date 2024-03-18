@@ -30,7 +30,7 @@ function SlickSlider() {
     if (isError) {
         content = "Data fetching error"
     }
-    console.log(Movies?.results)
+    console.log(error, "from banner")
     if (!isLoading && !isError) {
         content = Movies.results.map(movie => <div key={movie.id} className="relative">
             <Banner id={movie.id} />

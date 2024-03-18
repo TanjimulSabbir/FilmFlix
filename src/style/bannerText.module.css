@@ -8,21 +8,23 @@
 }
 
 h1 {
-    font-size: 120px;
+    font-size: 80px;
     text-transform: uppercase;
-    font-family: "Foldit", sans-serif;
+    /* font-family: "Foldit", cursive; */
     font-optical-sizing: auto;
     /* letter-spacing: -3px; */
     transition: 700ms ease-in-out;
-    font-variation-settings: "wght" 600;
-    letter-spacing: 1px;
+    font-variation-settings: "wght" 700;
     margin-bottom: 0.8rem;
-    color: PaleGoldenRod;
-    outline: none;
+    color: rgba(0, 0, 0, 0.338);
+    /* outline: none; */
     text-align: center;
+    text-shadow: 0 7px rgba(245, 247, 247, 0.924);
+    text-anchor: middle;
+    font-style: italic;
 }
 
 h1:hover {
-    font-variation-settings: "wght" 600;
-    letter-spacing: 1px;
+    font-variation-settings: "wght" 900;
+    color: #ffffff91;
 }

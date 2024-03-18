@@ -10,6 +10,9 @@ function Banner({ id }) {
     if (isLoading) {
         content = <Loading />
     }
+    if (isError) {
+        content = "Data not found"
+    }
     if (!isLoading && !isError) {
         content = <BannerText movie={MovieDetails} />
     }

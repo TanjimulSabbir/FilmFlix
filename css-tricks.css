@@ -34,6 +34,7 @@ h1 {
     color: PaleGoldenRod;
     outline: none;
     text-align: center;
+    text-shadow: #2c4bff 19px 19px;
 }
 
 h1:hover {
