@@ -32,14 +32,14 @@ function SlickSlider() {
     }
     console.log(Movies?.results)
     if (!isLoading && !isError) {
-        content = Movies.results.map(movie => <div key={movie.id} className="">
-            <Banner movie={movie} />
+        content = Movies.results.map(movie => <div key={movie.id} className="relative">
+            <Banner id={movie.id} />
             <img className="opacity-30" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" srcSet="" />
         </div>)
     }
 
     return (
-        <div className="slider-container relative">
+        <div className="slider-container">
             <Slider {...settings}>
                 {content}
             </Slider>

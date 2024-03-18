@@ -1,13 +1,22 @@
 import BannerText from "./BannerText";
-import BannerImage from "./BannerImage";
+import { useGetMovieDetailsQuery } from "../../Redux/Features/Api/movieApi";
+import Loading from "../accessories/Loading";
 
 
-function Banner({ movie }) {
-    console.log(movie, "from banner")
+function Banner({ id }) {
+    const { data: MovieDetails, isLoading, isError, error } = useGetMovieDetailsQuery(id);
+    console.log(id)
+    let content;
+    if (isLoading) {
+        content = <Loading />
+    }
+    if (!isLoading && !isError) {
+        content = <BannerText movie={MovieDetails} />
+    }
     return (
-        <div className="container mx-auto">
-            <div className="w-full absolute top-40 z-20">
-                <BannerText movie={movie} />
+        <div className="flex items-center justify-center">
+            <div className="container w-full absolute top-48 z-20">
+                {content}
             </div>
         </div>
     );

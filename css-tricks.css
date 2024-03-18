@@ -28,7 +28,8 @@ h1 {
     font-family: 'Gambetta', serif;
     letter-spacing: -3px;
     transition: 700ms ease-in-out;
-    font-variation-settings: "wght" 311;
+    font-variation-settings: "wght" 600;
+    letter-spacing: 1px;
     margin-bottom: 0.8rem;
     color: PaleGoldenRod;
     outline: none;
