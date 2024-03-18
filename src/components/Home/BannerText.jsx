@@ -3,7 +3,7 @@ import BannerText02 from "./BannerText02";
 
 function BannerText({ movie }) {
     return (
-        <div className="">
+        <div className="w-full flex items-center">
             <BannerText01 movie={movie} />
             <BannerText02 />
         </div>

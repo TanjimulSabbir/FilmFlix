@@ -6,8 +6,13 @@ export const movieApi = apiSlice.injectEndpoints({
             query: (type) => ({
                 url: `/movie/now_playing?${API_KEY}`,
             })
+        }),
+        getMovieDetails: builder.query({
+            query: (id) => ({
+                url: `/movie/${id}?${API_KEY}`
+            })
         })
     })
 })
 
-export const { useGetMoviesQuery } = movieApi;
+export const { useGetMoviesQuery, useGetMovieDetailsQuery } = movieApi;

@@ -6,11 +6,8 @@ function Banner({ movie }) {
     console.log(movie, "from banner")
     return (
         <div className="container mx-auto">
-            <div className="absolute top-40 z-20">
-                <div className="flex justify-between items-center">
-                    <BannerText movie={movie} />
-                    <BannerImage movie={movie} />
-                </div>
+            <div className="w-full absolute top-40 z-20">
+                <BannerText movie={movie} />
             </div>
         </div>
     );
