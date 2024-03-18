@@ -19,7 +19,7 @@ function SlickSlider() {
         waitForAnimate: false,
         arrows: false,
         autoplay: true,
-        autoplaySpeed: 2000
+        autoplaySpeed: 1000
     };
 
     let content;
@@ -33,12 +33,13 @@ function SlickSlider() {
     console.log(Movies?.results)
     if (!isLoading && !isError) {
         content = Movies.results.map(movie => <div key={movie.id} className="">
-            <img className="" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" srcSet="" />
+            <img className="opacity-20" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" srcSet="" />
         </div>)
     }
 
     return (
-        <div className="slider-container">
+        <div className="slider-container relative">
+            <Banner/>
             <Slider {...settings}>
                 {content}
             </Slider>
