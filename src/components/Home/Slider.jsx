@@ -39,7 +39,7 @@ function SlickSlider() {
     }
 
     return (
-        <div className="slider-container">
+        <div className="slider-container relative">
             <Slider {...settings}>
                 {content}
             </Slider>

@@ -1,8 +1,16 @@
-function Trailer({ id, handleTrailer }) {
-  
+import toast from "react-hot-toast";
+
+function Trailer({ id, handleTrailer, openTrailer }) {
+    let close;
+    window.addEventListener('beforeunload', function (e) {
+        close = true
+        toast.error("window closed")
+        console.log("closed")
+    });
+    console.log(openTrailer,"from trailer");
+
     return (
-        <div onClick={() => handleTrailer()}
-            className="fixed inset-0 bg-black bg-opacity-30 w-screen h-screen flex items-center justify-center">
+        <div className={`fixed inset-0 w-screen h-screen bg-black flex items-center justify-center`}>
             <iframe
                 id="player"
                 width="70%"
