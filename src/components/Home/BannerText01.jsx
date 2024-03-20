@@ -25,14 +25,17 @@ function BannerText01({ movie }) {
       <p className="mb-12">{movie.overview}</p>
 
       <div className="space-x-4 flex">
+
         <button className={`${style.btn} ${style.brdr} flex items-center space-x-1`}>
           <CiBookmark />
           <span>Buy ticket</span>
         </button>
+
         <button className={`${style.btn} flex items-center space-x-1 bg-green-600 border-none`}>
           <GoPlus />
           <span>Add Watchlist</span>
         </button>
+        
       </div>
     </div>
   )

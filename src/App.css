@@ -1,3 +1,10 @@
+:root {
+    --color-primary: hsl(310, 100%, 65%);
+    --color-secondary: hsl(160, 100%, 65%);
+    --background: hsl(230, 30%, 15%);
+    --text: hsl(310, 100%, 95%);
+}
+
 .youtube-container {
     overflow: hidden;
     width: 500px;
@@ -5,8 +12,8 @@
     /* aspect-ratio: 5/2; */
     /* No clicking/hover effects */
     /* pointer-events: none; */
-    
-} 
+
+}
 
 .youtube-container iframe {
     /* Extend it beyond the viewport... */
@@ -16,16 +23,16 @@
     margin-left: -100%;
 }
 
-.date{
+/* .date {
     font-family: "Racing Sans One", cursive;
     color: white;
     text-transform: uppercase;
     font-size: 2rem;
     text-align: center;
     margin-bottom: 20px;
-    text-shadow: 0 0 20px rgba(255,255,255,0.8);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
     -webkit-mask: linear-gradient(#000000, 0 0), linear-gradient(#000000 0 0);
     -webkit-mask-clip: text, padding-box;
     -webkit-mask-composite: xor;
     opacity: 1;
-}
+} */

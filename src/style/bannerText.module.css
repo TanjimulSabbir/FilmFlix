@@ -6,25 +6,87 @@
 .brdr {
     border: 1px solid yellowgreen;
 }
-
-h1 {
+ 
+.theatePlayDate {
     font-size: 80px;
     text-transform: uppercase;
-    /* font-family: "Foldit", cursive; */
+    font-family: "Foldit", cursive;
     font-optical-sizing: auto;
-    /* letter-spacing: -3px; */
+    letter-spacing: -3px;
     transition: 700ms ease-in-out;
     font-variation-settings: "wght" 700;
     margin-bottom: 0.8rem;
     color: rgba(0, 0, 0, 0.338);
-    /* outline: none; */
+    outline: none;
     text-align: center;
     text-shadow: 0 7px rgba(245, 247, 247, 0.924);
     text-anchor: middle;
     font-style: italic;
 }
 
-h1:hover {
+.theatePlayDate:hover {
     font-variation-settings: "wght" 900;
     color: #ffffff91;
+}
+
+/* .title-wrapper {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    transform: skew(0, -10deg);
+  } */
+
+/* .theaterDate{
+    order: 2;
+  color: #fde9ff;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 10vw, 6rem);
+  line-height: 0.75em;
+  text-align: center;
+  text-shadow: 3px 1px 1px #4af7ff, 2px 2px 1px #165bfb, 4px 2px 1px #4af7ff,
+    3px 3px 1px #165bfb, 5px 3px 1px #4af7ff, 4px 4px 1px #165bfb,
+    6px 4px 1px #4af7ff, 5px 5px 1px #165bfb, 7px 5px 1px #4af7ff,
+    6px 6px 1px #165bfb, 8px 6px 1px #4af7ff, 7px 7px 1px #165bfb,
+    9px 7px 1px #4af7ff;
+
+  span {
+    display: block;
+    position: relative;
+
+    &:before {
+      content: attr(data-text);
+      position: absolute;
+      text-shadow: 2px 2px 1px #e94aa1, -1px -1px 1px #c736f9,
+        -2px 2px 1px #e94aa1, 1px -1px 1px #f736f9;
+      z-index: 1;
+    }
+
+    &:nth-child(1) {
+      padding-right: 2.25rem;
+    }
+
+    &:nth-child(2) {
+      padding-left: 2.25rem;
+    }
+  }
+} */
+
+:root {
+  --color-primary: hsl(310, 100%, 65%);
+  --color-secondary: hsl(160, 100%, 65%);
+  --background: hsl(230, 30%, 15%);
+  --text: hsl(310, 100%, 95%);
+}
+
+.colorText {
+  /* border-left: 5px solid;
+  margin-left: 0;
+  padding: 1rem 0 1rem 2rem; */
+  /* font-size: 1rem; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(35deg,
+          var(--color-primary),
+          var(--color-secondary));
 }
