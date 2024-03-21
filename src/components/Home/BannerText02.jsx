@@ -15,7 +15,7 @@ function BannerText02({ movie }) {
     const handleTrailer = () => {
         setOpenTrailer(!openTrailer)
         dispatch(getSliderValue(openTrailer))
-        toast.success(openTrailer ? "Trailer opened" : "Trailer closed");
+        toast.success(!openTrailer ? "Trailer opened" : "Trailer closed");
     };
 
 

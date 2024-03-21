@@ -53,13 +53,13 @@ function SlickSlider() {
 
     useEffect(() => {
         if (sliderState) {
-            toast.success(`${sliderState}`)
+            // toast.success(`${sliderState}`)
             play()
-            console.log("play")
+            // console.log("play")
         } else {
             pause()
-            toast.success(`${sliderState}`)
-            console.log("pause")
+            // toast.success(`${sliderState}`)
+            // console.log("pause")
         }
     }, [sliderState])
 
