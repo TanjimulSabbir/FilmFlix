@@ -2,7 +2,8 @@ import toast from "react-hot-toast";
 
 function Trailer({ id, handleTrailer, openTrailer }) {
     return (
-        <div className={`fixed inset-0 w-screen h-screen bg-black flex items-center justify-center`}>
+        <div onClick={handleTrailer}
+            className={`fixed inset-0 w-screen h-screen bg-black flex items-center justify-center`}>
             <iframe
                 id="player"
                 width="70%"

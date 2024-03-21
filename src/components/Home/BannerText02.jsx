@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { getSliderValue } from "../../Redux/Features/Slider/sliderSlice";
 
 function BannerText02({ movie }) {
-    const [openTrailer, setOpenTrailer] = useState("");
+    const [openTrailer, setOpenTrailer] = useState(false);
     const monthName = moment().month(parseInt(movie?.release_date?.split('-')[1]) - 1).format('MMMM');
     const dispatch = useDispatch();
 
