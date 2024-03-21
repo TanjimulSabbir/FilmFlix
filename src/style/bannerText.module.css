@@ -10,23 +10,23 @@
 .theatePlayDate {
     font-size: 80px;
     text-transform: uppercase;
-    font-family: "Foldit", cursive;
+    /* font-family: "Foldit", cursive; */
     font-optical-sizing: auto;
     letter-spacing: -3px;
     transition: 700ms ease-in-out;
     font-variation-settings: "wght" 700;
     margin-bottom: 0.8rem;
-    color: rgba(0, 0, 0, 0.338);
+    color: rgba(255, 255, 255, 0.511);
     outline: none;
     text-align: center;
-    text-shadow: 0 7px rgba(245, 247, 247, 0.924);
+    /* text-shadow: 0 7px rgba(245, 247, 247, 0.924); */
     text-anchor: middle;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 .theatePlayDate:hover {
     font-variation-settings: "wght" 800;
-    color: #ffffff91;
+    color: #ffffffb8;
 }
 
 /* .title-wrapper {

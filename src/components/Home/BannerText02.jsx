@@ -27,10 +27,10 @@ function BannerText02({ movie }) {
                     <span className="mr-5">on</span>
                     <span>
                         <span>{movie?.release_date?.split('-')[2]}</span>
-                        <span className="-ml-1 lowercase">th</span>
+                        <span className="-ml-1">th</span>
                     </span>
                     <br />
-                    <span className="tracking-widest">{monthName}</span>
+                    <span className="">{monthName}</span>
                 </h1>
 
                 <div className="mt-10">
