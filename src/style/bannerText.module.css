@@ -16,12 +16,12 @@
     transition: 700ms ease-in-out;
     font-variation-settings: "wght" 700;
     margin-bottom: 0.8rem;
-    color: rgba(255, 255, 255, 0.662);
+    color: rgba(255, 255, 255, 0.575);
     outline: none;
     text-align: center;
-    text-shadow: 0 7px rgba(245, 247, 247, 0.924);
+    text-shadow: 0 2px rgba(226, 231, 231, 0.924);
     text-anchor: middle;
-    /* font-style: italic; */
+    font-style: italic;
 }
 
 .theatePlayDate:hover {

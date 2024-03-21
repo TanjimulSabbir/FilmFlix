@@ -33,10 +33,10 @@ function BannerText02({ movie }) {
                     <span className="">{monthName}</span>
                 </h1>
 
-                <div className="mt-10">
+                <div className="mt-14">
                     <button className={`flex items-center space-x-2`} onClick={handleTrailer}>
-                        <CiPlay1 className="text-4xl text-green-600" />
-                        <span className="text-xl">
+                        <CiPlay1 className="text-3xl text-green-600" />
+                        <span className="text-lg">
                             {openTrailer ? "Close Trailer" : "Watch Trailer"}
                         </span>
                     </button>
