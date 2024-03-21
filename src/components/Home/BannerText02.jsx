@@ -4,19 +4,22 @@ import Trailer from "./Trailer";
 import { useEffect, useState } from "react";
 import style from "../../style/bannerText.module.css";
 import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { getSliderValue } from "../../Redux/Features/Slider/sliderSlice";
 
 function BannerText02({ movie }) {
     const [openTrailer, setOpenTrailer] = useState("");
-
     const monthName = moment().month(parseInt(movie?.release_date?.split('-')[1]) - 1).format('MMMM');
+    const dispatch = useDispatch();
 
     const handleTrailer = () => {
         setOpenTrailer(!openTrailer)
+        dispatch(getSliderValue(openTrailer))
         toast.success(openTrailer ? "Trailer opened" : "Trailer closed");
     };
 
 
-    console.log(openTrailer,"from Banner");
+    console.log(openTrailer, "from Banner");
     return (
         <div className="w-1/2 flex justify-end">
             <div>

@@ -5,9 +5,12 @@ import Loading from "../accessories/Loading";
 import Banner from "./Banner";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useSelector } from "react-redux";
 
 function SlickSlider() {
-    const { data: Movies, isLoading, isError, error } = useGetMoviesQuery('now_playing')
+    const { data: Movies, isLoading, isError, error } = useGetMoviesQuery('now_playing');
+    const slider = useSelector(state => state.slider.sliderPlay);
+    console.log(slider, "from slider")
 
     const settings = {
         dots: false,
@@ -18,8 +21,8 @@ function SlickSlider() {
         slidesToScroll: 1,
         waitForAnimate: false,
         arrows: false,
-        autoplay: true,
-        autoplaySpeed: 5000
+        autoplay: slider,
+        autoplaySpeed: 5000,
     };
 
     let content;
