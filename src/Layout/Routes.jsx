@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import App from "../App";
 import Login from "../Pages/auth/Login";
 import Design from "./Design";
+import MovDetailsHome from "../Pages/MovieDetails/MovDetailsHome";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path: "/design",
                 element: <Design />
+            },
+            {
+                path: "/movie/:id",
+                element: <MovDetailsHome />
             }
         ]
     }
