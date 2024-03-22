@@ -11,7 +11,7 @@ function Home() {
             <SlickSlider />
             <div className="container mx-auto">
                 <Toggles type={'Trending'} data={toggle01} />
-                <Movies defaultValue={toggle01} />
+                <Movies defaultValue={toggle01} isSlider={true} />
 
                 <Toggles type={'Latest'} data={toggle02} />
                 <Movies defaultValue={toggle02} />

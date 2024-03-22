@@ -6,6 +6,7 @@ import Banner from "./Banner";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useSelector } from "react-redux";
+import { TopBannerSliderSettings } from "../Tools/SliderSettings";
 
 
 function SlickSlider() {
@@ -14,20 +15,6 @@ function SlickSlider() {
 
     const sliderState = useSelector(state => state.slider.sliderPlay);
     let content;
-    const settings = {
-        dots: true,
-        fade: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        waitForAnimate: false,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        nextArrow: true,
-    }
-
 
     if (isLoading) {
         content = <Loading />
@@ -69,7 +56,7 @@ function SlickSlider() {
 
     return (
         <div className="slider-container">
-            <Slider ref={slider => (sliderRef = slider)} {...settings}>
+            <Slider ref={slider => (sliderRef = slider)} {...TopBannerSliderSettings}>
                 {content}
             </Slider>
         </div>
