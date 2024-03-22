@@ -9,9 +9,11 @@ import { useSelector } from "react-redux";
 
 
 function SlickSlider() {
-    const { data: Movies, isLoading, isError, error } = useGetMoviesQuery('now_playing', { refetchOnFocus: false, refetchOnMountOrArgChange: false, });
+    const { data: Movies = [], isLoading, isError, error } = useGetMoviesQuery('now_playing', { refetchOnFocus: false, refetchOnMountOrArgChange: false, });
+    const [imageSrc, setImageSrc] = useState("")
 
     const sliderState = useSelector(state => state.slider.sliderPlay);
+    let content;
     const settings = {
         dots: true,
         fade: true,
@@ -24,9 +26,20 @@ function SlickSlider() {
         autoplay: true,
         autoplaySpeed: 5000,
         nextArrow: true,
+        appendDots: dots => (
+            Movies?.results?.length > 0 ? (
+                <div className="flex">
+                    {Movies.results.map(movie => (
+                        <img className="w-[80px]" key={movie.id} src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" />
+                    ))}
+                    {dots}
+                </div>
+            ) : <span>0</span>
+        )
+
     }
 
-    let content;
+
     if (isLoading) {
         content = <Loading />
     }
@@ -35,14 +48,16 @@ function SlickSlider() {
     }
 
     if (!isLoading && !isError) {
-        content = Movies.results.map(movie => (
-            <div key={movie.id} className="relative">
-                <Banner id={movie.id} />
-                <div>
-                    <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" srcSet="" />
+        content = Movies.results.map(movie => {
+            return (
+                <div key={movie.id} className="relative">
+                    <Banner id={movie.id} />
+                    <div>
+                        <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" srcSet="" />
+                    </div>
                 </div>
-            </div>
-        ));
+            )
+        });
     }
 
     let sliderRef = useRef(null);
