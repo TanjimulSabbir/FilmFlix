@@ -1,7 +1,15 @@
+import Cast from "./Cast";
+
 function Section02({ movie }) {
+  const { adult, backdrop_path, belongs_to_collection, budget, genres, homepage, id, imdb_id, original_language, original_title, overview, popularity, poster_path, production_companies, production_countries, release_date, revenue, runtime, spoken_languages, status, tagline, title, video, vote_average, vote_count
+  } = movie;
+
   return (
     <div>
-      <p></p>
+      <h2 className="mb-2">Story-Line</h2>
+      <p className="mb-5">{overview}</p>
+      <h2>Top Cast</h2>
+      <Cast id={id} />
     </div>
   )
 }
