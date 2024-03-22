@@ -1,6 +1,5 @@
 import { useState } from "react";
 import style from "../../style/Toggle.module.css"
-import Toggle from "./Toggle";
 import { useDispatch } from "react-redux";
 import { addQueryKeywords } from "../../Redux/Features/movies/moviesSlice";
 
@@ -10,7 +9,6 @@ export default function Toggles({ data, type }) {
 
     const handleToggle = (item) => {
         setSelectToggle(item.title)
-        console.log(item)
         dispatch(addQueryKeywords(item))
     }
     return (

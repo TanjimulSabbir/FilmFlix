@@ -18,9 +18,11 @@ export const movieApi = apiSlice.injectEndpoints({
             })
         }),
         getDiscoverMovies: builder.query({
-            query: ({ type, releaseKewword }) => ({
-                url: `/discover/${type}?${API_KEY}&${releaseKewword}`
-            })
+            query: ({ type, path }) => {
+                console.log(type, path, "from the movieApi")
+                return { url: `/discover/${type}?${API_KEY}&${path}` }
+            }
+
         })
     })
 })
