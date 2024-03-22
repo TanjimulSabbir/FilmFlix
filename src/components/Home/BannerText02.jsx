@@ -26,7 +26,7 @@ function BannerText02({ movie }) {
     return (
         <div className="w-1/2 flex items-start justify-end text-white">
             <div>
-                <h1 className={`${style.theatePlayDate} leading-none`}>
+                <h1 className={`${style.theatePlayDate} leading-none hover:scale-105`}>
                     <span className="mr-5 tracking-wider">on</span>
                     <span>{moment(movie?.release_date).format('Do')}</span>
                     <br />

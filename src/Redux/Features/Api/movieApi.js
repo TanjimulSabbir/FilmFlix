@@ -16,8 +16,13 @@ export const movieApi = apiSlice.injectEndpoints({
             query: (id) => ({
                 url: `/movie/${id}/videos?${API_KEY}`
             })
+        }),
+        getDiscoverMovies: builder.query({
+            query: ({ type, startDate, lastDate, releaseKewword }) => ({
+                url: `/discover/${type}?${API_KEY}&${releaseKewword}&primary_release_date.gte=${startDate}&primary_release_date.lte=${lastDate}`
+            })
         })
     })
 })
 
-export const { useGetMoviesQuery, useGetMovieDetailsQuery, useGetMovieVideosQuery } = movieApi;
+export const { useGetMoviesQuery, useGetMovieDetailsQuery, useGetMovieVideosQuery, useGetDiscoverMoviesQuery } = movieApi;
