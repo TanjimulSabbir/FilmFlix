@@ -1,12 +1,19 @@
 import { IoIosStar } from "react-icons/io";
 import playBtn from "../../../assets/images/play-btn.gif"
+import { useNavigate } from "react-router-dom";
 
 function MovieItem({ movie }) {
-    const { original_title, release_date, vote_average, adult, poster_path } = movie;
+    const { id, original_title, release_date, vote_average, adult, poster_path } = movie;
+
+    const navigate = useNavigate();
+
+    function hanldeShowDetails() {
+        navigate(`movie/${id}`)
+    }
 
     return (
         <div className="relative">
-            <div className="relative">
+            <div className="relative" onClick={hanldeShowDetails}>
                 <img className="rounded-md mb-2 px-2" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
                 <div className="absolute inset-0 bg-gray-900 bg-opacity-60 flex items-center justify-center text-white opacity-0 transition-opacity duration-500 hover:opacity-100 cursor-pointer">
                     {/* <p>{original_title}</p> */}
