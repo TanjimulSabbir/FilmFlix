@@ -6,15 +6,14 @@ import Banner from "./Banner";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useSelector } from "react-redux";
-import toast from "react-hot-toast";
 
 
 function SlickSlider() {
+    const { data: Movies, isLoading, isError, error } = useGetMoviesQuery('now_playing', { refetchOnFocus: false, refetchOnMountOrArgChange: false, });
 
-    const { data: Movies, isLoading, isError, error } = useGetMoviesQuery('now_playing');
     const sliderState = useSelector(state => state.slider.sliderPlay);
     const settings = {
-        dots: false,
+        dots: true,
         fade: true,
         infinite: true,
         speed: 500,
@@ -24,6 +23,7 @@ function SlickSlider() {
         arrows: false,
         autoplay: true,
         autoplaySpeed: 5000,
+        nextArrow: true,
     }
 
     let content;
