@@ -29,7 +29,7 @@ function SlickSlider() {
                 <div key={movie.id} className="relative">
                     <Banner id={movie.id} />
                     <div>
-                        <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" srcSet="" />
+                        <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.original_title} srcSet="" />
                     </div>
                 </div>
             )
@@ -52,7 +52,7 @@ function SlickSlider() {
         }
     }, [sliderState])
 
-    console.log(sliderRef,"slideRef")
+    console.log(sliderRef, "slideRef")
 
     return (
         <div className="slider-container">
