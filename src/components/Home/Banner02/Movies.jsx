@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useGetDiscoverMoviesQuery } from "../../../Redux/Features/Api/movieApi";
 import Loading from "../../accessories/Loading";
-import Movie from "./Movie";
+import MovieItem from "./MovieItem";
 import Slider from "react-slick";
 import { treandingSliderSettings } from "../../Tools/SliderSettings";
 import style from "../../../style/sliderStyle.module.css"
@@ -16,7 +16,7 @@ function Movies({ defaultValue, isSlider }) {
     if (!isLoading && isError) content = "Error occured";
 
     if (!isLoading && !isError && movies.results.length > 0) {
-        content = movies.results.map(movie => <Movie key={movie.id} movie={movie} isSlider={isSlider} />)
+        content = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} isSlider={isSlider} />)
     }
 
     return (
