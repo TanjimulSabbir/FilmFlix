@@ -23,8 +23,14 @@ export const movieApi = apiSlice.injectEndpoints({
                 return { url: `/discover/${type}?${API_KEY}&${path}` }
             }
 
+        }),
+        getCasts: builder.query({
+            query: ({ type, id }) => {
+                return { url: `/${type}/${id}/credits?${API_KEY}` }
+            }
+
         })
     })
 })
 
-export const { useGetMoviesQuery, useGetMovieDetailsQuery, useGetMovieVideosQuery, useGetDiscoverMoviesQuery } = movieApi;
+export const { useGetMoviesQuery, useGetMovieDetailsQuery, useGetMovieVideosQuery, useGetDiscoverMoviesQuery, useGetCastsQuery } = movieApi;
