@@ -9,8 +9,9 @@ export const TopBannerSliderSettings = {
     arrows: false,
     autoplay: true,
     autoplaySpeed: 5000,
-    nextArrow: true,
-}
+    // appendDots: dots => CustomDots({ dots })
+};
+
 
 export const treandingSliderSettings = {
     dots: false,

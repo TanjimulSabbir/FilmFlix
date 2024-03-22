@@ -6,7 +6,7 @@ const ToggleData = () => {
     const DaysLater = (days) => useMemo(() => moment().add(days, 'days').format('YYYY-MM-DD'), [days]);
 
     const toggle01 = [
-        { title: 'In Theaters', path: 'with_release_type=2', type: "movie" },
+        { title: 'In Theaters', path: 'with_release_type=2|3', type: "movie" },
         { title: 'Popular', path: 'popular', type: "movie" },
     ];
 
