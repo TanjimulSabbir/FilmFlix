@@ -20,7 +20,7 @@ function Movies({ defaultValue, isSlider }) {
     }
 
     return (
-        !isSlider ? <div className="grid grid-cols-5 gap-x-5 gap-y-10 items-center justify-center">
+        !isSlider ? <div className="grid grid-cols-5 gap-y-10 items-center justify-center">
             {content}
         </div> :
             <div className={"slider-container"}>

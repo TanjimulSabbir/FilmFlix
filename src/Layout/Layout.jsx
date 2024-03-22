@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 
 function Layout() {
     return (
-        <div className="relative">
+        <div className="relative bg-black text-white">
             <Navbar />
             <Outlet />
             <Toaster position="top-center" />
