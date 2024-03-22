@@ -11,10 +11,10 @@ function BannerText01({ movie }) {
 
 
   return (
-    <div className="w-1/2">
-      <h2 className="text-3xl text-slate-100 mb-4">{original_title}</h2>
-      {/* title details */}
+    <div className="w-1/2 text-white">
+      <h2 className={`${style.movieTitle} text-3xl mb-4`}>{original_title}</h2>
 
+      {/* title details */}
       <div className="flex items-center justify-start space-x-2 mb-5">
         <p className="">{releaseDate} |</p>
         <p className="bg-green-600 p-1 rounded">15+ </p>
@@ -35,7 +35,7 @@ function BannerText01({ movie }) {
           <GoPlus />
           <span>Add Watchlist</span>
         </button>
-        
+
       </div>
     </div>
   )

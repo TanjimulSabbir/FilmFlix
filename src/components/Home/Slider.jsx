@@ -38,7 +38,9 @@ function SlickSlider() {
         content = Movies.results.map(movie => (
             <div key={movie.id} className="relative">
                 <Banner id={movie.id} />
-                <img className="opacity-30" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" srcSet="" />
+                <div>
+                    <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" srcSet="" />
+                </div>
             </div>
         ));
     }
@@ -53,20 +55,16 @@ function SlickSlider() {
 
     useEffect(() => {
         if (sliderState) {
-            // toast.success(`${sliderState}`)
             play()
-            // console.log("play")
         } else {
             pause()
-            // toast.success(`${sliderState}`)
-            // console.log("pause")
         }
     }, [sliderState])
 
     console.log(sliderState, "from slider")
 
     return (
-        <div className="slider-container relative">
+        <div className="slider-container">
             <Slider ref={slider => (sliderRef = slider)} {...settings}>
                 {content}
             </Slider>

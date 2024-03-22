@@ -1,4 +1,4 @@
-import { CiPlay1 } from "react-icons/ci";
+import { BsPlayCircle } from "react-icons/bs";
 import moment from "moment";
 import Trailer from "./Trailer";
 import { useState, useEffect } from "react";
@@ -24,21 +24,19 @@ function BannerText02({ movie }) {
     };
 
     return (
-        <div className="w-1/2 flex items-center justify-end">
+        <div className="w-1/2 flex items-start justify-end text-white">
             <div>
-                <h1 className={`${style.theatePlayDate} leading-none flex flex-col items-center justify-center`}>
-                   <div>
-                   <span className="mr-5 tracking-wider">on</span>
+                <h1 className={`${style.theatePlayDate} leading-none`}>
+                    <span className="mr-5 tracking-wider">on</span>
                     <span>{moment(movie?.release_date).format('Do')}</span>
                     <br />
                     <span className="tracking-widest">{monthName}</span>
-                   </div>
                 </h1>
 
-                <div className="mt-10 flex items-center justify-center">
-                    <button className={`flex items-center space-x-2`} onClick={handleTrailer}>
-                        <CiPlay1 className="text-3xl text-green-600" />
-                        <span className="text-lg">
+                <div className="mt-5">
+                    <button className={`${style.trailerBtn} flex items-center space-x-2`} onClick={handleTrailer}>
+                        <BsPlayCircle className=" text-3xl text-green-600" />
+                        <span className="">
                             {openTrailer ? "Close Trailer" : "Watch Trailer"}
                         </span>
                     </button>
