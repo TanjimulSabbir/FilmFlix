@@ -26,17 +26,6 @@ function SlickSlider() {
         autoplay: true,
         autoplaySpeed: 5000,
         nextArrow: true,
-        appendDots: dots => (
-            Movies?.results?.length > 0 ? (
-                <div className="flex">
-                    {Movies.results.map(movie => (
-                        <img className="w-[80px]" key={movie.id} src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="" />
-                    ))}
-                    {dots}
-                </div>
-            ) : <span>0</span>
-        )
-
     }
 
 
@@ -76,7 +65,7 @@ function SlickSlider() {
         }
     }, [sliderState])
 
-    console.log(sliderState, "from slider")
+    console.log(sliderRef,"slideRef")
 
     return (
         <div className="slider-container">
