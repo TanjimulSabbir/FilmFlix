@@ -1,6 +1,5 @@
 import { IoIosStar } from "react-icons/io";
 import { TextRuntime, getYear } from "../../components/Tools/Others";
-import useGetData from "../../components/Tools/useGetData";
 import Videos from "./Videos";
 import style from "./movieDetails.module.css";
 import VoteCount from "../../components/accessories/VoteCount";
@@ -10,7 +9,7 @@ function Section01({ movie }) {
     const { id, adult, backdrop_path, belongs_to_collection, budget, genres, homepage, imdb_id, original_language, original_title, overview, popularity, poster_path, production_companies, production_countries, release_date, revenue, runtime, spoken_languages, status, tagline, title, video, vote_average, vote_count
     } = movie;
     console.log({ vote_average, vote_count, popularity });
-    
+
     return (
         <div className='container mx-auto mb-10 pt-24'>
             <div className="mb-4 flex items-center justify-between">
