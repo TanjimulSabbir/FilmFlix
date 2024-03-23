@@ -3,39 +3,46 @@ import Slider from "react-slick";
 import { imagesSliderSettings } from "../../components/Tools/SliderSettings";
 import Videos from "./Videos";
 import { titleText } from "../../components/accessories/TextTitle";
-import { Gallery } from "react-grid-gallery";
+import { useState } from "react";
+import { ImCross } from "react-icons/im";
 
 export default function Section04({ id }) {
-    const imagesData = useGetData({ type: "movie", id, keyword: "images" })
+    const imagesData = useGetData({ type: "movie", id, keyword: "images" });
+    const [selectedImage, setSelectedImage] = useState(null);
 
-    const imagesSlider = () => {
-        const images = imagesData?.posters?.map((poster, index) => {
-            // Generate random height and width values within a range
-            const randomHeight = Math.floor(Math.random() * (400 - 200 + 1)) + 200; // Random height between 200 and 400
-            const randomWidth = Math.floor(Math.random() * (300 - 150 + 1)) + 150; // Random width between 150 and 300
-    
-            return {
-                src: `https://image.tmdb.org/t/p/original${poster.file_path}`,
-                caption: "After Rain (Jeshu John - designerspics.com)",
-                height: `${randomHeight}px`, // Set random height
-                width: `${randomWidth}px` // Set random width
-            }
-        });
-    
-        return <Gallery images={images} />;
-    }
-    
+    const handleImageClick = (photoPath) => {
+        setSelectedImage(photoPath);
+    };
 
-    console.log(imagesData, "imagesData")
+    const handleCloseModal = () => {
+        setSelectedImage(null);
+    };
 
     return (
         <div className="py-11">
             {titleText("Photos")}
-            <div className="mt-9">
-
-                {imagesData?.posters?.length > 0 && imagesSlider()}
-
+            <div className="slider-container mt-9">
+                <Slider {...imagesSliderSettings}>
+                    {imagesData?.posters?.map((poster, index) => {
+                        const photoPath = `https://image.tmdb.org/t/p/original${poster.file_path}`;
+                        return (
+                            <div key={index} onClick={() => handleImageClick(photoPath)}>
+                                <img className="px-3" src={photoPath} alt="" />
+                            </div>
+                        );
+                    })}
+                </Slider>
             </div>
+
+            {/* Modal for displaying the selected image */}
+            {selectedImage && (
+                <div onClick={handleCloseModal} className="fixed inset-0 w-full h-full flex justify-center items-center bg-black bg-opacity-70 z-40 cursor-pointer">
+                    <div className="relative">
+                        <ImCross onClick={handleCloseModal} className="fixed text-3xl right-10 top-5 text-red-500 cursor-pointer z-50" />
+                        <img className="max-w-[70%] max-h-[80%] mx-auto" src={selectedImage} alt="" />
+                    </div>
+                </div>
+            )}
 
             {/* <div className="my-9">
                 {titleText("Videos")}
@@ -43,5 +50,5 @@ export default function Section04({ id }) {
             <Videos id={id} howMuch={"multi"} /> */}
 
         </div>
-    )
+    );
 }

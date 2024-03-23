@@ -90,11 +90,15 @@ export const castSliderSettings = {
 
 }
 export const imagesSliderSettings = {
-    focusOnSelect: true,
+    className: "center",
+    centerMode: true,
     infinite: true,
-    slidesToShow: 5,
+    centerPadding: "60px",
+    slidesToShow: 3,
     speed: 500,
-    arrow: false,
+    rows: 2,
+    slidesPerRow: 2,
+    focusOnSelect: true,
     responsive: [
         {
             breakpoint: 1024,
