@@ -3,16 +3,29 @@ import { useGetCastsQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
 import { castSliderSettings } from "../../components/Tools/SliderSettings";
 import style from "./cast.module.css"
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { addCastData } from "../../Redux/Features/movies/moviesSlice";
 
 function Cast({ id }) {
     const { data: castsData, isLoading, isError } = useGetCastsQuery({ type: "movie", id }, { skip: !id });
     let content;
 
-    if (isLoading) content = <Loading />
+    const dispatch = useDispatch();
 
+    if (isLoading) content = <Loading />
     if (isError) content = "Data fetching error";
 
+    useEffect(() => {
+        if (!isLoading && !isError && castsData.id) {
+            dispatch(addCastData({ ...castsData }))
+        }
+
+    }, [castsData])
+
+
     console.log(castsData)
+
     if (!isLoading && !isError && castsData.id) {
         content = castsData.cast.map(item => {
             return (

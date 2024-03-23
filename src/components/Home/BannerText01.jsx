@@ -7,7 +7,7 @@ function BannerText01({ movie }) {
   const { original_title, overview, release_date, runtime, genres } = movie || {};
 
   return (
-    <div className="w-1/2 text-white">
+    <div className="w-1/2 text-white select-text">
       <h2 className={`${style.movieTitle} text-3xl mb-4`}>{original_title}</h2>
 
       {/* title details */}

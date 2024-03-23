@@ -7,7 +7,7 @@ import { treandingSliderSettings } from "../../Tools/SliderSettings";
 import style from "../../../style/sliderStyle.module.css"
 
 function Movies({ defaultValue, isSlider }) {
-    const queryStateKeyword = useSelector(state => state.keywords.items);
+    const queryStateKeyword = useSelector(state => state.movieData.items);
     const queryKeyword = queryStateKeyword.length > 0 ? queryStateKeyword[0] : defaultValue[0]
     const { data: movies, isLoading, isError } = useGetDiscoverMoviesQuery({ ...queryKeyword });
 

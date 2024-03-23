@@ -5,7 +5,7 @@ import moviesSlice from '../Redux/Features/movies/moviesSlice';
 
 
 const store = configureStore({
-    reducer: { [apiSlice.reducerPath]: apiSlice.reducer, slider: sliderSlice, keywords: moviesSlice },
+    reducer: { [apiSlice.reducerPath]: apiSlice.reducer, slider: sliderSlice, movieData: moviesSlice},
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware)
 });
 

@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    items: []
+    items: [],
+    castData: []
 }
 
 const moviesSlice = createSlice({
@@ -10,9 +11,12 @@ const moviesSlice = createSlice({
     reducers: {
         addQueryKeywords: (state, action) => {
             state.items = [action.payload];
+        },
+        addCastData: (state, action) => {
+            state.castData = [action.payload];
         }
     }
 })
 
-export const { addQueryKeywords } = moviesSlice.actions;
+export const { addQueryKeywords, addCastData } = moviesSlice.actions;
 export default moviesSlice.reducer;
