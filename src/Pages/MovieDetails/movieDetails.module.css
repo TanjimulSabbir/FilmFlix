@@ -1,0 +1,13 @@
+.dot {
+    position: relative;
+    font-size: 20px; /* Set font size to 20px */
+}
+
+.dot::before {
+    content: ".";
+    position: absolute;
+    height: 40px;
+    top: 50%; /* Position at the center vertically */
+    left: 50%; /* Position at the center horizontally */
+    transform: translate(-50%, -50%);
+}

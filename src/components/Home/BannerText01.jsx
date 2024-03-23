@@ -1,12 +1,10 @@
-import moment from "moment";
 import style from "../../style/bannerText.module.css";
 import { CiBookmark } from "react-icons/ci";
 import { GoPlus } from "react-icons/go";
-import { TextRuntime } from "../Tools/Others";
+import { TextRuntime, getYear } from "../Tools/Others";
 
 function BannerText01({ movie }) {
   const { original_title, overview, release_date, runtime, genres } = movie || {};
-  const releaseDate = moment(release_date).format("YYYY");
 
   return (
     <div className="w-1/2 text-white">
@@ -14,7 +12,7 @@ function BannerText01({ movie }) {
 
       {/* title details */}
       <div className="flex items-center justify-start space-x-2 mb-5">
-        <p className="">{releaseDate} |</p>
+        <p className="">{getYear(release_date)} |</p>
         <p className="bg-green-600 p-1 rounded">15+ </p>
         <p className="">| {TextRuntime(runtime)} </p>
         <p className="">| {genres[0].name}</p>
