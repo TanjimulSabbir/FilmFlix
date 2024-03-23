@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 function Layout() {
     return (
         <>
-            <div className="text-white h-screen">
+            <div className="bg-black text-white h-full">
                 <Navbar />
                 <Outlet />
                 <Toaster position="top-center" />

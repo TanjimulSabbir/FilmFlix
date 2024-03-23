@@ -5,7 +5,7 @@ function Section02({ movie }) {
   } = movie;
 
   return (
-    <div className="container mx-auto pb-3">
+    <div className="pb-3">
       <h2 className="mb-2 text-3xl">Story-Line</h2>
       <p className="mb-14">{overview}</p>
       <h2 className="text-3xl mb-5">Top Cast</h2>

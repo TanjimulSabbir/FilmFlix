@@ -6,7 +6,6 @@ function MovieItem({ movie }) {
     const { id, original_title, release_date, vote_average, adult, poster_path } = movie;
 
     const navigate = useNavigate();
-
     function hanldeShowDetails() {
         navigate(`movie/${id}`)
     }

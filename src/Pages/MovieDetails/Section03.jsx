@@ -21,7 +21,7 @@ export default function Section03() {
     }
 
     return (
-        <div className="container mx-auto pb-7">
+        <div className="pb-7">
             <div className="flex items-center space-x-5 py-4 border-y border-gray-600">
                 <span className="text-lg font-bold">Director</span>
                 <p className="flex items-center space-x-2">{getCrewInfo("Directing")}</p>

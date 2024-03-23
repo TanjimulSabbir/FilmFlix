@@ -5,6 +5,7 @@ import Section02 from "./Section02";
 import Loading from "../../components/accessories/Loading";
 import Section03 from "./Section03";
 import Section04 from "./Section04";
+import Similar from "./Similar";
 
 function MovDetailsHome() {
   const id = useParams().movieId
@@ -23,10 +24,11 @@ function MovDetailsHome() {
       <Section02 movie={movie} />
       <Section03 />
       <Section04 id={id} />
+      <Similar />
     </>
   }
   return (
-    <div className="bg-black">
+    <div className="container mx-auto">
       {content}
     </div>
   )

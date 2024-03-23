@@ -11,7 +11,7 @@ function Section01({ movie }) {
     console.log({ vote_average, vote_count, popularity });
 
     return (
-        <div className='container mx-auto mb-10 pt-24'>
+        <div className='mb-10 pt-24'>
             <div className="mb-4 flex items-center justify-between">
                 <div>
                     <h2 className="text-4xl inline-block">{original_title}</h2>
