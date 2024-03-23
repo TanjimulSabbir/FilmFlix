@@ -6,6 +6,7 @@ import Loading from "../../components/accessories/Loading";
 import Section03 from "./Section03";
 import Section04 from "./Section04";
 import Similar from "./Similar";
+import Section05 from "./Section05";
 
 function MovDetailsHome() {
   const id = useParams().movieId
@@ -24,6 +25,7 @@ function MovDetailsHome() {
       <Section02 movie={movie} />
       <Section03 />
       <Section04 id={id} />
+      <Section05 />
       <Similar />
     </>
   }

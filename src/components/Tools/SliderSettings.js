@@ -56,10 +56,10 @@ export const castSliderSettings = {
     dots: false,
     infinite: true,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     autoplay: true,
     speed: 3000,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 3000,
     cssEase: "ease-in-out",
     responsive: [
         {
