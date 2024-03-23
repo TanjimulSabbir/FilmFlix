@@ -29,18 +29,19 @@ export default function Videos({ id, howMuch }) {
             );
         } else {
             content = (
-                <div className="grid grid-cols-3 items-center gap-10">
+                <div className="grid grid-col-1 md:grid-col-2 lg:grid-cols-3 items-center p-5 h-[500px] w-full overflow-scroll">
                     {videos.results.map(item => (
                         <iframe
                             key={item.key}
-                            width="560"
+                            width="400"
                             height="315"
-                            src={`https://www.youtube.com/embed/${item.key}`}
+                            src={`https://www.youtube.com/embed/${item.key}?controls=0&rel=0`}
                             title="YouTube video player"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerPolicy="strict-origin-when-cross-origin"
                             allowFullScreen
+                            loading="lazy" // Lazy load the iframe
                         />
                     ))}
                 </div>
