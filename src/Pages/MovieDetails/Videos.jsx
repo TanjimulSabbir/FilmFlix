@@ -14,16 +14,18 @@ export default function Videos({ id, howMuch }) {
         if (trailerVideo && howMuch === "1") {
             const { key } = trailerVideo;
             content = (
-                <iframe
-                    width="100%"
-                    height="540"
-                    src={`https://www.youtube.com/embed/${key}?controls=0&rel=0`}
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                />
+                <div className="w-full">
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src={`https://www.youtube.com/embed/${key}?controls=0&rel=0`}
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                    />
+                </div>
             );
         } else {
             content = (
@@ -47,8 +49,8 @@ export default function Videos({ id, howMuch }) {
     }
 
     return (
-        <div className="w-full h-full">
+        <>
             {content}
-        </div>
+        </>
     );
 }

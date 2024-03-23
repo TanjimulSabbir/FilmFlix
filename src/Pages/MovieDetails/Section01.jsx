@@ -11,7 +11,7 @@ function Section01({ movie }) {
     // const images = useGetData({ type: "movie", id, keyword: "images" });
     // const videos = useGetData({ type: "movie", id, keyword: "videos" });
 
-    if (certifationData) certification = certifationData?.results[0].release_dates[0]?.certification;
+    if (certifationData) certification = certifationData?.length > 0 && certifationData?.results[0]?.release_dates[0]?.certification;
     console.log(genres)
     return (
         <div className='container mx-auto mb-10 mt-24'>
@@ -25,12 +25,15 @@ function Section01({ movie }) {
                     <span>{TextRuntime(runtime)}</span>
                 </p>
             </div>
-            <div className="flex w-full h-full items-center justify-center space-x-3">
-                <div>
-                    <img className="w-full h-full" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={original_title} srcSet="" />
+            <div className="flex space-x-3">
+                <div className="w-1/3 h-full">
+                    <img className="" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={original_title} srcSet="" />
                 </div>
-                <Videos id={id} howMuch="1" />
+                <Videos id={id} howMuch={"1"} />
             </div>
+
+
+
             <div className="space-x-5 mt-5">
                 {genres.map(item => <button key={item.id} className="border border-gray-100 px-4 py-1 rounded-2xl">{item.name}</button>)}
             </div>
