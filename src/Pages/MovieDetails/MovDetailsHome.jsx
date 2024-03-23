@@ -22,7 +22,7 @@ function MovDetailsHome() {
     </>
   }
   return (
-    <div>
+    <div className="bg-black">
       {content}
     </div>
   )

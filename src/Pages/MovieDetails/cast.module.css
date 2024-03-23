@@ -1,0 +1,23 @@
+.castContainer {
+    cursor: pointer;
+}
+
+.castImage {
+    transition: 700ms ease-in-out;
+}
+
+.CastText {
+    transition: 700ms ease-in-out;
+}
+
+.CastText span {
+    transition: 700ms ease-in-out;
+}
+
+.castContainer:hover span {
+    color: yellow;
+}
+
+.castContainer:hover .castImage {
+    border: 2px yellow solid;
+}

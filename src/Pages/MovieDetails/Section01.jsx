@@ -11,7 +11,7 @@ function Section01({ movie }) {
     // const images = useGetData({ type: "movie", id, keyword: "images" });
     // const videos = useGetData({ type: "movie", id, keyword: "videos" });
 
-    if (certifationData) certification = certifationData?.length > 0 && certifationData?.results[0]?.release_dates[0]?.certification;
+    if (certifationData) certification = certifationData.results?.length > 0 && certifationData?.results[0]?.release_dates[0]?.certification;
     console.log(genres)
     return (
         <div className='container mx-auto mb-10 mt-24'>

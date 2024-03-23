@@ -5,10 +5,10 @@ function Section02({ movie }) {
   } = movie;
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto pb-10">
       <h2 className="mb-2 text-3xl">Story-Line</h2>
-      <p className="mb-10">{overview}</p>
-      <h2 className="text-3xl mb-7">Top Cast</h2>
+      <p className="mb-14">{overview}</p>
+      <h2 className="text-3xl mb-5">Top Cast</h2>
       <Cast id={id} />
     </div>
   )
