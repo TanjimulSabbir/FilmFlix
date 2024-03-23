@@ -24,3 +24,14 @@ export const treandingSliderSettings = {
     cssEase: "linear"
 
 }
+export const castSliderSettings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 3000,
+    autoplaySpeed: 5000,
+    cssEase: "ease-in-out"
+
+}

@@ -17,7 +17,7 @@ export default function Videos({ id, howMuch }) {
                 <iframe
                     width="100%"
                     height="540"
-                    src={`https://www.youtube.com/embed/${key}`}
+                    src={`https://www.youtube.com/embed/${key}?controls=0&rel=0`}
                     title="YouTube video player"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
