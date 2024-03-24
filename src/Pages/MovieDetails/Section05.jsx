@@ -10,10 +10,10 @@ function Section05() {
     const id = useParams().movieId;
     const hashPath = window.location.hash;
     const paths = [
-        { title: "Episod", pathName: "#episods", element: <Episods /> },
+        { title: "Episod", pathName: "#episod", element: <Episods /> },
         { title: "User Reviews", pathName: "#reviews", element: <Reviews /> },
         { title: "Videos", pathName: "#videos", element: <Videos /> },
-        { title: "Others", pathName: "#others", element: <Others /> } 
+        { title: "Others", pathName: "#others", element: <Others /> }
     ];
 
     // Filter paths based on hashPath
@@ -32,8 +32,8 @@ function Section05() {
 
     return (
         <>
-            <div className='flex items-center space-x-5'>
-                {paths.map(path => <Links key={path.title} path={path} />)}
+            <div className='flex space-x-7'>
+                {paths.map(path => <Links key={path.title} items={path} hashPath={hashPath} />)}
             </div>
             <div>
                 {renderComponent()}
