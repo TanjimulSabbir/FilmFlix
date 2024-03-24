@@ -4,7 +4,7 @@ import App from "../App";
 import Login from "../Pages/auth/Login";
 import Design from "./Design";
 import MovDetailsHome from "../Pages/MovieDetails/MovDetailsHome";
-import MoreLayout from "../Pages/MovieDetails/More_Details/MoreLayout";
+import MoreLayout from "../Pages/MovieDetails/More_Details/DetailsLayout";
 
 const router = createBrowserRouter([
     {
