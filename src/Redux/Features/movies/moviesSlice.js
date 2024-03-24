@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     items: [],
-    castData: []
+    castData: [],
+    clickedMovieDetails: {}
 }
 
 const moviesSlice = createSlice({
@@ -14,9 +15,12 @@ const moviesSlice = createSlice({
         },
         addCastData: (state, action) => {
             state.castData = [action.payload];
+        },
+        addClickedMovieDetailsData: (state, action) => {
+            state.clickedMovieDetails = action.payload;
         }
     }
 })
 
-export const { addQueryKeywords, addCastData } = moviesSlice.actions;
+export const { addQueryKeywords, addCastData, addClickedMovieDetailsData } = moviesSlice.actions;
 export default moviesSlice.reducer;
