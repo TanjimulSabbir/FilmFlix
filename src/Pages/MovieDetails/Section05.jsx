@@ -35,7 +35,7 @@ function Section05() {
             <div className='flex space-x-7'>
                 {paths.map(path => <Links key={path.title} items={path} hashPath={hashPath} />)}
             </div>
-            <div>
+            <div className='pt-10 pb-14'>
                 {renderComponent()}
             </div>
         </>
