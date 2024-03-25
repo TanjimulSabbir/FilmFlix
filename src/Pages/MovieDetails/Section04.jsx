@@ -44,11 +44,6 @@ export default function Section04({ id }) {
                 </div>
             )}
 
-            {/* <div className="my-9">
-                {titleText("Videos")}
-            </div>
-            <Videos id={id} howMuch={"multi"} /> */}
-
         </div>
     );
 }
