@@ -46,9 +46,8 @@ export default function Similar() {
             </div>
             {selectedMovie && (
                 <div onClick={handleCloseModal} className="fixed inset-0 w-full h-full flex justify-center items-center bg-black bg-opacity-70 z-40 cursor-pointer">
-                    <div className="relative">
+                    <div className="relative flex items-center justify-center">
                         {movieDetails.id && <SimilarDetails movie={movieDetails} />}
-                        <p className="text-white">This is modal movie details</p>
                     </div>
                 </div>
             )}

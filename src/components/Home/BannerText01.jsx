@@ -15,7 +15,7 @@ function BannerText01({ movie }) {
         <p className="">{getYear(release_date)} |</p>
         <p className="bg-green-600 p-1 rounded">15+ </p>
         <p className="">| {TextRuntime(runtime)} </p>
-        <p className="">| {genres[0]?.name}</p>
+        {/* <p className="">| {genres[0]?.name}</p> */}
       </div>
 
       <p className="mb-12">{overview}</p>
