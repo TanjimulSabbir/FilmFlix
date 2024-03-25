@@ -24,8 +24,6 @@ export default function Reviews() {
   const reviewsData = intialReviewsData?.results?.slice(0, loadMore);
 
 
-  console.log(intialReviewsData?.results?.length, loadMore, "intialReviewsData?.result?.length > loadMore ");
-
   return (
     <div className="">
       <div className="flex items-center gap-x-5">
@@ -44,11 +42,11 @@ export default function Reviews() {
       <h2 className="mt-7 text-3xl">{titleText("User Reviews")}</h2>
 
       {
-        reviewsData?.length > 0 ? reviewsData?.map(review => <Review key={review.id} review={review} />) : "No reviews found"
+        reviewsData?.length > 0 ? reviewsData?.map(review => <Review key={review.id} review={review} />) : <p className="flex items-center justify-center text-red-300 text-lg py-24">No reviews found</p>
       }
 
       <p
-        className={`${intialReviewsData?.total_results > loadMore ? 'cursor-pointer' : 'cursor-not-allowed bg-gray-400'} flex items-center justify-center w-1/2 mx-auto space-x-1 bg-gray-700 rounded-3xl px-10 py-2 text-xl mt-9`}
+        className={`${intialReviewsData?.total_results > loadMore ? 'cursor-pointer' : 'hidden'} flex items-center justify-center w-1/2 mx-auto space-x-1 bg-gray-700 rounded-3xl px-10 py-2 text-xl mt-9`}
         onClick={handleLoadMoreData}
       >
         <span>More audience reviews</span>
