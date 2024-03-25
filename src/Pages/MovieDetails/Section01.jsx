@@ -7,7 +7,7 @@ import Popularity from "../../components/accessories/Popularity";
 
 function Section01({ movie }) {
     const { id, adult, backdrop_path, belongs_to_collection, budget, genres, homepage, imdb_id, original_language, original_title, overview, popularity, poster_path, production_companies, production_countries, release_date, revenue, runtime, spoken_languages, status, tagline, title, video, vote_average, vote_count
-    } = movie;
+    } = movie || {};
     console.log({ vote_average, vote_count, popularity });
 
     return (
@@ -18,7 +18,7 @@ function Section01({ movie }) {
                     <p className="flex items-center space-x-2">
                         <span>{getYear(release_date)}</span>
                         <span className={`${style.dot}`}></span>
-                        <span>{spoken_languages[0].english_name}</span>
+                        <span>{spoken_languages[0]?.name}</span>
                         <span className={`${style.dot}`}></span>
                         <span>{TextRuntime(runtime)}</span>
                     </p>
@@ -31,7 +31,7 @@ function Section01({ movie }) {
                             <span className="flex items-center space-x-1">
                                 <IoIosStar className="text-yellow-500" />
                                 <span>
-                                    <span className="font-bold"> {vote_average.toFixed(1)}</span>
+                                    <span className="font-bold"> {vote_average?.toFixed(1)}</span>
                                     <span className="text-xs"> /10</span>
                                 </span>
                             </span>
