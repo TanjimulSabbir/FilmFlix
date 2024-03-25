@@ -1,21 +1,18 @@
 import { IoIosStar } from "react-icons/io";
 import playBtn from "../../../assets/images/play-btn.gif"
 import { useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import BannerText01 from "../BannerText01";
 
-function MovieItem({ movie }) {
+
+function MovieItem({ movie, ClickedMovieDetails }) {
     const urlPath = useLocation().pathname
 
     const { id, original_title, release_date, vote_average, adult, poster_path } = movie;
 
     const navigate = useNavigate();
+
     function hanldeShowDetails() {
-
-        return urlPath === "/" && navigate(`movie/${id}`)
+        return urlPath !== "/" ? ClickedMovieDetails(movie) : navigate(`movie/${id}`)
     }
-
-
 
     return (
         <>
@@ -41,8 +38,6 @@ function MovieItem({ movie }) {
                 </div>
                 <p className="absolute top-0 left-2 bg-red-600 inline-block px-5 backdrop-brightness-0">{adult ? "Adult" : "PG"}</p>
             </div>
-            {/* Modal for displaying the selected image */}
-
         </>
     );
 }
