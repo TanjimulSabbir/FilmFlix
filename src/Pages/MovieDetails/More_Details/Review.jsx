@@ -11,23 +11,23 @@ export default function Review({ review }) {
 
 
     return (
-        <div className="mt-7">
+        <div className="mt-11">
             <div>
                 <div className="flex items-center gap-x-5 mb-3">
                     <img className="w-16 h-16 rounded-full" src={`https://image.tmdb.org/t/p/original${avatar_path}`} alt="" srcSet="" />
 
                     <div>
                         <h2 className="text-xl mb-0">
-                            {name || "Name not found"}
+                            {name || "Anonymous"}
                         </h2>
-                        <span className="text-gray-500 text-xs -mt-1">
-                            <span className="font-bold">{moment(updated_at).format('DD-MM-YYYY')}</span>
-                        </span>
+                        <p className="text-gray-500 text-xs">
+                            <span className="font-bold">{moment(updated_at).format('MMMM DD, YYYY')}</span>
+                        </p>
 
                         <span className="flex items-center space-x-1">
                             <IoIosStar className="text-yellow-500" />
                             <span>
-                                <span className="font-bold"> {rating?.toFixed(1)}</span>
+                                <span className="font-bold"> {rating?.toFixed(1)||"unrated"}</span>
                                 <span className="text-xs"> /10</span>
                             </span>
                         </span>
@@ -36,11 +36,11 @@ export default function Review({ review }) {
                 <p>{content}</p>
             </div>
             <div className="flex items-center space-x-5 mt-5">
-                <button className="flex items-center space-x-1 border border-gray-100 px-4 py-1 rounded-2xl">
+                <button className="flex items-center space-x-1 border border-gray-100 px-4 py-1 rounded-2xl focus:bg-sky-600">
                     <SlLike />
                     <span> Helpful</span>
                 </button>
-                <button className="flex items-center space-x-1 border border-gray-100 px-4 py-1 rounded-2xl">
+                <button className="flex items-center space-x-1 border border-gray-100 px-4 py-1 rounded-2xl focus:bg-sky-600">
                     <SlDislike />
                     <span>Unhelpful</span>
                 </button>
