@@ -1,18 +1,24 @@
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import Layout from './More_Details/DetailsLayout';
 import Links from './More_Details/Links';
 import Episods from './More_Details/Episods';
 import Reviews from './More_Details/Reviews';
-import Videos from './Videos';
 import Others from './More_Details/Others';
+
+const Videos = React.lazy(() => import('./Videos'));
+
 
 function Section05() {
     const id = useParams().movieId;
     const hashPath = window.location.hash;
     const paths = [
-        { title: "Episod", pathName: "#episod", element: <Episods /> },
+        { title: "Episod", pathName: "#episods", element: <Episods /> },
         { title: "User Reviews", pathName: "#reviews", element: <Reviews /> },
-        { title: "Videos", pathName: "#videos", element: <Videos /> },
+        {
+            title: "Videos", pathName: "#videos", element: <React.Suspense fallback={<p className='text-green-500'>Loading...</p>}>
+                <Videos id={id} howMuch="multi" />
+            </React.Suspense>
+        },
         { title: "Others", pathName: "#others", element: <Others /> }
     ];
 
@@ -24,7 +30,7 @@ function Section05() {
         if (filteredPaths.length > 0) {
             return filteredPaths[0].element;
         } else {
-            return "No content found for this section"
+            return <Episods />
         }
     };
 

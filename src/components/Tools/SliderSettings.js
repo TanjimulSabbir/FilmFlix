@@ -20,7 +20,7 @@ export const treandingSliderSettings = {
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 2000,
+    speed: 1000,
     autoplaySpeed: 2000,
     cssEase: "linear",
     responsive: [
@@ -58,7 +58,7 @@ export const castSliderSettings = {
     slidesToShow: 5,
     slidesToScroll: 3,
     autoplay: true,
-    speed: 3000,
+    speed: 1000,
     autoplaySpeed: 3000,
     cssEase: "ease-in-out",
     responsive: [

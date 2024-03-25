@@ -9,6 +9,8 @@ import Similar from "./Similar";
 import Section05 from "./Section05";
 import { useDispatch } from "react-redux";
 import { addClickedMovieDetailsData } from "../../Redux/Features/movies/moviesSlice";
+import { useEffect } from "react";
+import { documentTitle } from "../../components/Tools/Others";
 
 function MovDetailsHome() {
   const id = useParams().movieId
@@ -24,6 +26,8 @@ function MovDetailsHome() {
     content = "Data fetching error"
   }
 
+
+
   if (!isLoading && !isError) {
     dispatch(addClickedMovieDetailsData(movie))
     content = <>
@@ -35,6 +39,11 @@ function MovDetailsHome() {
       <Similar />
     </>
   }
+
+  useEffect(() => {
+    documentTitle(movie.title) // Update the document title
+  }, [id, movie]);
+
   return (
     <div className="container mx-auto">
       {content}

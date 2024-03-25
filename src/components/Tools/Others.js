@@ -8,3 +8,9 @@ export const TextRuntime = (runtime) => {
 export const getYear = (release_date) => {
     return moment(release_date).format("YYYY")
 }
+export const getReleaseDate = (release_date) => {
+    return moment(release_date).format("DD MMMM, YYYY")
+}
+export function documentTitle(title) {
+    document.title = title;
+}
