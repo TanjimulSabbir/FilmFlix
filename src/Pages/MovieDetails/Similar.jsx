@@ -45,7 +45,7 @@ export default function Similar() {
                 </Slider>
             </div>
             {selectedMovie && (
-                <div className="fixed inset-0 w-full h-full flex justify-center items-center z-40">
+                <div className="fixed inset-0 w-full h-full flex justify-center items-center z-40 bg-[#080808c6]">
                     <div className="relative flex items-center justify-center">
                         {!detailsError && <SimilarDetails movie={movie} handleCloseModal={handleCloseModal}/>}
                     </div>

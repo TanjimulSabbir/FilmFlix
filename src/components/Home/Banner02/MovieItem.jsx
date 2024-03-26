@@ -1,11 +1,11 @@
 import { IoIosStar } from "react-icons/io";
 import playBtn from "../../../assets/images/play-btn.gif"
 import { useLocation, useNavigate } from "react-router-dom";
-import { getReleaseDate } from "../../Tools/Others";
+import { getYear } from "../../Tools/Others";
 
 
 function MovieItem({ movie, ClickedMovieDetails }) {
-    const urlPath = useLocation().pathname
+    const urlPath = useLocation().pathname;
 
     const { id, original_title, release_date, vote_average, adult, poster_path } = movie;
 
@@ -29,7 +29,7 @@ function MovieItem({ movie, ClickedMovieDetails }) {
                     <p className="overflow-hidden text-nowrap text-ellipsis text-lg">
                         {original_title}
                     </p>
-                    <span className="mr-2">{getReleaseDate(release_date)}</span>
+                    <span className="mr-2">{getYear(release_date)}</span>
                     <p>
                         <span className="flex items-center space-x-1">
                             <IoIosStar className="text-yellow-500" />
