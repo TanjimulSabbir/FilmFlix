@@ -31,7 +31,14 @@ export const movieApi = apiSlice.injectEndpoints({
         }),
         getAllDataSlash: builder.query({
             query: ({ type, id, keyword }) => {
-                return { url: `/${type}/${id}/${keyword}?${API_KEY}` }
+                let url;
+                if (!id) {
+                    url = `/${type}/${keyword}?${API_KEY}`;
+                    console.log(url)
+                } else {
+                    url = `/${type}/${id}/${keyword}?${API_KEY}`;
+                }
+                return { url };
             }
         })
     })

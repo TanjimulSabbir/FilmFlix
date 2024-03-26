@@ -8,13 +8,13 @@ import { titleText } from "../../components/accessories/TextTitle";
 import { useState } from "react";
 import SimilarDetails from "./SimilarDetails";
 
-export default function Similar() {
+export default function Recommendations() {
     const [movieId, setMovieId] = useState({});
     const [selectedMovie, setSelectedMovie] = useState(null);
     const { data: movie, isLoading: detailsLoading, isError: detailsError } = useGetMovieDetailsQuery(movieId, { skip: !movieId });
 
     const id = useParams().movieId;
-    const { data: movies, isLoading, isError } = useGetAllDataSlashQuery({ type: "movie", id: "", keyword: "top_rated" });
+    const { data: movies, isLoading, isError } = useGetAllDataSlashQuery({ type: "movie", id, keyword: "recommendations" });
 
 
     const ClickedMovieDetails = (id) => {
@@ -34,11 +34,11 @@ export default function Similar() {
         setSelectedMovie(null);
     };
 
-    console.log(movies, "from Similar")
+    console.log(movie, "from Similar")
 
     return (
         <div className="py-11">
-            {titleText("Playing on theaters")}
+            {titleText("Top Picks for you")}
             <div className="slider-container mt-9">
                 <Slider {...treandingSliderSettings}>
                     {content}

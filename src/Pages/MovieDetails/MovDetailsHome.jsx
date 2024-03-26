@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { addClickedMovieDetailsData } from "../../Redux/Features/movies/moviesSlice";
 import { useEffect } from "react";
 import { documentTitle } from "../../components/Tools/Others";
+import Recommendations from "./Recommendations";
 
 function MovDetailsHome() {
   const id = useParams().movieId
@@ -34,9 +35,10 @@ function MovDetailsHome() {
       <Section01 movie={movie} />
       <Section02 movie={movie} />
       <Section03 />
+      <Similar />
       <Section04 id={id} />
       <Section05 />
-      <Similar />
+      <Recommendations />
     </>
   }
 
