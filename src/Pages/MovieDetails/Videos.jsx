@@ -1,7 +1,7 @@
 import { useGetMovieVideosQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
 
-export default function Videos({ id, howMuch }) {
+export default function Videos({ id, howMuch, title }) {
     const { data: videos, isLoading, isError } = useGetMovieVideosQuery(id);
     let content;
 
@@ -19,7 +19,7 @@ export default function Videos({ id, howMuch }) {
                         width="100%"
                         height="100%"
                         src={`https://www.youtube.com/embed/${key}?controls=0&rel=0`}
-                        title="YouTube video player"
+                        title={title||"untitled"}
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerPolicy="strict-origin-when-cross-origin"

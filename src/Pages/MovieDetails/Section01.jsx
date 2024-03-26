@@ -49,7 +49,7 @@ function Section01({ movie }) {
                 <img className="w-1/3" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={original_title} srcSet="" />
 
                 <div className="w-full min-h-fit">
-                    <Videos id={id} howMuch={"1"} />
+                    <Videos id={id} howMuch={"1"} title={original_title} />
                 </div>
             </div>
 

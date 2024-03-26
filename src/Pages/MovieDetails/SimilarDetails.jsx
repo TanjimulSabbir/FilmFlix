@@ -19,7 +19,7 @@ export default function SimilarDetails({ movie, handleCloseModal }) {
         <div className="w-full md:w-2/3 fixed mx-auto inset-0 flex items-center justify-center">
             <div className='flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 justify-center shadow-2xl rounded-2xl bg-gray-400'>
                 <div className='w-full md:w-1/2'>
-                    {!openTrailer ? <img className='h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title} /> : <Videos id={id} howMuch={"1"} />}
+                    {!openTrailer ? <img className='h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title} /> : <Videos id={id} howMuch={"1"} title={original_title} />}
 
                 </div>
                 <div className='relative w-full md:w-1/2 px-2 py-7'>
@@ -71,13 +71,13 @@ export default function SimilarDetails({ movie, handleCloseModal }) {
                     </div>
                     <div className='flex items-center space-x-5'>
                         <button onClick={() => setOpenTrailer(!openTrailer)}
-                            className='flex items-center space-x-1 py-2 px-3 md:px-6 border border-green-500 rounded-xl bg-green-500'
+                            className='flex items-center space-x-1 py-2 px-3 md:px-6 border border-green-500 rounded-xl bg-green-500 transition-all duration-500 hover:bg-green-600'
 
                         >
                             <PiPlayCircleFill />
                             <span> {openTrailer ? "Quit Trailer" : "Watch Trailer"}</span>
                         </button>
-                        <Link to={`/movie/${id}`} onClick={() => { handleCloseModal(); scrollToTop() }} className='flex items-center space-x-1 py-2 px-5 md:px-9 rounded-xl border border-green-500 text-green-500 cursor-pointer'>
+                        <Link to={`/movie/${id}`} onClick={() => { handleCloseModal(); scrollToTop() }} className='flex items-center space-x-1 py-2 px-5 md:px-9 rounded-xl border border-green-500 text-green-600 cursor-pointer transition-all duration-500 ease-linear hover:bg-green-600 hover:text-white'>
                             {/* <PiPlayCircleFill/> */}
                             <span>Show details</span>
                         </Link>
