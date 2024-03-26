@@ -45,12 +45,14 @@ function Section01({ movie }) {
                     <Popularity popularity={popularity} />
                 </div>
             </div>
-            <div className="flex space-x-3">
-                <div className="w-1/3 h-full">
-                    <img className="" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={original_title} srcSet="" />
+            <div className="flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:space-x-3">
+                <img className="w-1/3" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={original_title} srcSet="" />
+
+                <div className="w-full min-h-fit">
+                    <Videos id={id} howMuch={"1"} />
                 </div>
-                <Videos id={id} howMuch={"1"} />
             </div>
+
             <div className="space-x-5 mt-5">
                 {genres.map(item => <button key={item.id} className="border border-gray-100 px-4 py-1 rounded-2xl">{item.name}</button>)}
             </div>

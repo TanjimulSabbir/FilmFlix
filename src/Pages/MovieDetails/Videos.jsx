@@ -14,7 +14,7 @@ export default function Videos({ id, howMuch }) {
         if (trailerVideo && howMuch === "1") {
             const { key } = trailerVideo;
             content = (
-                <div className="w-full">
+                <div className="w-full h-full">
                     <iframe
                         width="100%"
                         height="100%"
