@@ -1,29 +1,29 @@
-import { useLocation, useParams } from "react-router-dom";
-import { useGetAllDataSlashQuery } from "../../Redux/Features/Api/movieApi";
+import { useParams } from "react-router-dom";
+import { useGetAllDataSlashQuery, useGetMovieDetailsQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
 import MovieItem from "../../components/Home/Banner02/MovieItem";
 import Slider from "react-slick";
 import { treandingSliderSettings } from "../../components/Tools/SliderSettings";
 import { titleText } from "../../components/accessories/TextTitle";
 import { useState } from "react";
-import BannerText01 from "../../components/Home/BannerText01";
 import SimilarDetails from "./SimilarDetails";
 
 export default function Similar() {
-    const [movieDetails, setMovieDetails] = useState({});
+    const [movieId, setMovieId] = useState({});
     const [selectedMovie, setSelectedMovie] = useState(null);
+    const { data: movie, isLoading: detailsLoading, isError: detailsError } = useGetMovieDetailsQuery(movieId, { skip: !movieId });
 
     const id = useParams().movieId;
     const { data: movies, isLoading, isError } = useGetAllDataSlashQuery({ type: "movie", id, keyword: "similar" });
 
 
-    const ClickedMovieDetails = (movie) => {
-        setMovieDetails(movie);
+    const ClickedMovieDetails = (id) => {
+        setMovieId(id);
         setSelectedMovie(!selectedMovie)
     }
 
     let content;
-    if (isLoading) content = <Loading />
+    if (isLoading || detailsLoading) content = <Loading />
     if (!isLoading && isError) content = "Error occured";
 
     if (!isLoading && !isError && movies?.results?.length > 0) {
@@ -34,7 +34,7 @@ export default function Similar() {
         setSelectedMovie(null);
     };
 
-    console.log(movieDetails, "from Similar")
+    console.log(movie, "from Similar")
 
     return (
         <div className="py-11">
@@ -45,9 +45,9 @@ export default function Similar() {
                 </Slider>
             </div>
             {selectedMovie && (
-                <div onClick={handleCloseModal} className="fixed inset-0 w-full h-full flex justify-center items-center bg-black bg-opacity-70 z-40 cursor-pointer">
+                <div className="fixed inset-0 w-full h-full flex justify-center items-center z-40">
                     <div className="relative flex items-center justify-center">
-                        {movieDetails.id && <SimilarDetails movie={movieDetails} />}
+                        {!detailsError && <SimilarDetails movie={movie} handleCloseModal={handleCloseModal}/>}
                     </div>
                 </div>
             )}

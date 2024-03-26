@@ -1,6 +1,7 @@
 import { IoIosStar } from "react-icons/io";
 import playBtn from "../../../assets/images/play-btn.gif"
 import { useLocation, useNavigate } from "react-router-dom";
+import { getReleaseDate } from "../../Tools/Others";
 
 
 function MovieItem({ movie, ClickedMovieDetails }) {
@@ -11,7 +12,7 @@ function MovieItem({ movie, ClickedMovieDetails }) {
     const navigate = useNavigate();
 
     function hanldeShowDetails() {
-        return urlPath !== "/" ? ClickedMovieDetails(movie) : navigate(`movie/${id}`)
+        return urlPath !== "/" ? ClickedMovieDetails(id) : navigate(`movie/${id}`)
     }
 
     return (
@@ -28,7 +29,7 @@ function MovieItem({ movie, ClickedMovieDetails }) {
                     <p className="overflow-hidden text-nowrap text-ellipsis text-lg">
                         {original_title}
                     </p>
-                    <span className="mr-2">{release_date.split("-")[0]}</span>
+                    <span className="mr-2">{getReleaseDate(release_date)}</span>
                     <p>
                         <span className="flex items-center space-x-1">
                             <IoIosStar className="text-yellow-500" />
