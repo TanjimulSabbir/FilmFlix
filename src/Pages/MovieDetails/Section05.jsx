@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Links from './More_Details/Links';
-import Episods from './More_Details/Episods';
-import Reviews from './More_Details/Reviews';
-import Others from './More_Details/Others';
+import Links from './detailsLayout/Links';
+import Episods from './detailsLayout/Episods';
+import Reviews from './detailsLayout/Reviews';
+import Others from './detailsLayout/Others';
 
 const Videos = React.lazy(() => import('./Videos'));
 
