@@ -30,7 +30,7 @@ function Section05() {
         if (filteredPaths.length > 0) {
             return filteredPaths[0].element;
         } else {
-            return <Episods />
+            return <Reviews />
         }
     };
 

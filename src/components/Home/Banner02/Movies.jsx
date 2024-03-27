@@ -4,7 +4,6 @@ import Loading from "../../accessories/Loading";
 import MovieItem from "./MovieItem";
 import Slider from "react-slick";
 import { treandingSliderSettings } from "../../Tools/SliderSettings";
-import style from "../../../style/sliderStyle.module.css"
 
 function Movies({ defaultValue, isSlider }) {
     const queryStateKeyword = useSelector(state => state.movieData.items);

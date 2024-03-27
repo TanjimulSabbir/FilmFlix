@@ -4,7 +4,7 @@ import Movies from './Banner02/Movies';
 import ToggleData from '../Tools/ToggleData';
 
 function Home() {
-    const { toggle01, toggle02 } = ToggleData();
+    const { toggle01, toggle02, toggle03 } = ToggleData();
     console.log(toggle01)
     return (
         <div>
@@ -14,7 +14,10 @@ function Home() {
                 <Movies defaultValue={toggle01} isSlider={true} />
 
                 <Toggles type={'Latest'} data={toggle02} />
-                <Movies defaultValue={toggle02} />
+                <Movies defaultValue={toggle02} isSlider={true} />
+
+                <Toggles type={'Now playing in theaters'} data={toggle03} />
+                <Movies defaultValue={toggle03} />
             </div>
         </div>
     );
