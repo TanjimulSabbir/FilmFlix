@@ -45,3 +45,26 @@
 .itemContainter:hover .adult {
     opacity: 0;
 }
+
+.btnContainer {
+    position: relative;
+    transition: visibility 0s, opacity 500ms ease-in-out;
+}
+.btnContainer:hover{
+    color: rgb(2, 121, 8);
+}
+
+.absoluteContainer {
+    width: 500px;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    top: 30px;
+    transform: translateX(-10%);
+    transition: visibility 700ms, opacity 700ms ease-in-out;
+}
+
+.btnContainer:hover .absoluteContainer {
+    visibility: visible;
+    opacity: 1;
+}

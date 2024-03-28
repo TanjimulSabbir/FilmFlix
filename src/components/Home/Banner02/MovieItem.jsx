@@ -23,8 +23,7 @@ function MovieItem({ movie, ClickedMovieDetails }) {
                     <div className="absolute inset-0 bg-[#000000c5] flex items-center justify-center text-white opacity-0 transition-opacity duration-500 hover:opacity-100 cursor-pointer">
                         {/* <p>{original_title}</p> */}
                         <img src={playBtn} className="cursor-pointer" alt="" srcSet="" />
-                       
-                    </div>
+                    </div>  
                 </div>
                 <div className="flex items-center justify-between px-3">
                     <p className="overflow-hidden text-nowrap text-ellipsis text-lg">
