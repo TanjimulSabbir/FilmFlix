@@ -52,6 +52,7 @@
 }
 .btnContainer:hover{
     color: rgb(2, 121, 8);
+    font-weight: 600;
 }
 
 .absoluteContainer {

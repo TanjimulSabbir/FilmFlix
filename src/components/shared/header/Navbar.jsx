@@ -1,36 +1,40 @@
-import { Link, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IoSearchSharp } from "react-icons/io5";
-import style from "../../../style/navbar.module.css"
-import logo from "../../../assets/Logo/logo.svg"
+import style from "../../../style/navbar.module.css";
+import logo from "../../../assets/Logo/logo.svg";
 import Genres from "./Genres";
-function Navbar() {
-    const pathName = useLocation().pathname;
-    const handleChoice = () => {
+import { useState } from "react";
 
-    }
+function Navbar() {
+    const [activeMenu, setActiveMenu] = useState("");
+
+    const handleChoice = (menu) => {
+        setActiveMenu(menu);
+    };
 
     return (
-        // <div className="relative">
-        <div className={`${style.navbarContainter} ${pathName === "/" ? "bg-transparent" : "bg-black"} w-full absolute top-0 z-50`}>
-            <div className="navbar-container w-full flex items-center container mx-auto ">
+        <div className={`${style.navbarContainter} w-full absolute top-0 z-50`}>
+            <div className="navbar-container w-full flex items-center container mx-auto">
                 <div className="flex space-x-10 items-center w-full">
-                    <Link to="/">
+                    <NavLink to="/" activeClassName="active">
                         <img src={logo} alt="search" width={80} height={80} />
-                    </Link>
-                    <div>
+                    </NavLink>
+                    <div onMouseOver={() => setActiveMenu("movies")}
+                        className={`${activeMenu === "movies" && "border-b-4 border-green-600"}`}>
                         <button onClick={() => handleChoice("movies")}>Movies</button>
                     </div>
-                    <div>
+                    <div onMouseOver={() => setActiveMenu("tvshows")}
+                        className={`${activeMenu === "tvshows" && "border-b-4 border-green-600"}`}>
                         <button onClick={() => handleChoice("tvshows")}>TV Shows</button>
                     </div>
                     <div className="btnContainer">
                         <button className="">Genres</button>
-                        <div className="absoluteContainer text-white ">
+                        <div className="absoluteContainer">
                             <Genres />
                         </div>
                     </div>
-
-                    <div>
+                    <div onMouseOver={() => setActiveMenu("more")}
+                        className={`${activeMenu === "more" && "border-b-4 border-green-600"}`}>
                         <button onClick={() => handleChoice("more")}>More</button>
                     </div>
                 </div>
@@ -41,10 +45,8 @@ function Navbar() {
                     <button className={style.SearchBtn}> <IoSearchSharp className="text-2xl" /></button>
                 </div>
             </div>
-
         </div>
-        // </div>
-    )
+    );
 }
 
 export default Navbar;
