@@ -3,7 +3,7 @@ import Layout from "./Layout";
 import App from "../App";
 import Login from "../Pages/auth/Login";
 import MovDetailsHome from "../Pages/MovieDetails/MovDetailsHome";
-import MovieHome from "../Pages/Movies/MovieHome";
+import MoviesHome from "../Pages/Movies/MoviesHome";
 import TvHome from "../Pages/TvSeries/TvHome";
 import More from "../Pages/More/More";
 
@@ -22,11 +22,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/movies",
-                element: <MovieHome />
+                element: <MoviesHome />
             },
             {
                 path: "/movies/:genreId",
-                element: <MovieHome />
+                element: <MoviesHome />
             },
             {
                 path: "/more",

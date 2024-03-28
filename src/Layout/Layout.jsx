@@ -4,13 +4,11 @@ import { Toaster } from "react-hot-toast";
 
 function Layout() {
     return (
-        <>
-            <div className="">
-                <Navbar />
-                <Outlet />
-                <Toaster position="top-center" />
-            </div>
-        </>
+        <div>
+            <Navbar />
+            <Outlet />
+            <Toaster position="top-center" />
+        </div>
     )
 }
 

@@ -8,10 +8,9 @@ import Popularity from "../../components/accessories/Popularity";
 function Section01({ movie }) {
     const { id, adult, backdrop_path, belongs_to_collection, budget, genres, homepage, imdb_id, original_language, original_title, overview, popularity, poster_path, production_companies, production_countries, release_date, revenue, runtime, spoken_languages, status, tagline, title, video, vote_average, vote_count
     } = movie || {};
-    console.log({ vote_average, vote_count, popularity });
 
     return (
-        <div className='mb-10 pt-24'>
+        <div className='pt-24 mb-10 '>
             <div className="mb-4 flex items-center justify-between">
                 <div>
                     <h2 className="text-4xl inline-block">{original_title}</h2>
