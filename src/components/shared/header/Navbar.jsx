@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation,Link } from "react-router-dom";
 import { IoSearchSharp } from "react-icons/io5";
 import style from "../../../style/navbar.module.css";
 import logo from "../../../assets/Logo/logo.svg";
@@ -6,6 +6,7 @@ import Genres from "./Genres";
 import { useState } from "react";
 
 function Navbar() {
+    const location = useLocation();
     const [activeMenu, setActiveMenu] = useState("");
 
     const handleChoice = (menu) => {
@@ -13,36 +14,36 @@ function Navbar() {
     };
 
     return (
-        <div className={`${style.navbarContainter} w-full absolute top-0 z-50`}>
-            <div className="navbar-container w-full flex items-center container mx-auto">
-                <div className="flex space-x-10 items-center w-full">
-                    <NavLink to="/" activeClassName="active">
+        <div className={`${style.navbarContainter} ${location.pathname === "/" ? "bg-transparent" : "bg-black"} w-full absolute top-0 z-50`}>
+            <div className="navbar-container flex items-center justify-between container mx-auto">
+                <div className="flex items-center space-x-10">
+                    <Link exact to="/" className={style.logo}>
                         <img src={logo} alt="search" width={80} height={80} />
+                    </Link>
+                    <NavLink to="/movies" className={"active-link"}>
+                        Movies
                     </NavLink>
-                    <div onMouseOver={() => setActiveMenu("movies")}
-                        className={`${activeMenu === "movies" && "border-b-4 border-green-600"}`}>
-                        <button onClick={() => handleChoice("movies")}>Movies</button>
-                    </div>
-                    <div onMouseOver={() => setActiveMenu("tvshows")}
-                        className={`${activeMenu === "tvshows" && "border-b-4 border-green-600"}`}>
-                        <button onClick={() => handleChoice("tvshows")}>TV Shows</button>
-                    </div>
-                    <div className="btnContainer">
-                        <button className="">Genres</button>
+                    <NavLink to="/tvshows" className={"active-link"}>
+                        TV Shows
+                    </NavLink>
+
+                    <div className="btnContainer active-link">
+                        <button className={style.navLink}>Genres</button>
                         <div className="absoluteContainer">
                             <Genres />
                         </div>
                     </div>
-                    <div onMouseOver={() => setActiveMenu("more")}
-                        className={`${activeMenu === "more" && "border-b-4 border-green-600"}`}>
-                        <button onClick={() => handleChoice("more")}>More</button>
-                    </div>
+
+                    <NavLink to="/more" className={"active-link"}>
+                        More
+                    </NavLink>
                 </div>
-                {/* <!-- auth buttons , This will nonfunctional, just for nice looking --> */}
-                <div className="w-full flex items-center justify-end space-x-10">
-                    <button className="">Login</button>
-                    <button className="">Join Us</button>
-                    <button className={style.SearchBtn}> <IoSearchSharp className="text-2xl" /></button>
+                <div className="flex items-center space-x-10">
+
+                    {/* Auth buttons */}
+                    <button className={`active-link`}>Login</button>
+                    <button className={`active-link`}>Join Us</button>
+                    <button className={style.SearchBtn}><IoSearchSharp className="text-2xl" /></button>
                 </div>
             </div>
         </div>

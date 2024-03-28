@@ -27,10 +27,12 @@
     --accountRed: rgb(212, 2, 66);
     --imageBorderRadius: 8px;
     --maxPrimaryPageWidth: 1400px;
-    --darkViolet:#5D3AE9
+    --darkViolet: #5D3AE9
 }
 
 body {
     font-family: "Roboto Condensed", sans-serif;
     font-weight: 400;
+    background: #000;
+    color: white;
 }

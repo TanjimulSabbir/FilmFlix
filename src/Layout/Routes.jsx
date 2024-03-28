@@ -2,8 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
 import App from "../App";
 import Login from "../Pages/auth/Login";
-import Design from "./Design";
 import MovDetailsHome from "../Pages/MovieDetails/MovDetailsHome";
+import MovieHome from "../Pages/Movies/MovieHome";
+import TvHome from "../Pages/TvSeries/TvHome";
+import More from "../Pages/More/More";
 
 const router = createBrowserRouter([
     {
@@ -15,12 +17,24 @@ const router = createBrowserRouter([
                 element: <App />
             },
             {
+                path: "/tvshows",
+                element: <TvHome />
+            },
+            {
+                path: "/movies",
+                element: <MovieHome />
+            },
+            {
+                path: "/more",
+                element: <More />
+            },
+            {
                 path: "/login",
                 element: <Login />
             },
             {
-                path: "/design",
-                element: <Design />
+                path: "/signup",
+                element: <Login />
             },
             {
                 path: "/movie/:movieId",

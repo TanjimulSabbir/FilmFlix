@@ -1,7 +1,9 @@
 .navbarContainter {
     color: white;
-    padding: 25px 0;
-}
+    /* padding: 25px 0; */
+    height: 80px;
+    display: flex;
+    justify-content: center;}
 
 .SearchBtn {
     color: var(--tmdbLightBlue);
