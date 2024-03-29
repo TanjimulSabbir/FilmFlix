@@ -34,8 +34,8 @@ export default function MoviesHome() {
   const InputTypes = ["Genres"]
 
   return (
-    <div className="pt-24">
-      <div className="pt-14 pl-3 sm:pl-5 md:pl-7 h-screen w-[300px] rounded">
+    <div className="pt-20 ">
+      <div className="pt-14 pl-3 sm:pl-5 md:pl-7 h-screen overflow-hidden w-[250px] bg-[#0b0b0b] z-50 shadow-lg">
         {genresData.map((item, index) => (
           <div key={item.keywordTitle} className="relative">
             <p onClick={() => toggleSection({ keywordTitle: item.keywordTitle, index })} className="flex items-center space-x-5 cursor-pointer mt-5 uppercase text-gray-400 font-bold">
