@@ -8,20 +8,18 @@ export default function MoviesHome() {
 
   const toggleSection = ({ keywordTitle, index }) => {
     setOpenSections(prevItems => {
-      const findItem = prevItems.findIndex(item => item.keywordTitle === keywordTitle);
-      if (findItem != -1) {
-        return prevItems[findItem] = { keywordTitle, index: !index }
+      const findItemIndex = prevItems.findIndex(item => item.keywordTitle === keywordTitle);
+      if (findItemIndex !== -1) {
+        // If the section is already in the openSections array, toggle its index value
+        const updatedItems = [...prevItems];
+        updatedItems[findItemIndex] = { keywordTitle, index: !prevItems[findItemIndex].index };
+        return updatedItems;
       } else {
-        return prevItems[findItem] = { keywordTitle, index }
+        // If the section is not in the openSections array, add it with index true
+        return [...prevItems, { keywordTitle, index: true }];
       }
     });
   };
-
-  // //     if (prevItems.includes(keywordTitle)) {
-  //   return { ...prevItems, index: false }
-  // } else {
-  //   return { ...prevItems, index: index }
-  // }
 
   const genresData = [
     { "keywordTitle": "Sort By", "keywords": ["Popular", "New Releases", "Recently Added", "IMDb Rating"] },
@@ -38,7 +36,7 @@ export default function MoviesHome() {
           <button onClick={() => toggleSection({ keywordTitle: item.keywordTitle, index })} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 mt-20">
             {item.keywordTitle}
           </button>
-          {openSections.keywordTitle === item.keywordTitle && openSections === index && (
+          {openSections.find(section => section.keywordTitle === item.keywordTitle && section.index) && (
             <div className="transition-all flex flex-col space-y-1 ease-in-out duration-500 absolute w-full left-0 mt-2">
               {item.keywords.map(keyword => (
                 <p key={keyword} className="p-4">
