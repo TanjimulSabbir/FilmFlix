@@ -11,6 +11,8 @@ function MovieItem({ movie, ClickedMovieDetails }) {
 
     const navigate = useNavigate();
 
+    // const pathCheck=["/","/movies"]
+
     function hanldeShowDetails() {
         return urlPath !== "/" ? ClickedMovieDetails(id) : navigate(`movie/${id}`)
     }
