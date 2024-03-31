@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { useSelector } from "react-redux";
+import Movies from "./Movies";
 
 export default function MoviesHome() {
   const genres = useSelector(state => state.movieData.genresData.map(genre => genre.name));
@@ -34,7 +35,7 @@ export default function MoviesHome() {
   const InputTypes = ["Genres"]
 
   return (
-    <div className="pt-20 ">
+    <div className="pt-20 flex items-center">
       <div className="pt-14 pl-3 sm:pl-5 md:pl-7 h-screen overflow-hidden w-[250px] bg-[#0b0b0b] z-50 shadow-lg">
         {genresData.map((item, index) => (
           <div key={item.keywordTitle} className="relative">
@@ -54,6 +55,9 @@ export default function MoviesHome() {
             </div>}
           </div>
         ))}
+      </div>
+      <div>
+        <Movies />
       </div>
     </div>
   );
