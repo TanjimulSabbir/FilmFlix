@@ -17,7 +17,7 @@ export default function SimilarDetails({ movie, handleCloseModal }) {
 
     return (
         <div className="w-full md:w-2/3 fixed mx-auto inset-0 flex items-center justify-center">
-            <div className='flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 justify-center shadow-2xl rounded-2xl bg-gray-400'>
+            <div className='flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 justify-center shadow-2xl rounded-2xl bg-[#2e2e2e]'>
                 <div className='w-full md:w-1/2'>
                     {!openTrailer ? <img className='h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title} /> : <Videos id={id} howMuch={"1"} title={original_title} />}
 
@@ -82,7 +82,7 @@ export default function SimilarDetails({ movie, handleCloseModal }) {
                             <span>Show details</span>
                         </Link>
                     </div>
-                    <MdClose className='absolute top-5 right-5 tex-2xl cursor-pointer' onClick={handleCloseModal} />
+                    <MdClose className='absolute top-5 right-5 tex-2xl cursor-pointer transition-all duration-500 delay-300 hover:scale-150' onClick={handleCloseModal} />
                 </div>
             </div>
         </div>

@@ -48,8 +48,9 @@ export default function MoviesHome() {
 
               {openSections.find(section => section.keywordTitle === item.keywordTitle && section.index) && <div className="my-3">
                 {item.keywords.map(keyword => (
-                  <div key={keyword} className="mt-1 flex items-center space-x-5">
-                    <input type={InputTypes.includes(item.keywordTitle) ? "checkbox" : "radio"} id={keyword} name={item.keywordTitle} value={keyword} className={`cursor-pointer appearance-none w-4 h-4 border border-gray-300 checked:bg-blue-500 checked:border-transparent ${InputTypes.includes(item.keywordTitle) ? "rounded" : "rounded-full"}`} />
+                  <div key={keyword} className={`mt-1 flex items-center space-x-5 ${InputTypes.includes(item.keywordTitle) && "custom-checkbox"}`}>
+                    <input type={InputTypes.includes(item.keywordTitle) ? "checkbox" : "radio"}
+                      id={keyword} name={item.keywordTitle} value={keyword} />
                     <label className="cursor-pointer" id={keyword} htmlFor={keyword}>{keyword}</label>
                   </div>
                 ))}

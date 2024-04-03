@@ -107,3 +107,87 @@
     visibility: visible;
     opacity: 1;
 }
+
+
+/* styles.css */
+/* Hide the default checkbox */
+/* styles.css */
+/* Hide the default checkbox */
+
+input[type="radio"]{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: transparent;
+}
+input[type="radio"]:checked{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+}
+.custom-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+/* Style the custom checkbox */
+.custom-checkbox label {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding-left: 20px;
+    /* Adjust padding as needed */
+}
+
+/* Checkbox indicator */
+.custom-checkbox label::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    /* Adjust size as needed */
+    height: 18px;
+    /* Adjust size as needed */
+    border: 2px solid #ccc;
+    /* Border color */
+    background-color: transparent;
+    /* Background color */
+    position: absolute;
+    left: -20px;
+    top: 0;
+}
+
+/* Checked state */
+.custom-checkbox input[type="checkbox"]:checked+label::before {
+    background-color: #007bff;
+    /* Checked background color */
+    border-color: #007bff;
+    /* Checked border color */
+}
+
+/* Checkmark icon */
+.custom-checkbox label::after {
+    content: "";
+    position: absolute;
+    left: -15px;
+    /* Adjust position as needed */
+    top: 2px;
+    /* Adjust position as needed */
+    width: 7px;
+    /* Adjust size as needed */
+    height: 13px;
+    /* Adjust size as needed */
+    border: solid #fff;
+    /* Checkmark color */
+    border-width: 0 3px 3px 0;
+    /* Checkmark shape */
+    transform: rotate(40deg);
+    /* Rotate the checkmark */
+    opacity: 0;
+    /* Initially hidden */
+
+}
+
+/* Show checkmark when checked */
+.custom-checkbox input[type="checkbox"]:checked+label::after {
+    opacity: 1;
+    /* Show checkmark */
+}
