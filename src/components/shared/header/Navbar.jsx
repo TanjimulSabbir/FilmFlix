@@ -14,7 +14,7 @@ function Navbar() {
     };
 
     return (
-        <div className={`${style.navbarContainter} ${location.pathname === "/" ? "bg-transparent" : "bg-black"} w-full absolute top-0 z-50`}>
+        <div className={`${style.navbarContainter} ${location.pathname === "/" ? "bg-transparent" : "bg-black"} w-full fixed top-0 z-50`}>
             <div className="navbar-container flex items-center justify-between container mx-auto">
                 <div className="flex items-center space-x-10">
                     <Link exact to="/" className={style.logo}>

@@ -36,8 +36,8 @@ export default function MoviesHome() {
 
   return (
     <div className="pt-20 w-full h-screen flex">
-      <div className="relative">
-        <div className="fixed  pl-3 sm:pl-5 md:pl-7 h-full overflow-hidden w-[250px] bg-[#0b0b0b] z-50 shadow-lg">
+      <div className="relative w-[200px] sm:w-[250px]">
+        <div className="fixed pt-14 pl-3 sm:pl-5 md:pl-7 h-full overflow-hidden w-[200px] sm:w-[250px]  bg-[#0b0b0b] z-50 shadow-lg">
           {genresData.map((item, index) => (
             <div key={item.keywordTitle} className="relative">
               <p onClick={() => toggleSection({ keywordTitle: item.keywordTitle, index })} className="flex items-center space-x-5 cursor-pointer mt-5 uppercase text-gray-400 font-bold">
@@ -59,7 +59,6 @@ export default function MoviesHome() {
         </div>
       </div>
       <Movies />
-
     </div>
   );
 }
