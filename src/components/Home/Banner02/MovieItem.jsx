@@ -2,19 +2,26 @@ import { IoIosStar } from "react-icons/io";
 import playBtn from "../../../assets/images/play-btn.gif"
 import { useLocation, useNavigate } from "react-router-dom";
 import { getYear } from "../../Tools/Others";
+import toast from "react-hot-toast";
 
 
 function MovieItem({ movie, ClickedMovieDetails }) {
     const urlPath = useLocation().pathname;
 
-    const { id, original_title,title, release_date, vote_average, adult, poster_path } = movie;
+    const { id, original_title, title, release_date, vote_average, adult, poster_path } = movie;
 
     const navigate = useNavigate();
 
-    // const pathCheck=["/","/movies"]
+    const handleDetails = (id) => {
+        if (urlPath === "/movies") {
+            navigate(`/movie/${id}`)
+        } else {
+            ClickedMovieDetails(id)
+        }
+    }
 
     function hanldeShowDetails() {
-        return urlPath !== "/" ? ClickedMovieDetails(id) : navigate(`movie/${id}`)
+        return urlPath !== "/" ? handleDetails(id) : navigate(`/movie/${id}`)
     }
 
     return (
@@ -25,7 +32,7 @@ function MovieItem({ movie, ClickedMovieDetails }) {
                     <div className="absolute inset-0 bg-[#000000c5] flex items-center justify-center text-white opacity-0 transition-opacity duration-500 hover:opacity-100 cursor-pointer">
                         {/* <p>{original_title}</p> */}
                         <img src={playBtn} className="cursor-pointer" alt="" srcSet="" />
-                    </div>  
+                    </div>
                 </div>
                 <div className="flex items-center justify-between px-3">
                     <p className="overflow-hidden text-nowrap text-ellipsis text-lg">
