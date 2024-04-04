@@ -109,7 +109,7 @@
     opacity: 1;
 }
 
-
+/* Input box design */
 /* styles.css */
 /* Hide the default checkbox */
 input[type="radio"] {
@@ -150,9 +150,10 @@ input[type="radio"] {
     opacity: 0;
 }
 
-.custom-radio input[type="radio"]:checked{
+.custom-radio input[type="radio"]:checked {
     border-color: var(--global-color);
 }
+
 .custom-radio input[type="radio"]:checked+label::before {
     opacity: 1;
 }

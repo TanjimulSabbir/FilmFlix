@@ -6,7 +6,6 @@ import Movies from "./Movies";
 export default function MoviesHome() {
   const genres = useSelector(state => state.movieData.genresData.map(genre => genre.name));
   const [openSections, setOpenSections] = useState([]);
-  const [btnOpen, setBtnOpen] = useState([]);
 
   const toggleSection = ({ keywordTitle, index }) => {
     setOpenSections(prevItems => {
@@ -40,15 +39,20 @@ export default function MoviesHome() {
         <div className="sticky pt-14 pl-3 sm:pl-5 md:pl-7 h-full w-[200px] sm:w-[250px]  bg-[#0b0b0b] z-30 shadow-lg">
           {genresData.map((item, index) => (
             <div key={item.keywordTitle} className="relative">
-              <p onClick={() => toggleSection({ keywordTitle: item.keywordTitle, index })} className="flex items-center space-x-5 cursor-pointer mt-5 uppercase text-gray-400 font-bold">
+              <p
+                onClick={() => toggleSection({ keywordTitle: item.keywordTitle, index })}
+
+                className="flex items-center space-x-5 cursor-pointer mt-5 uppercase text-gray-400 font-bold">
+
                 {openSections.find(section => section.keywordTitle === item.keywordTitle && section.index) ? <FaMinus className="bg-gray-400 p-1 rounded font-bold text-black" /> : <FaPlus className="bg-gray-400 p-1 rounded font-bold text-black" />}
+
                 <span> {item.keywordTitle}</span>
               </p>
 
 
               {openSections.find(section => section.keywordTitle === item.keywordTitle && section.index) && <div className="my-3">
                 {item.keywords.map(keyword => (
-                  <div key={keyword} className={`mt-1 flex items-center space-x-5 ${InputTypes.includes(item.keywordTitle)? "custom-checkbox":"custom-radio"}`}>
+                  <div key={keyword} className={`mt-1 flex items-center space-x-5 ${InputTypes.includes(item.keywordTitle) ? "custom-checkbox" : "custom-radio"}`}>
                     <input type={InputTypes.includes(item.keywordTitle) ? "checkbox" : "radio"}
                       id={keyword} name={item.keywordTitle} value={keyword} />
                     <label className="cursor-pointer" id={keyword} htmlFor={keyword}>{keyword}</label>
