@@ -35,9 +35,9 @@ export default function MoviesHome() {
   const InputTypes = ["Genres"]
 
   return (
-    <div className="pt-20 w-full h-screen flex">
+    <div className="pt-20 w-full flex">
       <div className="relative w-[200px] sm:w-[250px]">
-        <div className="fixed pt-14 pl-3 sm:pl-5 md:pl-7 h-full overflow-hidden w-[200px] sm:w-[250px]  bg-[#0b0b0b] z-50 shadow-lg">
+        <div className="sticky pt-14 pl-3 sm:pl-5 md:pl-7 h-full w-[200px] sm:w-[250px]  bg-[#0b0b0b] z-30 shadow-lg">
           {genresData.map((item, index) => (
             <div key={item.keywordTitle} className="relative">
               <p onClick={() => toggleSection({ keywordTitle: item.keywordTitle, index })} className="flex items-center space-x-5 cursor-pointer mt-5 uppercase text-gray-400 font-bold">
@@ -48,7 +48,7 @@ export default function MoviesHome() {
 
               {openSections.find(section => section.keywordTitle === item.keywordTitle && section.index) && <div className="my-3">
                 {item.keywords.map(keyword => (
-                  <div key={keyword} className={`mt-1 flex items-center space-x-5 ${InputTypes.includes(item.keywordTitle) && "custom-checkbox"}`}>
+                  <div key={keyword} className={`mt-1 flex items-center space-x-5 ${InputTypes.includes(item.keywordTitle)? "custom-checkbox":"custom-radio"}`}>
                     <input type={InputTypes.includes(item.keywordTitle) ? "checkbox" : "radio"}
                       id={keyword} name={item.keywordTitle} value={keyword} />
                     <label className="cursor-pointer" id={keyword} htmlFor={keyword}>{keyword}</label>

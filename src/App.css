@@ -3,6 +3,7 @@
     --color-secondary: hsl(160, 100%, 65%);
     --background: hsl(230, 30%, 15%);
     --text: hsl(310, 100%, 95%);
+    --global-color: #02a5a5
 }
 
 .youtube-container {
@@ -40,7 +41,7 @@
 .active {
     position: relative;
     transition: 300ms ease-in;
-    color: #02a5a5;
+    color: var(--global-color);
     font-weight: 600;
 }
 
@@ -51,7 +52,7 @@
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: #02a5a5;
+    background-color: var(--global-color);
 }
 
 .active-link {
@@ -60,7 +61,7 @@
 }
 
 .active-link:hover {
-    color: #02a5a5;
+    color: var(--global-color);
 
 }
 
@@ -71,7 +72,7 @@
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: #02a5a5;
+    background-color: var(--global-color);
 }
 
 .itemContainter {
@@ -89,7 +90,7 @@
 }
 
 .btnContainer:hover {
-    color: #02a5a5;
+    color: var(--global-color);
     font-weight: 600;
 }
 
@@ -112,19 +113,56 @@
 /* styles.css */
 /* Hide the default checkbox */
 /* styles.css */
-/* Hide the default checkbox */
+input[type="radio"] {
+    /* Hide the default radio button */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Set dimensions and padding */
+    width: 18px;
+    height: 18px;
+    padding: 4px;
+    /* Adjust padding as needed */
+    /* Border color and radius */
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    /* Default background color */
+    background-color: #fff;
+    /* Cursor style */
+    cursor: pointer;
+}
 
-input[type="radio"]{
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: transparent;
+/* Checked state */
+.custom-radio label {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    /* padding-left: 20px; */
+    /* alreday padding left added on checkbox */
+    /* Adjust padding as needed */
 }
-input[type="radio"]:checked{
-    width: 18px;
-    height: 18px;
+
+/* small Cicle on the checked radio*/
+.custom-radio label::before {
+    content: "";
+    /* Adjust dimensions and positioning */
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 50%;
+    left: -29.5px;
+    transform: translate(-50%, -50%);
+    background-color: var(--global-color);
+    /* Change to desired color */
     border-radius: 50%;
+    opacity: 0;
 }
+
+.custom-radio input[type="radio"]:checked+label::before {
+    opacity: 1;
+
+}
+
 .custom-checkbox input[type="checkbox"] {
     display: none;
 }
@@ -143,24 +181,20 @@ input[type="radio"]:checked{
     content: "";
     display: inline-block;
     width: 18px;
-    /* Adjust size as needed */
     height: 18px;
-    /* Adjust size as needed */
     border: 2px solid #ccc;
-    /* Border color */
     background-color: transparent;
-    /* Background color */
     position: absolute;
+    border-radius: 4px;
     left: -20px;
+    transition: 100ms ease-in-out;
     top: 0;
 }
 
 /* Checked state */
 .custom-checkbox input[type="checkbox"]:checked+label::before {
-    background-color: #007bff;
-    /* Checked background color */
-    border-color: #007bff;
-    /* Checked border color */
+    background-color: var(--global-color);
+    border-color: var(--global-color);
 }
 
 /* Checkmark icon */
@@ -168,26 +202,20 @@ input[type="radio"]:checked{
     content: "";
     position: absolute;
     left: -15px;
-    /* Adjust position as needed */
-    top: 2px;
-    /* Adjust position as needed */
+    top: 3px;
     width: 7px;
-    /* Adjust size as needed */
-    height: 13px;
-    /* Adjust size as needed */
+    height: 10px;
     border: solid #fff;
-    /* Checkmark color */
     border-width: 0 3px 3px 0;
     /* Checkmark shape */
     transform: rotate(40deg);
     /* Rotate the checkmark */
+    transition: 300ms ease-in-out;
     opacity: 0;
     /* Initially hidden */
-
 }
 
 /* Show checkmark when checked */
 .custom-checkbox input[type="checkbox"]:checked+label::after {
     opacity: 1;
-    /* Show checkmark */
 }
