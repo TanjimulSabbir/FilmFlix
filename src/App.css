@@ -1,3 +1,80 @@
+@keyframes snakePath {
+    0% {
+        transform: translateX(0px);
+    }
+
+    5% {
+        transform: translateX(30px);
+    }
+
+    10% {
+        transform: translateX(60px);
+    }
+    15% {
+        transform: translateX(90px);
+    }
+    20% {
+        transform: translateX(120px);
+      transform-style: flat;
+    }
+    25% {
+        transform: translateX(150px);
+    }
+    30% {
+        transform: translateX(180px);
+    }
+    35% {
+        transform: translateX(210px);
+    }
+    40% {
+        transform: translateX(240px);
+    }
+    45% {
+        transform: translateX(270px);
+    }
+    50% {
+        transform: translateX(300px);
+    }
+    55% {
+        transform: translateX(330px);
+    }
+    60% {
+        transform: translateX(360px);
+    }
+    65% {
+        transform: translateX(390px);
+    }
+    70% {
+        transform: translateX(420px);
+    }
+    75% {
+        transform: translateX(450px);
+    }
+    80% {
+        transform: translateX(480px);
+    }
+    85% {
+        transform: translateX(510px);
+    }
+    90% {
+        transform: translateX(540px);
+    }
+    95% {
+        transform: translateX(570px);
+    }
+    100% {
+        transform: translateX(600px);
+    }
+}
+
+.snake {
+    animation-name: snakePath;
+    animation-duration: 5s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
 :root {
     --color-primary: hsl(310, 100%, 65%);
     --color-secondary: hsl(160, 100%, 65%);

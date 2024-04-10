@@ -27,8 +27,6 @@ function MovDetailsHome() {
     content = "Data fetching error"
   }
 
-
-
   if (!isLoading && !isError) {
     dispatch(addClickedMovieDetailsData(movie))
     content = <>
@@ -47,7 +45,7 @@ function MovDetailsHome() {
   }, [id, movie]);
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto h-screen">
       {content}
     </div>
   )

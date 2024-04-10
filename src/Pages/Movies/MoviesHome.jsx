@@ -34,7 +34,7 @@ export default function MoviesHome() {
   const InputTypes = ["Genres"]
 
   return (
-    <div className="pt-20 w-full flex">
+    <div className="h-screen w-full flex">
       <div className="relative w-[200px] sm:w-[250px]">
         <div className="sticky pt-14 pl-3 sm:pl-5 md:pl-7 h-full w-[200px] sm:w-[250px]  bg-[#0b0b0b] z-30 shadow-lg">
           {genresData.map((item, index) => (

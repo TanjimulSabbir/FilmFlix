@@ -10,7 +10,7 @@ function Section01({ movie }) {
     } = movie || {};
 
     return (
-        <div className='pt-24 mb-10 '>
+        <div className='mb-10 '>
             <div className="mb-4 flex items-center justify-between">
                 <div>
                     <h2 className="text-4xl inline-block">{original_title}</h2>
