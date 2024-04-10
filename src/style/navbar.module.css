@@ -1,4 +1,21 @@
+
+@keyframes slider {
+     from{
+         transform: translateX(-100px);
+         transform:rotateY(360deg);
+     }
+    
+
+     to{
+         transform: translateX(100px);
+         transform:rotateY(90deg);
+     }
+ }
+
 .navbarContainter {
+    animation-name: slider;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
     color: white;
     /* padding: 25px 0; */
     height: 80px;

@@ -138,13 +138,13 @@
         transform: translateY(-280px);
     } */
     from{
-        transform: translateY(200px);
+        transform: translateY(-200px);
+       
     }
    
     50%{
         transform: translateX(-100px);
         transform: rotateY(90deg);
-        transform: scale(2);
     }
    
  
@@ -158,20 +158,6 @@
     position: relative;
     animation-name: slideTextColor;
     animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-}
-.name2 {
-    position: relative;
-    animation-name: slideTextColor;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-}
-.name3 {
-    position: relative;
-    animation-name: slideTextColor;
-    animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-fill-mode: forwards;
 }

@@ -7,9 +7,8 @@ function App() {
       {/* <div className='snake w-10 h-4 bg-teal-600 rounded'>
        
       </div> */}
-      <h1 className='name rounded-full flex items-center justify-center text-black'>Hi!</h1>
-      <h1 className='name2 rounded-full flex items-center justify-center text-black'>I'm Tanjimul Sabbir!</h1>
-      <h1 className='name3 h-12 rounded-full flex items-center justify-center text-black'>You are welcomed to my portfolio!</h1>
+      <h1 className='name w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center text-black'>Hi!</h1>
+      
     </div>
   )
 }
