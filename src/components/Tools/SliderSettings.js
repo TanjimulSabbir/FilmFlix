@@ -1,5 +1,5 @@
 export const TopBannerSliderSettings = {
-    dots: true,
+    dots: false,
     fade: true,
     infinite: true,
     speed: 500,

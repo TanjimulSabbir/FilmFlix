@@ -1,183 +1,3 @@
-/* @keyframes snakePath {
-    0% {
-        transform: translateX(0px);
-    }
-
-    5% {
-        transform: translateX(30px);
-    }
-
-    10% {
-        transform: translateX(60px);
-    }
-
-    15% {
-        transform: translateX(90px);
-    }
-
-    20% {
-        transform: translateX(120px);
-        transform-style: flat;
-    }
-
-    25% {
-        transform: translateX(150px);
-    }
-
-    30% {
-        transform: translateX(180px);
-    }
-
-    35% {
-        transform: translateX(210px);
-    }
-
-    40% {
-        transform: translateX(240px);
-    }
-
-    45% {
-        transform: translateX(270px);
-    }
-
-    50% {
-        transform: translateX(300px);
-    }
-
-    55% {
-        transform: translateX(330px);
-    }
-
-    60% {
-        transform: translateX(360px);
-    }
-
-    65% {
-        transform: translateX(390px);
-    }
-
-    70% {
-        transform: translateX(420px);
-    }
-
-    75% {
-        transform: translateX(450px);
-    }
-
-    80% {
-        transform: translateX(480px);
-    }
-
-    85% {
-        transform: translateX(510px);
-    }
-
-    90% {
-        transform: translateX(540px);
-    }
-
-    95% {
-        transform: translateX(570px);
-    }
-
-    100% {
-        transform: translateX(600px);
-    }
-}
-
-.snake {
-    animation-name: snakePath;
-    animation-duration: 5s;
-    animation-timing-function: ease-in;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-} */
-
-@keyframes textSlide {
-
-    /* 
-    0%,5%,10%,15%,20%,25%,30%,35%,40%,45%,50%,55%,60%,65%,70%,75%,80%,85%,90%,95%,100%{
-        color: red;
-    } */
-    from {
-        transform: translateX(0ch);
-
-
-    }
-
-
-    to {
-        transform: translateX(17ch);
-
-    }
-}
-
-@keyframes slideTextColor {
-   /* 0%{
-    transform: translateY(-280px);
-   }
-    20% {
-        transform: translateY(200px);
-    }
-
-    40% {
-        transform: translateY(-180px);
-    }
-    60% {
-        transform: translateY(160px);
-    }
-    70% {
-        transform: translateY(-220px);
-    }
-
-    90% {
-        transform: translateY(80px);
-    }
-
-    100% {
-        transform: translateY(-280px);
-    } */
-    from{
-        transform: translateY(-200px);
-       
-    }
-   
-    50%{
-        transform: translateX(-100px);
-        transform: rotateY(90deg);
-    }
-   
- 
-    to{
-        transform: translateY(200px);
-        transform:rotateX(380deg);
-    }
-}
-
-.name {
-    position: relative;
-    animation-name: slideTextColor;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-}
-
-/* .name::before {
-    content: "";
-    animation-name: textSlide;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-    display: inline-block;
-    width: 18ch;
-    height: 24px;
-    position: absolute;
-    background-color: rgb(0, 0, 0);
-    color: goldenrod;
-    top: 0;
-    left: 1ch;
-} */
-
 :root {
     --color-primary: hsl(310, 100%, 65%);
     --color-secondary: hsl(160, 100%, 65%);
@@ -185,6 +5,7 @@
     --text: hsl(310, 100%, 95%);
     --global-color: #02a5a5
 }
+
 
 .youtube-container {
     overflow: hidden;
@@ -233,16 +54,17 @@
     width: 100%;
     height: 3px;
     background-color: var(--global-color);
+    transition: 300ms ease-in-out;
 }
 
 .active-link {
     position: relative;
-    transition: 300ms ease-in;
+    transition: 300ms ease-in-out;
 }
 
 .active-link:hover {
     color: var(--global-color);
-
+    transition: 300ms ease-in-out;
 }
 
 .active-link:hover::after {
@@ -269,10 +91,10 @@
     transition: visibility 0s, opacity 500ms ease-in-out;
 }
 
-.btnContainer:hover {
+/* .btnContainer:hover {
     color: var(--global-color);
     font-weight: 600;
-}
+} */
 
 .absoluteContainer {
     width: 400px;
@@ -302,7 +124,7 @@ input[type="radio"] {
     border: 2px solid #ccc;
     border-radius: 50%;
     background-color: transparent;
-    transition: 200ms ease-in-out;
+    transition: 300ms ease-in-out;
     cursor: pointer;
 }
 

@@ -13,11 +13,11 @@ function Banner({ id }) {
     if (isError) {
         content = "Data not found"
     }
-    if (!isLoading && !isError) {
+    if (!isLoading && !isError && MovieDetails) {
         content = <BannerText movie={MovieDetails} />
     }
     return (
-        <div className="w-full absolute top-0 flex items-center justify-center z-20 bg-black h-full bg-opacity-70 bg-blend-multiply">
+        <div className="w-full absolute top-0 flex items-center justify-center z-20 bg-[#000000c1] h-full bg-blend-multiply">
             <div className="container -mt-10">
                 {content}
             </div>

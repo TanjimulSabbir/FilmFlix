@@ -20,15 +20,15 @@ function Navbar() {
                     <Link exact to="/" className={style.logo}>
                         <img src={logo} alt="search" width={80} height={80} />
                     </Link>
-                    <NavLink to="/movies" className={"active-link"}>
+                    <NavLink to="/movies" className="active-link">
                         Movies
                     </NavLink>
-                    <NavLink to="/tvshows" className={"active-link"}>
+                    <NavLink to="/tvshows" className="active-link">
                         TV Shows
                     </NavLink>
 
-                    <div className="btnContainer active-link">
-                        <button className={style.navLink}>Genres</button>
+                    <div className="btnContainer ">
+                        <button className={`${style.navLink} active-link`}>Genres</button>
                         <div className="absoluteContainer">
                             <Genres />
                         </div>

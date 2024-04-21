@@ -34,17 +34,17 @@ export default function MoviesHome() {
   const InputTypes = ["Genres"]
 
   return (
-    <div className="h-screen w-full flex">
-      <div className="relative w-[200px] sm:w-[250px]">
-        <div className="sticky pt-14 pl-3 sm:pl-5 md:pl-7 h-full w-[200px] sm:w-[250px]  bg-[#0b0b0b] z-30 shadow-lg">
+    <div className="h-screen w-full flex mt-24">
+      <div className="relative w-[200px] sm:w-[250px] bitter">
+        <div className="sticky pt-14 pb-4 pl-3 sm:pl-5 min-h-screen md:pl-10 w-[200px] sm:w-[250px] bg-[#0b0b0b] z-30 rounded">
           {genresData.map((item, index) => (
             <div key={item.keywordTitle} className="relative">
               <p
                 onClick={() => toggleSection({ keywordTitle: item.keywordTitle, index })}
 
-                className="flex items-center space-x-5 cursor-pointer mt-5 uppercase text-gray-400 font-bold">
+                className="flex items-center space-x-5 cursor-pointer mt-5 text-gray-200 font-bold">
 
-                {openSections.find(section => section.keywordTitle === item.keywordTitle && section.index) ? <FaMinus className="bg-gray-400 p-1 rounded font-bold text-black" /> : <FaPlus className="bg-gray-400 p-1 rounded font-bold text-black" />}
+                {openSections.find(section => section.keywordTitle === item.keywordTitle && section.index) ? <FaMinus className="bg-gray-200 p-1 rounded font-bold text-black" /> : <FaPlus className="bg-gray-200 p-1 rounded font-bold text-black" />}
 
                 <span> {item.keywordTitle}</span>
               </p>
