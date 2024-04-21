@@ -3,19 +3,20 @@ import useGetData from "../../components/Tools/useGetData"
 import { useGetDiscoverMoviesQuery } from "../../Redux/Features/Api/movieApi"
 import Loading from "../../components/accessories/Loading";
 import MovieItem from "../../components/Home/Banner02/MovieItem";
+import Error from "../../components/accessories/Error";
 
 export default function Movies() {
     const pathId = useParams().genreId
-    const { data: movies, isLoading, isError } = useGetDiscoverMoviesQuery({ type: "movie", path: "with_genres=28,12" });
+    const { data: movies, isLoading, isError,error } = useGetDiscoverMoviesQuery({ type: "movie", path: "with_genres=28,12" });
     let content;
     if (isLoading) content = <Loading />
-    if (!isLoading && isError) content = <p>Error Occured</p>
+    if (!isLoading && isError) content = <Error />
 
     if (!isLoading && !isError && movies?.results.length > 0) {
         content = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} />)
     }
 
-    console.log(movies)
+    console.log(error,"error")
 
     return (
         <div className="p-5 flex-1">

@@ -7,14 +7,15 @@ import { treandingSliderSettings } from "../../components/Tools/SliderSettings";
 import { titleText } from "../../components/accessories/TextTitle";
 import { useState } from "react";
 import SimilarDetails from "./SimilarDetails";
+import Error from "../../components/accessories/Error";
 
 export default function Similar() {
     const [movieId, setMovieId] = useState({});
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const { data: movie, isLoading: detailsLoading, isError: detailsError } = useGetMovieDetailsQuery(movieId, { skip: !movieId });
+    const { data: movie, isLoading: detailsLoading, isError: detailsError, error: error01 } = useGetMovieDetailsQuery(movieId, { skip: !movieId });
 
     const id = useParams().movieId;
-    const { data: movies, isLoading, isError } = useGetAllDataSlashQuery({ type: "movie", id: "", keyword: "top_rated" });
+    const { data: movies, isLoading, isError, error: error02 } = useGetAllDataSlashQuery({ type: "movie", id: "", keyword: "top_rated" });
 
 
     const ClickedMovieDetails = (id) => {
@@ -24,7 +25,7 @@ export default function Similar() {
 
     let content;
     if (isLoading || detailsLoading) content = <Loading />
-    if (!isLoading && isError) content = "Error occured";
+    if (!isLoading && isError) content = <Error error={error01 || error02} />;
 
     if (!isLoading && !isError && movies?.results?.length > 0) {
         content = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} ClickedMovieDetails={ClickedMovieDetails} />)

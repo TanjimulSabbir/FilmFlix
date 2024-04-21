@@ -7,7 +7,7 @@ function Home() {
     const { toggle01, toggle02, toggle03 } = ToggleData();
     console.log(toggle01)
     return (
-        <div>
+        <div className='-mt-24'>
             <SlickSlider />
             <div className="container mx-auto">
                 <Toggles type={'Trending'} data={toggle01} />

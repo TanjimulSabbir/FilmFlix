@@ -5,7 +5,9 @@ import { Toaster } from "react-hot-toast";
 function Layout() {
     return (
         <div>
-            <Navbar />
+            <div className="mb-24">
+                <Navbar />
+            </div>
             <Outlet />
             <Toaster position="top-center" />
         </div>

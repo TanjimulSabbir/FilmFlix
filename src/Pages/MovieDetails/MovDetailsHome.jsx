@@ -45,7 +45,7 @@ function MovDetailsHome() {
   }, [id, movie]);
 
   return (
-    <div className="container mx-auto h-screen mt-24">
+    <div className="container mx-auto h-screen">
       {content}
     </div>
   )

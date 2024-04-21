@@ -7,41 +7,43 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useSelector } from "react-redux";
 import { TopBannerSliderSettings } from "../Tools/SliderSettings";
+import Error from "../accessories/Error";
 
 
 function SlickSlider() {
     const { data: Movies = [], isLoading, isError, error } = useGetMoviesQuery('now_playing', { refetchOnFocus: false, refetchOnMountOrArgChange: false, });
     const [imageSrc, setImageSrc] = useState("")
 
-    const sliderState = useSelector(state => state.slider.sliderPlay);
+    const sliderState = useSelector(state => state?.slider?.sliderPlay);
     let content;
 
     if (isLoading) {
-        content = <Loading />
-    }
-    if (isError) {
-        content = "Data fetching error"
+        content = <Loading />;
+    } else if (isError) {
+        content = <Error error={error}/>;
+    } else if (!isLoading && !isError && Movies?.results?.length > 0) {
+        content = Movies.results.map(movie => (
+            <div key={movie.id} className="relative">
+                <Banner id={movie.id} />
+                <div>
+                    <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.original_title} srcSet="" />
+                </div>
+            </div>
+        ));
+    } else {
+        content = <div>No movies found.</div>;
     }
 
-    if (!isLoading && !isError) {
-        content = Movies.results.map(movie => {
-            return (
-                <div key={movie.id} className="relative">
-                    <Banner id={movie.id} />
-                    <div>
-                        <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.original_title} srcSet="" />
-                    </div>
-                </div>
-            )
-        });
-    }
 
     let sliderRef = useRef(null);
+    const renderSlider = !isError && !isLoading && Movies?.results?.length > 0;
     const play = () => {
-        sliderRef.slickPlay();
+        renderSlider &&
+            sliderRef.slickPlay();
     };
     const pause = () => {
-        sliderRef.slickPause();
+        renderSlider &&
+            sliderRef.slickPause();
     };
 
     useEffect(() => {
@@ -52,14 +54,17 @@ function SlickSlider() {
         }
     }, [sliderState])
 
-    console.log(sliderRef, "slideRef")
 
+    // Render Slider only if data is loaded and no error occurred
+    console.log(error,"error")
     return (
-        <div className="slider-container">
-            <Slider ref={slider => (sliderRef = slider)} {...TopBannerSliderSettings}>
-                {content}
-            </Slider>
-        </div>
+        <>
+            {renderSlider ? <div className="slider-container">
+                <Slider ref={slider => (sliderRef = slider)} {...TopBannerSliderSettings}>
+                    {content}
+                </Slider>
+            </div> : content}
+        </>
     );
 }
 

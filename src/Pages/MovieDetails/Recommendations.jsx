@@ -7,6 +7,7 @@ import { treandingSliderSettings } from "../../components/Tools/SliderSettings";
 import { titleText } from "../../components/accessories/TextTitle";
 import { useState } from "react";
 import SimilarDetails from "./SimilarDetails";
+import Error from "../../components/accessories/Error";
 
 export default function Recommendations() {
     const [movieId, setMovieId] = useState({});
@@ -24,7 +25,7 @@ export default function Recommendations() {
 
     let content;
     if (isLoading || detailsLoading) content = <Loading />
-    if (!isLoading && isError) content = "Error occured";
+    if (!isLoading && isError) content = <Error />;
 
     if (!isLoading && !isError && movies?.results?.length > 0) {
         content = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} ClickedMovieDetails={ClickedMovieDetails} />)
