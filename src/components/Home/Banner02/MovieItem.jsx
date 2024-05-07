@@ -26,7 +26,7 @@ function MovieItem({ movie, ClickedMovieDetails }) {
 
     return (
         <>
-            <div className="relative itemContainter">
+            <div className="downSlider relative itemContainter">
                 <div className="relative" onClick={hanldeShowDetails}>
                     <img className="rounded-md mb-2 px-2" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
                     <div className="absolute inset-0 bg-[#000000c5] flex items-center justify-center text-white opacity-0 transition-opacity duration-500 hover:opacity-100 cursor-pointer">

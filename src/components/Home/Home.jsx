@@ -2,6 +2,7 @@ import SlickSlider from './Slider';
 import Toggles from '../accessories/Toggles';
 import Movies from './Banner02/Movies';
 import ToggleData from '../Tools/ToggleData';
+import "../../style/animation.css"
 
 function Home() {
     const { toggle01, toggle02, toggle03 } = ToggleData();
@@ -9,7 +10,7 @@ function Home() {
     return (
         <div className='-mt-24'>
             <SlickSlider />
-            <div className="container mx-auto">
+            <div className=" container mx-auto">
                 <Toggles type={'Trending'} data={toggle01} />
                 <Movies defaultValue={toggle01} isSlider={true} />
 

@@ -1,5 +1,6 @@
 import BannerText01 from "./BannerText01";
 import BannerText02 from "./BannerText02";
+import "../../style/animation.css"
 
 function BannerText({movie}) {
     return (

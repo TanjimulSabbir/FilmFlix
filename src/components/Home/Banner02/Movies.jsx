@@ -5,6 +5,7 @@ import MovieItem from "./MovieItem";
 import Slider from "react-slick";
 import { treandingSliderSettings } from "../../Tools/SliderSettings";
 import Error from "../../accessories/Error";
+import "../../../style/animation.css"
 
 function Movies({ defaultValue, isSlider }) {
     const queryStateKeyword = useSelector(state => state.movieData.items);
@@ -20,7 +21,7 @@ function Movies({ defaultValue, isSlider }) {
     }
     const renderSlider = !isError && !isLoading && Movies?.results?.length > 0;
     return (
-        !isSlider ? <div className="grid grid-cols-5 gap-y-10 items-center justify-center">
+        !isSlider ? <div className="leftSlider grid grid-cols-5 gap-y-10 items-center justify-center">
             {content}
         </div> :
             <div className={"slider-container"}>

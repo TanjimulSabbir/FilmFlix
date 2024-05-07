@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useSelector } from "react-redux";
 import { TopBannerSliderSettings } from "../Tools/SliderSettings";
 import Error from "../accessories/Error";
+import "../../style/animation.css"
 
 
 function SlickSlider() {
@@ -25,7 +26,7 @@ function SlickSlider() {
         content = Movies.results.map(movie => (
             <div key={movie.id} className="relative">
                 <Banner id={movie.id} />
-                <div>
+                <div className="fade-in">
                     <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.original_title} srcSet="" />
                 </div>
             </div>
