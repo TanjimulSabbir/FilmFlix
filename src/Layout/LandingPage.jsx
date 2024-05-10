@@ -19,7 +19,6 @@ function LandingPage() {
   return (
     <div className="">
       <Search />
-
       <Toggle data={ToggleData} type="Trending" />
     </div>
   )

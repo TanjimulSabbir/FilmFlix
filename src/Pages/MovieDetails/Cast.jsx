@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import { useGetCastsQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
 import { castSliderSettings } from "../../components/Tools/SliderSettings";
-import style from "./cast.module.css"
+import style from "../../style/cast.module.css"
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { addCastData } from "../../Redux/Features/movies/moviesSlice";

@@ -34,25 +34,25 @@ export default function MoviesHome() {
   const InputTypes = ["Genres"]
 
   return (
-    <div className="h-screen w-full flex">
-      <div className="relative w-[200px] sm:w-[250px] bitter">
-        <div className="sticky pt-14 pb-4 pl-3 sm:pl-5 min-h-screen md:pl-10 w-[200px] sm:w-[250px] bg-[#0b0b0b] z-30 rounded">
+    <div className="h-full w-full flex bg-black">
+      <div className="relative w-[200px] sm:w-[250px]">
+        <div className="sticky pt-14 pb-4 pl-3 sm:pl-5 min-h-full md:pl-10 w-[200px] sm:w-[250px] z-30 rounded">
           {genresData.map((item, index) => (
             <div key={item.keywordTitle} className="relative">
               <p
                 onClick={() => toggleSection({ keywordTitle: item.keywordTitle, index })}
 
-                className="flex items-center space-x-5 cursor-pointer mt-5 text-gray-200 font-bold">
+                className="flex items-center space-x-3 cursor-pointer mt-5 text-white font-bold">
 
-                {openSections.find(section => section.keywordTitle === item.keywordTitle && section.index) ? <FaMinus className="bg-gray-200 p-1 rounded font-bold text-black" /> : <FaPlus className="bg-gray-200 p-1 rounded font-bold text-black" />}
+                {openSections.find(section => section.keywordTitle === item.keywordTitle && section.index) ? <FaMinus className="bg-gray-100 p-1 rounded text-black" /> : <FaPlus className="bg-gray-100 p-1 rounded text-black" />}
 
                 <span> {item.keywordTitle}</span>
               </p>
 
 
-              {openSections.find(section => section.keywordTitle === item.keywordTitle && section.index) && <div className="my-3">
+              {openSections.find(section => section.keywordTitle === item.keywordTitle && section.index) && <div className="my-3 text-white">
                 {item.keywords.map(keyword => (
-                  <div key={keyword} className={`mt-1 flex items-center space-x-5 ${InputTypes.includes(item.keywordTitle) ? "custom-checkbox" : "custom-radio"}`}>
+                  <div key={keyword} className={`mt-2 flex items-center space-x-3 font-thin text-sm ${InputTypes.includes(item.keywordTitle) ? "custom-checkbox" : "custom-radio"}`}>
                     <input type={InputTypes.includes(item.keywordTitle) ? "checkbox" : "radio"}
                       id={keyword} name={item.keywordTitle} value={keyword} />
                     <label className="cursor-pointer" id={keyword} htmlFor={keyword}>{keyword}</label>

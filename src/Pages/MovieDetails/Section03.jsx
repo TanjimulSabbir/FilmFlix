@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import style from "./movieDetails.module.css";
+import style from "../../style/movieDetails.module.css";
 
 export default function Section03() {
     const crewsData = useSelector(state => state.movieData?.castData[0]?.crew);

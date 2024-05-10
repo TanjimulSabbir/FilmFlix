@@ -1,7 +1,7 @@
 import { IoIosStar } from "react-icons/io";
 import { TextRuntime, getYear } from "../../components/Tools/Others";
 import Videos from "./Videos";
-import style from "./movieDetails.module.css";
+import style from "../../style/movieDetails.module.css";
 import VoteCount from "../../components/accessories/VoteCount";
 import Popularity from "../../components/accessories/Popularity";
 
