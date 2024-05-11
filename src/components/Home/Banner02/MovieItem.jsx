@@ -15,7 +15,7 @@ function MovieItem({ movie, ClickedMovieDetails, type }) {
     const handleDetails = (id) => {
         // const pathCheck = ["/movies", "/tvshows"]
         if (!params) {
-            navigate(`/${type}/${id}`)
+            return navigate(`/${type}/${id}`)
         } else {
             ClickedMovieDetails(id)
         }

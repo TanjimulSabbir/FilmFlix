@@ -4,8 +4,10 @@ import Videos from "./Videos";
 import style from "../../style/movieDetails.module.css";
 import VoteCount from "../../components/accessories/VoteCount";
 import Popularity from "../../components/accessories/Popularity";
+import { useSelector } from "react-redux";
 
-function Section01({ movie }) {
+function Section01() {
+    const movie = useSelector(state => state.movieData.clickedMovieDetails)
     const { id, adult, backdrop_path, belongs_to_collection, budget, genres, homepage, imdb_id, original_language, original_title, overview, popularity, poster_path, production_companies, production_countries, release_date, revenue, runtime, spoken_languages, status, tagline, title, video, vote_average, vote_count
     } = movie || {};
 

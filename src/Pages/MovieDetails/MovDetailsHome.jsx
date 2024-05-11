@@ -37,7 +37,7 @@ function MovDetailsHome() {
       <Section02 movie={movie} />
       <Section03 />
       <Similar />
-      <Section04 id={id} />
+      <Section04 id={id} type={pathType}/>
       <Section05 />
       <Recommendations />
     </>

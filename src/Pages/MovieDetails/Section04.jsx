@@ -6,8 +6,8 @@ import { titleText } from "../../components/accessories/TextTitle";
 import { useState } from "react";
 import { ImCross } from "react-icons/im";
 
-export default function Section04({ id }) {
-    const imagesData = useGetData({ type: "movie", id, keyword: "images" });
+export default function Section04({ id, type }) {
+    const imagesData = useGetData({ type: type, id, keyword: "images" });
     const [selectedImage, setSelectedImage] = useState(null);
 
     const handleImageClick = (photoPath) => {

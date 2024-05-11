@@ -86,7 +86,7 @@ export default function MoviesHome() {
     if (isFetching || isLoading) {
       setContent(<Loading />);
     } else if (!isLoading && !isError && movies && movies.results.length > 0) {
-      const moviesContent = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} type="movie" />);
+      const moviesContent = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} type="movie"/>);
       setContent(moviesContent);
     } else if (!isLoading && !isError && (!movies || movies.results.length === 0)) {
       setContent(<p>No movies found!</p>);
