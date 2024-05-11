@@ -15,7 +15,7 @@ export default function Others() {
     return ArrayData.map((item, index) => (
       <p key={item.credit_id} className="flex items-center text-nowrap space-x-2">
         {index > 0 && < PiDotBold />}
-        <span className="text-blue-700">{item[type]}</span>
+        <span className="text-sky-500">{item[type]}</span>
       </p>
     ));
   }
@@ -24,11 +24,11 @@ export default function Others() {
     <div className="w-full pb-7">
       <div className="flex space-x-5 py-4 border-y border-gray-600">
         <span className="text-lg font-bold">Tagline</span>
-        <p className="text-green-500">{tagline}</p>
+        <p className="text-sky-500">{tagline}</p>
       </div>
       <div className="flex space-x-5 py-4 border-y border-gray-600">
         <span className="text-lg font-bold">Release Date</span>
-        <p className="text-green-500">{getReleaseDate(release_date)}</p>
+        <p className="text-sky-500">{getReleaseDate(release_date)}</p>
       </div>
       <div className="flex space-x-5 py-4 border-b border-gray-600">
         <span className="text-lg font-bold">Countries Of Origin</span>
@@ -37,9 +37,9 @@ export default function Others() {
       <div className="flex space-x-5 py-4 border-b border-gray-600">
         <span className="text-lg font-bold">Official Sites</span>
         <p className="flex flex-wrap items-center gap-2 ">
-          <Link to={homepage} className="text-blue-700">Homepage</Link>
+          <Link to={homepage} className="text-sky-500">Homepage</Link>
           <PiDotBold />
-          <Link to={`https://www.imdb.com/title/${imdb_id}`} className="text-blue-700">IMDb Title</Link>
+          <Link to={`https://www.imdb.com/title/${imdb_id}`} className="text-sky-500">IMDb Title</Link>
         </p>
 
       </div>

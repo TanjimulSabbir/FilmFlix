@@ -6,18 +6,18 @@ import Slider from "react-slick";
 import { treandingSliderSettings } from "../../components/Tools/SliderSettings";
 import { titleText } from "../../components/accessories/TextTitle";
 import { useState } from "react";
-import SimilarDetails from "./SimilarDetails";
+import SimilarDetails from "./ModalDetails";
 import Error from "../../components/accessories/Error";
 
 export default function Recommendations() {
     const [movieId, setMovieId] = useState({});
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const { data: movie, isLoading: detailsLoading, isError: detailsError } = useGetMovieDetailsQuery(movieId, { skip: !movieId });
 
-    const id = useParams().id;
     const pathType = useLocation().pathname.split("/")[1];
-    const { data: movies, isLoading, isError } = useGetAllDataSlashQuery({ type: pathType, id, keyword: "recommendations" });
 
+    const { data: movie, isLoading: detailsLoading, isError: detailsError } = useGetMovieDetailsQuery({ id: movieId, type: pathType }, { skip: !movieId });
+
+    const { data: movies, isLoading, isError } = useGetAllDataSlashQuery({ type: pathType, id: "", keyword: "recommendations" });
 
     const ClickedMovieDetails = (id) => {
         setMovieId(id);

@@ -6,18 +6,18 @@ import Slider from "react-slick";
 import { treandingSliderSettings } from "../../components/Tools/SliderSettings";
 import { titleText } from "../../components/accessories/TextTitle";
 import { useState } from "react";
-import SimilarDetails from "./SimilarDetails";
+import SimilarDetails from "./ModalDetails";
 import Error from "../../components/accessories/Error";
 
 export default function Similar() {
     const [movieId, setMovieId] = useState({});
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const { data: movie, isLoading: detailsLoading, isError: detailsError, error: error01 } = useGetMovieDetailsQuery(movieId, { skip: !movieId });
 
-    const id = useParams().id;
-    const pathType = useLocation().pathname.split("/")[1]
+    const pathType = useLocation().pathname.split("/")[1];
+
+    const { data: movie, isLoading: detailsLoading, isError: detailsError, error: error01 } = useGetMovieDetailsQuery({ id: movieId, type: pathType }, { skip: !movieId });
+
     const { data: movies, isLoading, isError, error: error02 } = useGetAllDataSlashQuery({ type: pathType, id: "", keyword: "top_rated" });
-
 
     const ClickedMovieDetails = (id) => {
         setMovieId(id);
@@ -29,7 +29,8 @@ export default function Similar() {
     if (!isLoading && isError) content = <Error error={error01 || error02} />;
 
     if (!isLoading && !isError && movies?.results?.length > 0) {
-        content = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} ClickedMovieDetails={ClickedMovieDetails} />)
+        content = movies.results.map(movie => <MovieItem key={movie.id} movie={movie}
+            ClickedMovieDetails={ClickedMovieDetails} />)
     }
 
     const handleCloseModal = () => {

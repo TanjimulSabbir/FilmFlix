@@ -1,19 +1,20 @@
 import { IoIosStar } from "react-icons/io";
 import playBtn from "../../../assets/images/play-btn.gif"
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { getYear } from "../../Tools/Others";
 
 
 function MovieItem({ movie, ClickedMovieDetails, type }) {
     const urlPath = useLocation().pathname;
+    const params = useParams().id;
 
     const { id, original_title, title, release_date, vote_average, adult, poster_path } = movie;
 
     const navigate = useNavigate();
 
     const handleDetails = (id) => {
-        const pathCheck = ["/movies", "/tvshows"]
-        if (pathCheck.includes(urlPath)) {
+        // const pathCheck = ["/movies", "/tvshows"]
+        if (!params) {
             navigate(`/${type}/${id}`)
         } else {
             ClickedMovieDetails(id)

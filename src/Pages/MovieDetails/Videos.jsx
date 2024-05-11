@@ -1,9 +1,8 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useGetMovieVideosQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
 
-export default function Videos({ howMuch, title }) {
-    const id = useParams().id;
+export default function Videos({id, howMuch, title }) {
     const pathType = useLocation().pathname.split("/")[1];
 
     const { data: videos, isLoading, isError } = useGetMovieVideosQuery({ id, type: pathType });
