@@ -8,13 +8,14 @@ import Loading from "../../components/accessories/Loading";
 import MovieItem from "../../components/Home/Banner02/MovieItem";
 import Error from "../../components/accessories/Error";
 import moment from "moment";
+import toast from "react-hot-toast";
 
 export default function MoviesHome() {
-  const [path, setPath] = useState("with_genres=28,12");
-  const { data: movies, isLoading, isError, refetch } = useGetDiscoverMoviesQuery({ type: "movie", path });
+  const [path, setPath] = useState("with_genres=14,18");
+  const { data: movies, isLoading, isError, refetch, isFetching } = useGetDiscoverMoviesQuery({ type: "movie", path });
   const [openSections, setOpenSections] = useState([]);
   const [genresKeywords, setGenresKeywords] = useState([]);
-
+  const [content, setContent] = useState(null);
 
   const toggleSection = ({ keywordTitle, index }) => {
     setOpenSections(prevItems => {
@@ -33,8 +34,13 @@ export default function MoviesHome() {
 
   const handleClick = (keywordTitle, keyword) => {
     if (keywordTitle === "Genres") {
-      setGenresKeywords(prev => [...prev, keyword.id]);
-      setPath(`with_genres=${genresKeywords.join(',')}`)
+      if (genresKeywords.length > 4) {
+        toast.error("Maximum 5 keywords can be selected");
+        return setPath(genresKeywords); // Exit the function early
+      }
+      setGenresKeywords(prev =>
+        prev.includes(keyword.id) ? prev.filter(item => item !== keyword.id) : [...prev, keyword.id]
+      )
     } else {
       switch (keywordTitle) {
         case 'IMDb Rating':
@@ -52,26 +58,37 @@ export default function MoviesHome() {
             const searchedMonth = keyword.split(" ")[1];
             const startDate = moment(today).subtract(Number(searchedMonth), 'months').format('YYYY-MM-DD');
             const endDate = moment(today).format('YYYY-MM-DD');
-            setPath(`&primary_release_date.gte=${startDate}&primary_release_date.lte=${endDate}`)
+            setPath(`primary_release_date.gte=${startDate}&primary_release_date.lte=${endDate}`)
           }
           break;
-
         default:
           break;
       }
     }
   }
 
-  let content;
-  if (isLoading) content = <Loading />;
-  if (!isLoading && isError) content = <Error />;
-  if (!isLoading && !isError && movies?.results.length > 0) {
-    content = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} />);
-  }
+  useEffect(() => {
+    genresKeywords.length > 0 ? setPath(`with_genres=${genresKeywords.join(',')}`) : setPath(`with_genres=14,18`)
+  }, [genresKeywords])
+
+  // useEffect(() => {
+  //   if (isFetching) {
+  //     setContent(<Loading />);
+  //   }
+  // }, [isFetching]);
 
   useEffect(() => {
-    refetch()
-  }, [genresKeywords, path]);
+    refetch();
+  }, [path]);
+
+  useEffect(() => {
+    if (!isLoading && !isError && movies && movies.results.length > 0) {
+      const moviesContent = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} />);
+      setContent(moviesContent);
+    } else if (!isLoading && !isError && (!movies || movies.results.length === 0)) {
+      setContent(<p>No movies found.</p>);
+    }
+  }, [isLoading, isError, movies]);
 
   return (
     <div className="h-full w-full flex bg-black">

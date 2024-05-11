@@ -1,10 +1,3 @@
-import { useLocation, useParams } from "react-router-dom"
-import useGetData from "../../components/Tools/useGetData"
-import { useGetDiscoverMoviesQuery } from "../../Redux/Features/Api/movieApi"
-import Loading from "../../components/accessories/Loading";
-import MovieItem from "../../components/Home/Banner02/MovieItem";
-import Error from "../../components/accessories/Error";
-
 export default function Movies({ content }) {
 
     return (
