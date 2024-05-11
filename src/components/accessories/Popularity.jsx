@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Popularity({ popularity }) {
     const thresholds = { niche: 500, mainstream: 1000, blockbuster: 1500 };
     const level = popularity < thresholds.niche ? 'Niche' :

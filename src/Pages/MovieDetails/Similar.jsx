@@ -43,11 +43,11 @@ export default function Similar() {
     return (
         <div className="py-11">
             {titleText("Playing similar on theaters")}
-            <div className="slider-container mt-9">
+            {content ? <div className="slider-container mt-9">
                 <Slider {...treandingSliderSettings}>
                     {content}
                 </Slider>
-            </div>
+            </div> : "not found"}
             {selectedMovie && (
                 <div className="fixed inset-0 w-full h-full flex justify-center items-center z-40 bg-[#080808c6]">
                     <div className="relative flex items-center justify-center">

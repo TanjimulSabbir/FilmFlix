@@ -6,9 +6,11 @@ import style from "../../style/cast.module.css"
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { addCastData } from "../../Redux/Features/movies/moviesSlice";
+import { useLocation } from "react-router-dom";
 
 function Cast({ id }) {
-    const { data: castsData, isLoading, isError } = useGetCastsQuery({ type: "movie", id }, { skip: !id });
+    const pathType = useLocation().pathname.split("/")[1]
+    const { data: castsData, isLoading, isError } = useGetCastsQuery({ type: pathType, id }, { skip: !id });
     let content;
 
     const dispatch = useDispatch();

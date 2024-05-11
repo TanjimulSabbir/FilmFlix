@@ -5,6 +5,7 @@ import { TextRuntime, getYear } from "../../../components/Tools/Others";
 import Review from "./Review";
 import { titleText } from "../../../components/accessories/TextTitle";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function Reviews() {
   const movie = useSelector(state => state.movieData.clickedMovieDetails);
@@ -13,7 +14,9 @@ export default function Reviews() {
   const { id, adult, backdrop_path, belongs_to_collection, budget, genres, homepage, imdb_id, original_language, original_title, overview, popularity, poster_path, production_companies, production_countries, release_date, revenue, runtime, spoken_languages, status, tagline, title, video, vote_average, vote_count
   } = movie || {};
 
-  const intialReviewsData = useGetData({ type: "movie", id, keyword: "reviews" });
+  const pathType = useLocation().pathname.split("/")[1]
+
+  const intialReviewsData = useGetData({ type: pathType, id, keyword: "reviews" });
 
   const handleLoadMoreData = () => {
     const remainingReviews = Math.max(intialReviewsData?.results?.length - loadMore, 0);

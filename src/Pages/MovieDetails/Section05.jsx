@@ -1,19 +1,20 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import Links from './detailsLayout/Links';
-import Episods from './detailsLayout/Episods';
+import Seasons from './detailsLayout/Seasons';
 import Reviews from './detailsLayout/Reviews';
 import Others from './detailsLayout/Others';
+import { useSelector } from 'react-redux';
 
 const Videos = React.lazy(() => import('./Videos'));
 
 
 function Section05() {
-    const id = useParams().id;
+    const movie = useSelector(state => state.movieData.clickedMovieDetails)
+    const { id, number_of_seasons } = movie || {};
     const hashPath = window.location.hash;
-    
+
     const paths = [
-        { title: "Episod", pathName: "#episods", element: <Episods /> },
+        { title: `Season (${number_of_seasons})`, pathName: "#episods", element: < Seasons /> },
         { title: "User Reviews", pathName: "#reviews", element: <Reviews /> },
         {
             title: "Videos", pathName: "#videos", element: <React.Suspense fallback={<p className='text-green-500'>Loading...</p>}>

@@ -8,7 +8,7 @@ function MovieItem({ movie, ClickedMovieDetails, type }) {
     const urlPath = useLocation().pathname;
     const params = useParams().id;
 
-    const { id, original_title, title, release_date, vote_average, adult, poster_path } = movie;
+    const { id, original_title, title, release_date, vote_average, adult, poster_path } = movie || {};
 
     const navigate = useNavigate();
 

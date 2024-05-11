@@ -5,10 +5,24 @@ import Videos from "./Videos";
 import { titleText } from "../../components/accessories/TextTitle";
 import { useState } from "react";
 import { ImCross } from "react-icons/im";
+import { useGetAllDataSlashQuery } from "../../Redux/Features/Api/movieApi";
+import Loading from "../../components/accessories/Loading";
+import Error from "../../components/accessories/Error";
 
 export default function Section04({ id, type }) {
-    const imagesData = useGetData({ type: type, id, keyword: "images" });
+    // const imagesData = useGetData({ type: type, id, });
+    const { data: imagesData, isLoading, isError } = useGetAllDataSlashQuery({ type, id, keyword: "images" });
     const [selectedImage, setSelectedImage] = useState(null);
+
+
+
+    if (isLoading) {
+        return <Loading />
+    }
+    if (isError || imagesData.posters?.length === 0) {
+        return <Error message="No image found!" />
+    }
+    console.log(imagesData, "Images Data")
 
     const handleImageClick = (photoPath) => {
         setSelectedImage(photoPath);
@@ -21,7 +35,7 @@ export default function Section04({ id, type }) {
     return (
         <div className="py-11">
             {titleText("Photos")}
-            <div className="slider-container mt-9">
+            {imagesData.posters?.length > 0 ? <div className="slider-container mt-9">
                 <Slider {...imagesSliderSettings}>
                     {imagesData?.posters?.map((poster, index) => {
                         const photoPath = `https://image.tmdb.org/t/p/original${poster.file_path}`;
@@ -32,7 +46,7 @@ export default function Section04({ id, type }) {
                         );
                     })}
                 </Slider>
-            </div>
+            </div> : "Images not found"}
 
             {/* Modal for displaying the selected image */}
             {selectedImage && (

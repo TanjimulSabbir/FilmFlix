@@ -6,7 +6,5 @@ export default function useGetData({ type, id, keyword }) {
 
     if (isLoading) return <Loading />;
     if (isError) return <p>Error occurred</p>;
-
-    console.log(data)
     return data;
 }
