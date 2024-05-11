@@ -42,11 +42,11 @@ const router = createBrowserRouter([
                 element: <Login />
             },
             {
-                path: "/movie/:movieId",
+                path: "/movie/:id",
                 element: <MovDetailsHome />
             },
             {
-                path: "/tv/:movieId",
+                path: "/tv/:id",
                 element: <MovDetailsHome />
             },
         ]

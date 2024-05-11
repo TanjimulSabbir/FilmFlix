@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useGetMovieDetailsQuery } from "../../Redux/Features/Api/movieApi";
 import Section01 from "./Section01";
 import Section02 from "./Section02";
@@ -12,10 +12,13 @@ import { addClickedMovieDetailsData } from "../../Redux/Features/movies/moviesSl
 import { useEffect } from "react";
 import { documentTitle } from "../../components/Tools/Others";
 import Recommendations from "./Recommendations";
+import toast from "react-hot-toast"
 
 function MovDetailsHome() {
-  const id = useParams().movieId
-  const { data: movie = {}, isLoading, isError, error } = useGetMovieDetailsQuery(id, { refetchOnFocus: false, refetchOnMountOrArgChange: false, });
+  const id = useParams().id
+  const pathType = useLocation().pathname.split("/")[1];
+
+  const { data: movie = {}, isLoading, isError, error } = useGetMovieDetailsQuery({ id, type: pathType }, { refetchOnFocus: false, refetchOnMountOrArgChange: false, });
 
   const dispatch = useDispatch();
 

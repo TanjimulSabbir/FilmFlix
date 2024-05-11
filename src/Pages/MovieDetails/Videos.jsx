@@ -1,8 +1,12 @@
+import { useLocation, useParams } from "react-router-dom";
 import { useGetMovieVideosQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
 
-export default function Videos({ id, howMuch, title }) {
-    const { data: videos, isLoading, isError } = useGetMovieVideosQuery(id);
+export default function Videos({ howMuch, title }) {
+    const id = useParams().id;
+    const pathType = useLocation().pathname.split("/")[1];
+
+    const { data: videos, isLoading, isError } = useGetMovieVideosQuery({ id, type: pathType });
     let content;
 
     if (isLoading) {
@@ -19,7 +23,7 @@ export default function Videos({ id, howMuch, title }) {
                         width="100%"
                         height="100%"
                         src={`https://www.youtube.com/embed/${key}?controls=0&rel=0`}
-                        title={title||"untitled"}
+                        title={title || "untitled"}
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerPolicy="strict-origin-when-cross-origin"
@@ -36,7 +40,7 @@ export default function Videos({ id, howMuch, title }) {
                             width="100%"
                             height="315"
                             src={`https://www.youtube.com/embed/${item.key}?controls=0&rel=0`}
-                            title="YouTube video player"
+                            title={title || "untitled"}
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerPolicy="strict-origin-when-cross-origin"

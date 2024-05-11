@@ -8,13 +8,13 @@ export const movieApi = apiSlice.injectEndpoints({
             })
         }),
         getMovieDetails: builder.query({
-            query: (id) => ({
-                url: `/movie/${id}?${API_KEY}`
+            query: ({ id, type }) => ({
+                url: `/${type}/${id}?${API_KEY}`
             })
         }),
         getMovieVideos: builder.query({
-            query: (id) => ({
-                url: `/movie/${id}/videos?${API_KEY}`
+            query: ({ id, type }) => ({
+                url: `/${type}/${id}/videos?${API_KEY}`
             })
         }),
         getDiscoverMovies: builder.query({

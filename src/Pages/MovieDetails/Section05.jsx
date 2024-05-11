@@ -9,7 +9,7 @@ const Videos = React.lazy(() => import('./Videos'));
 
 
 function Section05() {
-    const id = useParams().movieId;
+    const id = useParams().id;
     const hashPath = window.location.hash;
     const paths = [
         { title: "Episod", pathName: "#episods", element: <Episods /> },

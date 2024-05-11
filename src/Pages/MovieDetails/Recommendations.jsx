@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useGetAllDataSlashQuery, useGetMovieDetailsQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
 import MovieItem from "../../components/Home/Banner02/MovieItem";
@@ -14,8 +14,9 @@ export default function Recommendations() {
     const [selectedMovie, setSelectedMovie] = useState(null);
     const { data: movie, isLoading: detailsLoading, isError: detailsError } = useGetMovieDetailsQuery(movieId, { skip: !movieId });
 
-    const id = useParams().movieId;
-    const { data: movies, isLoading, isError } = useGetAllDataSlashQuery({ type: "movie", id, keyword: "recommendations" });
+    const id = useParams().id;
+    const pathType = useLocation().pathname.split("/")[1];
+    const { data: movies, isLoading, isError } = useGetAllDataSlashQuery({ type: pathType, id, keyword: "recommendations" });
 
 
     const ClickedMovieDetails = (id) => {
