@@ -5,6 +5,7 @@ import style from "../../style/movieDetails.module.css";
 import VoteCount from "../../components/accessories/VoteCount";
 import Popularity from "../../components/accessories/Popularity";
 import { useSelector } from "react-redux";
+import "../../style/animation.css";
 
 function Section01() {
     const movie = useSelector(state => state.movieData.clickedMovieDetails)
@@ -12,9 +13,9 @@ function Section01() {
     } = movie || {};
 
     return (
-        <div className='mb-10'>
+        <div className='topSliderSlow mb-10'>
             <div className="mb-4 flex items-center justify-between">
-                <div>
+                <div className="topSlider">
                     <h2 className="text-4xl inline-block">{original_title}</h2>
                     <p className="flex items-center space-x-2">
                         <span>{getYear(release_date)}</span>
@@ -25,11 +26,11 @@ function Section01() {
                     </p>
                 </div>
 
-                <div className="flex space-x-7 justify-center">
+                <div className="topSlider flex space-x-7 justify-center">
                     <div>
                         <p>IMDb RATING</p>
                         <p>
-                            <span className="flex items-center space-x-1">
+                            <span className="fade-in-slow flex items-center space-x-1">
                                 <IoIosStar className="text-yellow-500" />
                                 <span>
                                     <span className="font-bold"> {vote_average?.toFixed(1)}</span>
@@ -40,21 +41,21 @@ function Section01() {
                     </div>
 
                     <div>
-                        <p className="uppercase">Total Vote</p>
+                        <p className="fade-in-slow uppercase">Total Vote</p>
                         <VoteCount vote_count={vote_count} />
                     </div>
                     <Popularity popularity={popularity} />
                 </div>
             </div>
             <div className="flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:space-x-3">
-                <img className="w-1/3" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={original_title} srcSet="" />
+                <img className="leftSliderSlow w-1/3" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={original_title} srcSet="" />
 
-                <div className="w-full min-h-fit">
+                <div className="fade-in-slow w-full min-h-fit">
                     <Videos id={id} howMuch={"1"} title={original_title} />
                 </div>
             </div>
 
-            <div className="space-x-5 mt-5">
+            <div className="fade-in-slow space-x-5 mt-5">
                 {genres.map(item => <button key={item.id} className="border border-gray-100 px-4 py-1 rounded-2xl">{item.name}</button>)}
             </div>
         </div>

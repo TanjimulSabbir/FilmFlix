@@ -64,21 +64,36 @@
 .topSlider {
     animation: top 1s ease-in-out;
 }
+.topSliderSlow {
+    animation: top 3s ease-in-out;
+}
 
 .downSlider {
     animation: down 1s ease-in-out;
+}
+.downSliderSlow {
+    animation: down 3s ease-in-out;
 }
 
 .leftSlider {
     animation: left 1.5s ease-in-out;
 }
+.leftSliderSlow {
+    animation: left 2.5s ease-in-out;
+}
 
 .rightSlider {
     animation: right 1.5s ease-in-out;
 }
+.rightSliderSlow {
+    animation: right 2.5s ease-in-out;
+}
 
 .fade-in {
     animation: fade-in 2s ease-in-out;
+}
+.fade-in-slow {
+    animation: fade-in 3s ease-in-out;
 }
 
 .fade-out {

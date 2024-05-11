@@ -4,6 +4,7 @@ import Seasons from './detailsLayout/Seasons';
 import Reviews from './detailsLayout/Reviews';
 import Others from './detailsLayout/Others';
 import { useSelector } from 'react-redux';
+import Season from './detailsLayout/Season';
 
 const Videos = React.lazy(() => import('./Videos'));
 
@@ -14,7 +15,7 @@ function Section05() {
     const hashPath = window.location.hash;
 
     const paths = [
-        { title: `Season (${number_of_seasons})`, pathName: "#episods", element: < Seasons /> },
+        { title: `Season (${number_of_seasons})`, pathName: "#episods", element: <Seasons /> },
         { title: "User Reviews", pathName: "#reviews", element: <Reviews /> },
         {
             title: "Videos", pathName: "#videos", element: <React.Suspense fallback={<p className='text-green-500'>Loading...</p>}>
@@ -22,6 +23,7 @@ function Section05() {
             </React.Suspense>
         },
         { title: "Others", pathName: "#others", element: <Others /> }
+        // { title: "All Season", pathName: "#episods", element: <Season /> }
     ];
 
     // Filter paths based on hashPath

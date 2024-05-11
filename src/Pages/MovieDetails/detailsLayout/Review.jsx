@@ -11,7 +11,7 @@ export default function Review({ review }) {
 
 
     return (
-        <div className="mt-11">
+        <div className="mt-11 downSlider">
             <div>
                 <div className="flex items-center gap-x-5 mb-3">
                     <img className="w-16 h-16 rounded-full" src={`https://image.tmdb.org/t/p/original${avatar_path}`} alt="" srcSet="" />
@@ -35,7 +35,7 @@ export default function Review({ review }) {
                 </div>
                 <p>{content}</p>
             </div>
-            <div className="flex items-center space-x-5 mt-5">
+            <div className="fade-in-slow flex items-center space-x-5 mt-5">
                 <button className="flex items-center space-x-1 border border-gray-100 px-4 py-1 rounded-2xl focus:bg-sky-600">
                     <SlLike />
                     <span> Helpful</span>

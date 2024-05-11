@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useGetMovieVideosQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
 import Error from "../../components/accessories/Error";
+import "../../style/animation.css"
 
 export default function Videos({ id, howMuch, title }) {
     const pathType = useLocation().pathname.split("/")[1];
@@ -21,7 +22,7 @@ export default function Videos({ id, howMuch, title }) {
         if (trailerVideo && howMuch === "1") {
             const { key } = trailerVideo;
             content = (
-                <div className="w-full h-full min-h-full">
+                <div className="rightSlider w-full h-full min-h-full">
                     <iframe
                         width="100%"
                         height="100%"
@@ -36,7 +37,7 @@ export default function Videos({ id, howMuch, title }) {
             );
         } else {
             content = (
-                <div className="flex items-center gap-5 h-[400px] w-full overflow-x-scroll">
+                <div className="leftSlider flex items-center gap-5 h-[400px] w-full overflow-x-scroll">
                     {videos.results.map(item => (
                         <iframe
                             key={item.key}
