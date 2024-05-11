@@ -50,7 +50,7 @@ export default function Section04({ id, type }) {
 
             {/* Modal for displaying the selected image */}
             {selectedImage && (
-                <div onClick={handleCloseModal} className="fixed inset-0 w-full h-full flex justify-center items-center bg-black bg-opacity-70 z-40 cursor-pointer">
+                <div onClick={handleCloseModal} className="fade-in fixed inset-0 w-full h-full flex justify-center items-center bg-black bg-opacity-70 z-40 cursor-pointer">
                     <div className="relative">
                         <ImCross onClick={handleCloseModal} className="fixed text-3xl right-10 top-5 text-red-500 cursor-pointer z-50" />
                         <img className="max-w-[70%] max-h-[80%] mx-auto" src={selectedImage} alt="" />

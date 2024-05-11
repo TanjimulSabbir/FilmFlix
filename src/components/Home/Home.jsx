@@ -10,15 +10,15 @@ function Home() {
     return (
         <div className='-mt-20'>
             <SlickSlider />
-            <div className=" container mx-auto">
+            <div className="container mx-auto">
                 <Toggles type={'Trending'} data={toggle01} />
-                <Movies defaultValue={toggle01} isSlider={true} />
+                <Movies defaultValue="popular" isSlider={true} />
 
                 <Toggles type={'Latest'} data={toggle02} />
-                <Movies defaultValue={toggle02} isSlider={true} />
+                <Movies defaultValue="top_rated" isSlider={true} />
 
                 <Toggles type={'Now playing in theaters'} data={toggle03} />
-                <Movies defaultValue={toggle03} />
+                <Movies defaultValue="upcoming" />
             </div>
         </div>
     );

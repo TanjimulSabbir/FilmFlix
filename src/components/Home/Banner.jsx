@@ -4,7 +4,7 @@ import Loading from "../accessories/Loading";
 
 
 function Banner({ id }) {
-    const { data: MovieDetails, isLoading, isError, error } = useGetMovieDetailsQuery(id);
+    const { data: MovieDetails, isLoading, isError, error } = useGetMovieDetailsQuery({ id, type: "movie" });
     console.log(id)
     let content;
     if (isLoading) {
