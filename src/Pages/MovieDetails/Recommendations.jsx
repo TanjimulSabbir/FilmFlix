@@ -9,15 +9,16 @@ import { useState } from "react";
 import SimilarDetails from "./ModalDetails";
 import Error from "../../components/accessories/Error";
 
-export default function Recommendations() {
+export default function Similar() {
     const [movieId, setMovieId] = useState({});
     const [selectedMovie, setSelectedMovie] = useState(null);
 
+    const id = useParams().id
     const pathType = useLocation().pathname.split("/")[1];
 
-    const { data: movie, isLoading: detailsLoading, isError: detailsError } = useGetMovieDetailsQuery({ id: movieId, type: pathType }, { skip: !movieId });
+    const { data: movie, isLoading: detailsLoading, isError: detailsError, error: error01 } = useGetMovieDetailsQuery({ id: movieId, type: pathType }, { skip: !movieId });
 
-    const { data: movies, isLoading, isError } = useGetAllDataSlashQuery({ type: pathType, id: "", keyword: "recommendations" });
+    const { data: movies, isLoading, isError, error: error02 } = useGetAllDataSlashQuery({ type: pathType, id, keyword: "recommendations" });
 
     const ClickedMovieDetails = (id) => {
         setMovieId(id);
@@ -26,21 +27,22 @@ export default function Recommendations() {
 
     let content;
     if (isLoading || detailsLoading) content = <Loading />
-    if (!isLoading && isError) content = <Error />;
+    if (!isLoading && isError) content = <Error error={error01 || error02} />;
 
     if (!isLoading && !isError && movies?.results?.length > 0) {
-        content = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} ClickedMovieDetails={ClickedMovieDetails} />)
+        content = movies.results.map(movie => <MovieItem key={movie.id} movie={movie}
+            ClickedMovieDetails={ClickedMovieDetails} />)
     }
 
     const handleCloseModal = () => {
         setSelectedMovie(null);
     };
 
-    console.log(movie, "from Similar")
+    console.log(movies, "from Similar")
 
     return (
         <div className="py-11">
-            {titleText("Top Picks for you")}
+            {titleText("Recommendations")}
             <div className="slider-container mt-9">
                 <Slider {...treandingSliderSettings}>
                     {content}

@@ -13,11 +13,12 @@ export default function Similar() {
     const [movieId, setMovieId] = useState({});
     const [selectedMovie, setSelectedMovie] = useState(null);
 
+    const id = useParams().id;
     const pathType = useLocation().pathname.split("/")[1];
 
     const { data: movie, isLoading: detailsLoading, isError: detailsError, error: error01 } = useGetMovieDetailsQuery({ id: movieId, type: pathType }, { skip: !movieId });
 
-    const { data: movies, isLoading, isError, error: error02 } = useGetAllDataSlashQuery({ type: pathType, id: "", keyword: "top_rated" });
+    const { data: movies, isLoading, isError, error: error02 } = useGetAllDataSlashQuery({ type: pathType, id, keyword: "similar" });
 
     const ClickedMovieDetails = (id) => {
         setMovieId(id);
@@ -41,7 +42,7 @@ export default function Similar() {
 
     return (
         <div className="py-11">
-            {titleText("Playing on theaters")}
+            {titleText("Playing similar on theaters")}
             <div className="slider-container mt-9">
                 <Slider {...treandingSliderSettings}>
                     {content}

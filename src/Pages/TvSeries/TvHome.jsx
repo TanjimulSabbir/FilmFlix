@@ -3,10 +3,12 @@ import { FaMinus, FaPlus } from "react-icons/fa6";
 import moment from "moment";
 import toast from "react-hot-toast";
 import { useGetDiscoverMoviesQuery } from "../../Redux/Features/Api/movieApi";
-import MovieItem from "../../components/Home/Banner02/MovieItem";
-import Loading from "../../components/accessories/Loading";
+
 import TvSeries from "./TvSeries";
 import { genresTvData, getTvNewKeyword } from "../../components/Tools/filteredKeywords";
+import Loading from "../../components/accessories/Loading";
+import MovieItem from "../../components/Home/Banner02/MovieItem";
+import Error from "../../components/accessories/Error";
 
 export default function TvHome() {
   const [path, setPath] = useState("sort_by=now_playing");
@@ -85,13 +87,15 @@ export default function TvHome() {
   useEffect(() => {
     if (isFetching || isLoading) {
       setContent(<Loading />);
-    } else if (!isLoading && !isError && TvShowsData && TvShowsData.results.length > 0) {
+    } else if (!isLoading && !isError && TvShowsData && TvShowsData.results?.length > 0) {
       const tvContent = TvShowsData.results.map(tv => <MovieItem key={tv.id} movie={tv} type="tv" />);
       setContent(tvContent);
-    } else if (!isLoading && !isError && (!TvShowsData || TvShowsData.results.length === 0)) {
+    } else if (!isLoading && !isError && (!TvShowsData || !TvShowsData.results || TvShowsData.results.length === 0)) {
       setContent(<p>No TvShows found!</p>);
     }
   }, [isFetching, isLoading, isError, TvShowsData]);
+
+
 
   // useEffect(() => {
   //   const getData = async () => {
@@ -143,7 +147,7 @@ export default function TvHome() {
           ))}
         </div>
       </div>
-      <TvSeries content={content} />
+    <TvSeries content={content} />
     </div>
   );
 }
