@@ -19,10 +19,10 @@ export const movieApi = apiSlice.injectEndpoints({
         }),
         getDiscoverMovies: builder.query({
             query: ({ type, path }) => {
-                console.log(path.split("=")[1], "from the movieApi")
+                console.log(path, "from the movieApi")
                 if (path.includes("sort_by")) {
                     const pathKey = path.split("=")[1]
-                    return { url: `/movie/${pathKey}?${API_KEY}` }
+                    return { url: `/${type}/${pathKey}?${API_KEY}` }
                 }
                 return { url: `/discover/${type}?${API_KEY}&${path}` }
             }

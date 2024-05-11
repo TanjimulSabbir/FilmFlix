@@ -3,7 +3,7 @@ import { FaMinus, FaPlus } from "react-icons/fa6";
 import Movies from "./Movies";
 import "../../style/sidebar.css";
 import { useGetDiscoverMoviesQuery } from "../../Redux/Features/Api/movieApi";
-import { genresData, getNewKeyword } from "../../components/Tools/filteredKeywords";
+import { genresMovieData, getMovieNewKeyword } from "../../components/Tools/filteredKeywords";
 import Loading from "../../components/accessories/Loading";
 import MovieItem from "../../components/Home/Banner02/MovieItem";
 import Error from "../../components/accessories/Error";
@@ -45,7 +45,7 @@ export default function MoviesHome() {
       switch (keywordTitle) {
         case 'Sort By':
           {
-            const newKeyword = getNewKeyword(keyword)
+            const newKeyword = getMovieNewKeyword(keyword)
             setPath(`sort_by=${newKeyword}`)
           }
           break;
@@ -86,7 +86,7 @@ export default function MoviesHome() {
     if (isFetching || isLoading) {
       setContent(<Loading />);
     } else if (!isLoading && !isError && movies && movies.results.length > 0) {
-      const moviesContent = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} />);
+      const moviesContent = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} type="movie" />);
       setContent(moviesContent);
     } else if (!isLoading && !isError && (!movies || movies.results.length === 0)) {
       setContent(<p>No movies found!</p>);
@@ -97,7 +97,7 @@ export default function MoviesHome() {
     <div className="h-full w-full flex bg-black">
       <div className="relative w-[200px] sm:w-[250px]">
         <div className="sticky pt-14 pb-4 pl-3 sm:pl-5 min-h-full md:pl-10 w-[200px] sm:w-[250px] z-30 rounded">
-          {genresData.map((item, index) => (
+          {genresMovieData.map((item, index) => (
             <div key={item.keywordTitle} className="relative">
 
               {/* Keyword title */}

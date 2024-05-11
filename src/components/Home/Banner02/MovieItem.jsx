@@ -2,10 +2,9 @@ import { IoIosStar } from "react-icons/io";
 import playBtn from "../../../assets/images/play-btn.gif"
 import { useLocation, useNavigate } from "react-router-dom";
 import { getYear } from "../../Tools/Others";
-import toast from "react-hot-toast";
 
 
-function MovieItem({ movie, ClickedMovieDetails }) {
+function MovieItem({ movie, ClickedMovieDetails, type }) {
     const urlPath = useLocation().pathname;
 
     const { id, original_title, title, release_date, vote_average, adult, poster_path } = movie;
@@ -13,15 +12,16 @@ function MovieItem({ movie, ClickedMovieDetails }) {
     const navigate = useNavigate();
 
     const handleDetails = (id) => {
-        if (urlPath === "/movies") {
-            navigate(`/movie/${id}`)
+        const pathCheck = ["/movies", "/tvshows"]
+        if (pathCheck.includes(urlPath)) {
+            navigate(`/${type}/${id}`)
         } else {
             ClickedMovieDetails(id)
         }
     }
 
     function hanldeShowDetails() {
-        return urlPath !== "/" ? handleDetails(id) : navigate(`/movie/${id}`)
+        return urlPath !== "/" ? handleDetails(id) : navigate(`/${type}/${id}`)
     }
 
     return (

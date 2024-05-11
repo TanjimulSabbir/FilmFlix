@@ -19,7 +19,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/tvshows",
-                element: <TvHome />
+                element: <TvHome/>
             },
             {
                 path: "/movies",
@@ -45,7 +45,10 @@ const router = createBrowserRouter([
                 path: "/movie/:movieId",
                 element: <MovDetailsHome />
             },
-
+            {
+                path: "/tv/:movieId",
+                element: <MovDetailsHome />
+            },
         ]
     },
     {
