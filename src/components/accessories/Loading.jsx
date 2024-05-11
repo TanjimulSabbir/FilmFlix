@@ -1,6 +1,9 @@
+import "../../style/loading.css"
 function Loading() {
     return (
-        <p className='text-2xl text-green-300 flex items-center justify-center'>Loading...</p>
+        <div className="flex items-center justify-center">
+            <p className="loader"></p>
+        </div>
     )
 }
 

@@ -6,6 +6,7 @@ import MovDetailsHome from "../Pages/MovieDetails/MovDetailsHome";
 import MoviesHome from "../Pages/Movies/MoviesHome";
 import TvHome from "../Pages/TvSeries/TvHome";
 import More from "../Pages/More/More";
+import NotFound from "../components/accessories/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -43,8 +44,13 @@ const router = createBrowserRouter([
             {
                 path: "/movie/:movieId",
                 element: <MovDetailsHome />
-            }
+            },
+
         ]
+    },
+    {
+        path: "*",
+        element: <NotFound />
     }
 ]);
 

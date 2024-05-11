@@ -37,7 +37,7 @@ function BannerText02({ movie }) {
                     <button className={`${style.trailerBtn} flex items-center space-x-2`} onClick={handleTrailer}>
                         <BsPlayCircle className=" text-3xl text-green-600" />
                         <span className="">
-                            {openTrailer ? "Close Trailer" : "Watch Trailer"}
+                            {openTrailer ? "Quit Trailer" : "Watch Trailer"}
                         </span>
                     </button>
                 </div>

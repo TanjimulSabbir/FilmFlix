@@ -1,0 +1,20 @@
+.btn {
+    display: block;
+    width: 100%;
+    padding: 13px 30px;
+    border-radius: 4px;
+    transition: 700ms ease-in-out;
+    color: #16c734;
+    border: 1px solid #16c734;
+    background: transparent;
+}
+
+.brdr {
+    border: 1px solid #20c33b;
+    color: #20c33b;
+}
+
+.btn:hover {
+    background: #07b524;
+    color: black;
+}
