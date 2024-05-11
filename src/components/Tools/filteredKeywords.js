@@ -22,11 +22,22 @@ const genres = [
 
 
 export const genresData = [
-    { "keywordTitle": "Sort By", "keywords": ["Popular", "New Releases", "Recently Added", "IMDb Rating"] },
+    { "keywordTitle": "Sort By", "keywords": ["Popular", "New Releases", "Top Rated", "Upcoming"] },
     { "keywordTitle": "Genres", "keywords": genres },
     { "keywordTitle": "New Releases", "keywords": ["Last 3 Months", "Last 6 Months", "Last 12 Months"] },
-    { "keywordTitle": "MPAA Rating", "keywords": ["G", "PG", "PG-13", "R", "X-R", "NC-17", "Untrated"] },
+    { "keywordTitle": "MPAA Rating", "keywords": ["G", "PG", "PG-13", "NC-17", "R", "NR"] },
     { "keywordTitle": "IMDb Rating", "keywords": ["9.0 or Higher", "8.0 or Higher", "7.0 or Higher", "6.0 or Higher", "5.0 or Higher"] },
     { "keywordTitle": "Metascore", "keywords": ["90 or Higher", "80 or Higher", "70 or Higher", "60 or Higher", "50 or Higher"] }
 ];
 
+export const changedKeywords = [
+    { previous: "Popular", now: "popular" },
+    { previous: "New Releases", now: "now_playing" },
+    { previous: "Upcoming", now: "upcoming" },
+    { previous: "Top Rated", now: "top_rated" }
+];
+
+export const getNewKeyword = (previousKeyword) => {
+    const changedKeyword = changedKeywords.find(keyword => keyword.previous === previousKeyword);
+    return changedKeyword ? changedKeyword.now : previousKeyword;
+}
