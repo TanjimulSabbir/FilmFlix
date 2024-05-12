@@ -3,12 +3,13 @@ import Toggles from '../accessories/Toggles';
 import Movies from './Banner02/Movies';
 import ToggleData from '../Tools/ToggleData';
 import "../../style/animation.css"
+import RangeComponent from '../../Range';
 
 function Home() {
     const { toggle01, toggle02, toggle03 } = ToggleData();
     console.log(toggle01)
     return (
-        <div className='-mt-20'>
+        <div className=''>
             <SlickSlider />
             <div className="container mx-auto">
                 <Toggles type={'Trending'} data={toggle01} />
