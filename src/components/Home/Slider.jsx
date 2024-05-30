@@ -7,8 +7,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useSelector } from "react-redux";
 import { TopBannerSliderSettings } from "../Tools/SliderSettings";
-import Error from "../accessories/Error";
 import "../../style/animation.css"
+import NotFoundError from "../accessories/NotFoundError";
 
 
 function SlickSlider() {
@@ -21,7 +21,7 @@ function SlickSlider() {
     if (isLoading) {
         content = <Loading />;
     } else if (isError) {
-        content = <Error error={error}/>;
+        content = <NotFoundError message="Movies"/>;
     } else if (!isLoading && !isError && Movies?.results?.length > 0) {
         content = Movies.results.map(movie => (
             <div key={movie.id} className="relative">

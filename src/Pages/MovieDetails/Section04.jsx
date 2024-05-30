@@ -8,6 +8,7 @@ import { ImCross } from "react-icons/im";
 import { useGetAllDataSlashQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
 import Error from "../../components/accessories/Error";
+import NotFoundError from "../../components/accessories/NotFoundError";
 
 export default function Section04({ id, type }) {
     // const imagesData = useGetData({ type: type, id, });
@@ -20,7 +21,7 @@ export default function Section04({ id, type }) {
         return <Loading />
     }
     if (isError || imagesData.posters?.length === 0) {
-        return <Error message="No image found!" />
+        return <NotFoundError message="images" />
     }
     console.log(imagesData, "Images Data")
 

@@ -4,6 +4,7 @@ import Movies from './Banner02/Movies';
 import ToggleData from '../Tools/ToggleData';
 import "../../style/animation.css"
 import RangeComponent from '../../Range';
+import Loading from '../accessories/Loading';
 
 function Home() {
     const { toggle01, toggle02, toggle03 } = ToggleData();
@@ -21,6 +22,7 @@ function Home() {
                 <Toggles type={'Now playing in theaters'} data={toggle03} />
                 <Movies defaultValue="upcoming" />
             </div>
+            {/* <Loading/> */}
         </div>
     );
 }

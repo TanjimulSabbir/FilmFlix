@@ -8,6 +8,7 @@ import { titleText } from "../../components/accessories/TextTitle";
 import { useState } from "react";
 import SimilarDetails from "./ModalDetails";
 import Error from "../../components/accessories/Error";
+import NotFoundError from "../../components/accessories/NotFoundError";
 
 export default function Similar() {
     const [movieId, setMovieId] = useState({});
@@ -27,7 +28,7 @@ export default function Similar() {
 
     let content;
     if (isLoading || detailsLoading) content = <Loading />
-    if (!isLoading && isError) content = <Error error={error01 || error02} />;
+    if (!isLoading && isError) content = <NotFoundError message="movies" />;
 
     if (!isLoading && !isError && movies?.results?.length > 0) {
         content = movies.results.map(movie => <MovieItem key={movie.id} movie={movie}
@@ -47,7 +48,7 @@ export default function Similar() {
                 <Slider {...treandingSliderSettings}>
                     {content}
                 </Slider>
-            </div> : "not found"}
+            </div> : <NotFoundError message="similar movies"/>}
             {selectedMovie && (
                 <div className="fixed inset-0 w-full h-full flex justify-center items-center z-40 bg-[#080808c6]">
                     <div className="relative flex items-center justify-center">

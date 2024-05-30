@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function Links({ items, hashPath }) {
-    // const hashPath = window.location.hash;
-    console.log(hashPath)
     const { title, pathName } = items;
 
     return (

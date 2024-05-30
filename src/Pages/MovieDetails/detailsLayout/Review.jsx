@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-
 import moment from "moment";
 import { IoIosStar } from "react-icons/io";
 import { SlLike } from "react-icons/sl";

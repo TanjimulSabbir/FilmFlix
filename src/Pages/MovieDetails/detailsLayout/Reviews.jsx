@@ -7,6 +7,7 @@ import { titleText } from "../../../components/accessories/TextTitle";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../../../style/animation.css"
+import NotFoundError from "../../../components/accessories/NotFoundError";
 
 export default function Reviews() {
   const movie = useSelector(state => state.movieData.clickedMovieDetails);
@@ -31,9 +32,9 @@ export default function Reviews() {
   return (
     <div>
       <div className="topSlider flex items-center gap-x-5">
-        <img className="w-24 h-24 rounded-3xl" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" srcSet="" />
+        <img className="w-24 h-24 rounded-full" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" srcSet="" />
         <div>
-          <h2 className="text-4xl inline-block">{original_title}</h2>
+          <h2 className="text-3xl inline-block">{original_title}</h2>
           <p className="flex items-center">
             <span>{getYear(release_date)}</span>
             <PiDotBold className="text-lg" />
@@ -46,7 +47,7 @@ export default function Reviews() {
       <h2 className="mt-7 text-3xl rightSliderSlow">{titleText("User Reviews")}</h2>
 
       {
-        reviewsData?.length > 0 ? reviewsData?.map(review => <Review key={review.id} review={review} />) : <p className="downSlider flex items-center justify-center text-red-300 text-lg py-24">No reviews found</p>
+        reviewsData?.length > 0 ? reviewsData?.map(review => <Review key={review.id} review={review} />) : <NotFoundError message="reviews"/>
       }
 
       <p

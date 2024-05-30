@@ -1,18 +1,14 @@
-import { NavLink, useLocation,Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { IoSearchSharp } from "react-icons/io5";
 import style from "../../../style/navbar.module.css";
 import logo from "../../../assets/Logo/logo.svg";
-import Genres from "./Genres";
-import { useState } from "react";
 import "../../../style/animation.css"
+import SinglePath from "./singlePath";
 
 function Navbar() {
     const location = useLocation();
-    const [activeMenu, setActiveMenu] = useState("");
 
-    const handleChoice = (menu) => {
-        setActiveMenu(menu);
-    };
+    const allPathLinks = [{ title: "Movies", path: "/movies" }, { title: "TV Shows", path: "/tvshows" }, { title: "Genres", path: "" }, { title: "More", path: "/more" }]
 
     return (
         <div className={`rightSlider ${style.navbarContainter} ${location.pathname === "/" ? "bg-transparent" : "bg-black"} w-full fixed top-0 z-[40]`}>
@@ -21,29 +17,14 @@ function Navbar() {
                     <Link exact to="/" className={style.logo}>
                         <img src={logo} alt="search" width={80} height={80} />
                     </Link>
-                    <NavLink to="/movies" className="active-link">
-                        Movies
-                    </NavLink>
-                    <NavLink to="/tvshows" className="active-link">
-                        TV Shows
-                    </NavLink>
 
-                    <div className="btnContainer ">
-                        <button className={`${style.navLink} active-link`}>Genres</button>
-                        <div className="absoluteContainer">
-                            <Genres />
-                        </div>
-                    </div>
-
-                    <NavLink to="/more" className={"active-link"}>
-                        More
-                    </NavLink>
+                    {allPathLinks.map(item => <SinglePath key={item.title} link={item} />)}
                 </div>
                 <div className="flex items-center space-x-10">
 
                     {/* Auth buttons */}
-                    <button className={`active-link`}>Login</button>
-                    <button className={`active-link`}>Join Us</button>
+                    <button className={`${style.activeLink}`}>Login</button>
+                    <button className={`${style.activeLink}`}>Join Us</button>
                     <button className={style.SearchBtn}><IoSearchSharp className="text-2xl" /></button>
                 </div>
             </div>
