@@ -1,17 +1,34 @@
 import { useLocation, Link } from "react-router-dom";
 import { IoSearchSharp } from "react-icons/io5";
 import style from "../../../style/navbar.module.css";
-import logo from "../../../assets/Logo/logo.svg";
+import logo from "../../../assets/Logo/logo.png";
 import "../../../style/animation.css"
 import SinglePath from "./singlePath";
+import { useEffect, useState } from "react";
 
 function Navbar() {
+
     const location = useLocation();
 
-    const allPathLinks = [{ title: "Movies", path: "/movies" }, { title: "TV Shows", path: "/tvshows" }, { title: "Genres", path: "" }, { title: "More", path: "/more" }]
+    const allPathLinks = [{ title: "Movies", path: "/movies" }, { title: "TV Shows", path: "/tvshows" }, { title: "Genres", path: "" }]
+    const [scrollY, setScrollY] = useState(0);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const maxScroll = 300; // Adjust this value based on when you want full opacity
+    const opacity = Math.min(scrollY / maxScroll, 1);
     return (
-        <div className={`rightSlider ${style.navbarContainter} ${location.pathname === "/" ? "bg-transparent" : "bg-black"} w-full fixed top-0 z-[40]`}>
+        <div className={`rightSlider ${style.navbarContainter} w-full fixed top-0 z-[40] bg-transparent}`} style={{ backgroundColor: `rgba(0, 0, 0, ${opacity})` }}
+        >
             <div className="navbar-container flex items-center justify-between container mx-auto">
                 <div className="flex items-center space-x-10">
                     <Link exact to="/" className={style.logo}>
@@ -33,3 +50,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
