@@ -4,45 +4,39 @@ import style from "../../../style/navbar.module.css";
 import logo from "../../../assets/Logo/logo.png";
 import "../../../style/animation.css"
 import SinglePath from "./singlePath";
-import { useEffect, useState } from "react";
+import useScrollPosition from "../../accessories/useScrollPosition";
 
 function Navbar() {
-
+    const scrollY = useScrollPosition();
     const location = useLocation();
 
     const allPathLinks = [{ title: "Movies", path: "/movies" }, { title: "TV Shows", path: "/tvshows" }, { title: "Genres", path: "" }]
-    const [scrollY, setScrollY] = useState(0);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    const maxScroll = 300; // Adjust this value based on when you want full opacity
+    const maxScroll = 500;
     const opacity = Math.min(scrollY / maxScroll, 1);
+
     return (
-        <div className={`rightSlider ${style.navbarContainter} w-full fixed top-0 z-[40] bg-transparent}`} style={{ backgroundColor: `rgba(0, 0, 0, ${opacity})` }}
-        >
-            <div className="navbar-container flex items-center justify-between container mx-auto">
-                <div className="flex items-center space-x-10">
-                    <Link exact to="/" className={style.logo}>
-                        <img src={logo} alt="search" width={80} height={80} />
-                    </Link>
+        <div className={`h-20 w-full z-50 flex items-center justify-center ${location.pathname === "/" ? "bg-transparent fixed top-0" : "bg-auto sticky top-0"}`}
+            style={{ backgroundColor: `rgba(0, 0, 0, ${opacity})` }}>
 
-                    {allPathLinks.map(item => <SinglePath key={item.title} link={item} />)}
-                </div>
-                <div className="flex items-center space-x-10">
+            <div className={`w-full z-50 `}
+            >
+                <div className="flex items-center justify-between container mx-auto">
+                    <div className="flex items-center space-x-10">
+                        <Link exact to="/" className={style.logo}>
+                            <img src={logo} alt="search" width={80} height={80} />
+                        </Link>
 
-                    {/* Auth buttons */}
-                    <button className={`${style.activeLink}`}>Login</button>
-                    <button className={`${style.activeLink}`}>Join Us</button>
-                    <button className={style.SearchBtn}><IoSearchSharp className="text-2xl" /></button>
+                        {allPathLinks.map(item => <SinglePath key={item.title} link={item} />)}
+                    </div>
+                    <div className="flex items-center space-x-10">
+
+                        {/* Auth buttons */}
+                        <button className={`${style.activeLink}`}>Login</button>
+                        <button className={`${style.activeLink}`}>Join Us</button>
+                        <button className={style.SearchBtn}><IoSearchSharp className="text-2xl" /></button>
+                    </div>
                 </div>
             </div>
         </div>

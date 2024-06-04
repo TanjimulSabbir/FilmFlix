@@ -13,7 +13,7 @@ function Section01() {
     } = movie || {};
 
     return (
-        <div className='topSliderSlow mb-10'>
+        <div className='topSliderSlow mb-10 border border-yellow-600'>
             <div className="mb-4 flex items-center justify-between">
                 <div className="topSlider">
                     <h2 className="text-4xl inline-block">{original_title}</h2>
