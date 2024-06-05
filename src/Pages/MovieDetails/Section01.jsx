@@ -56,7 +56,7 @@ function Section01() {
             </div>
 
             <div className="fade-in-slow space-x-5 mt-5">
-                {genres.map(item => <button key={item.id} className="border border-gray-100 px-4 py-1 rounded-2xl">{item.name}</button>)}
+                {genres?.map(item => <button key={item.id} className="border border-gray-100 px-4 py-1 rounded-2xl">{item?.name}</button>)}
             </div>
         </div>
     )

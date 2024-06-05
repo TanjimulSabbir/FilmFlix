@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { TopBannerSliderSettings } from "../Tools/SliderSettings";
 import "../../style/animation.css"
 import NotFoundError from "../accessories/NotFoundError";
+import InitialLoading from "../../UI/WelcomeText";
 
 
 function SlickSlider() {
@@ -19,9 +20,9 @@ function SlickSlider() {
     let content;
 
     if (isLoading) {
-        content = <Loading />;
+        content = <InitialLoading />;
     } else if (isError) {
-        content = <NotFoundError message="Movies"/>;
+        content = <NotFoundError message="Movies" />;
     } else if (!isLoading && !isError && Movies?.results?.length > 0) {
         content = Movies.results.map(movie => (
             <div key={movie.id} className="relative">
@@ -32,7 +33,7 @@ function SlickSlider() {
             </div>
         ));
     } else {
-        content = <div>No movies found.</div>;
+        content = <NotFoundError message="Movies" />;
     }
 
 
@@ -55,9 +56,6 @@ function SlickSlider() {
         }
     }, [sliderState])
 
-
-    // Render Slider only if data is loaded and no error occurred
-    console.log(error,"error")
     return (
         <>
             {renderSlider ? <div className="slider-container">

@@ -1,6 +1,8 @@
 import BannerText from "./BannerText";
 import { useGetMovieDetailsQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../accessories/Loading";
+import NotFoundError from "../accessories/NotFoundError";
+import InitialLoading from "../../UI/WelcomeText";
 
 
 function Banner({ id }) {
@@ -8,10 +10,10 @@ function Banner({ id }) {
     console.log(id)
     let content;
     if (isLoading) {
-        content = <Loading />
+        content = <InitialLoading />
     }
     if (isError) {
-        content = "Data not found"
+        content = <NotFoundError message="data" />
     }
     if (!isLoading && !isError && MovieDetails) {
         content = <BannerText movie={MovieDetails} />

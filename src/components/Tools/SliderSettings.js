@@ -1,17 +1,15 @@
 export const TopBannerSliderSettings = {
-    dots: false,
+    dots: true,
     fade: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     waitForAnimate: false,
-    arrows: false,
     autoplay: true,
-    autoplaySpeed: 5000,
-    // appendDots: dots => CustomDots({ dots })
+    autoplaySpeed: 3000,
+    arrows: false
 };
-
 
 export const treandingSliderSettings = {
     focusOnSelect: true,

@@ -18,7 +18,7 @@
 
 @keyframes bgOff {
     from {
-        transform: translateX(100%);
+        transform: translateX(-100%);
     }
 
     to {
@@ -32,7 +32,7 @@
 }
 
 .positionedBgTranspa {
-    animation: bgOff .7s ease-in-out;
+    animation: bgOff .5s ease-in-out;
     background: #00000000;
 }
 

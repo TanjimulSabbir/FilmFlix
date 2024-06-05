@@ -2,9 +2,14 @@ import style from "../../style/bannerText.module.css";
 import { CiBookmark } from "react-icons/ci";
 import { GoPlus } from "react-icons/go";
 import { TextRuntime, getYear } from "../Tools/Others";
+import toast from "react-hot-toast";
 
 function BannerText01({ movie }) {
   const { original_title, overview, release_date, runtime, genres } = movie || {};
+
+  const handleShowToast = (message) => {
+    toast.error(message)
+  };
 
   return (
     <div className="leftSlider w-1/2 text-white select-text">
@@ -22,16 +27,15 @@ function BannerText01({ movie }) {
 
       <div className="space-x-4 flex">
 
-        <button className={`${style.btn} ${style.brdr} flex items-center space-x-1`}>
+        <button className={`${style.btn} ${style.brdr} flex items-center space-x-1`} onClick={() => handleShowToast('We are working for this feature. Thank you!')}>
           <CiBookmark />
           <span>Buy ticket</span>
         </button>
 
-        <button className={`${style.btn} flex items-center space-x-1 bg-green-600 border-none`}>
+        <button className={`${style.btn} flex items-center space-x-1 bg-green-600 border-none`} onClick={() => handleShowToast('We are working for this feature. Thank you!')}>
           <GoPlus />
           <span>Add Watchlist</span>
         </button>
-
       </div>
     </div>
   )

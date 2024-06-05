@@ -1,0 +1,20 @@
+.custom-slick-prev,
+.custom-slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.custom-slick-prev {
+    left: 10px;
+}
+
+.custom-slick-next {
+    right: 10px;
+}

@@ -2,7 +2,7 @@ import { useGetMovieVideosQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../accessories/Loading";
 
 function Trailer({ id, handleTrailer }) {
-    const { data: movieVideos, isLoading, isError } = useGetMovieVideosQuery(id);
+    const { data: movieVideos, isLoading, isError } = useGetMovieVideosQuery({ id, type: "movie" });
 
     let content;
 

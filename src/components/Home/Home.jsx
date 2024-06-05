@@ -9,15 +9,14 @@ function Home() {
     const { toggle01, toggle02, toggle03 } = ToggleData();
     const sliderRef = useRef(null);
     useEffect(() => {
-        // Scroll to the SlickSlider component when the page loads
         sliderRef.current.scrollIntoView({ behavior: 'smooth' });
     }, []);
     return (
-        <div className=''>
+        <div>
             <div ref={sliderRef}>
                 <SlickSlider />
             </div>
-            <div className="container mx-auto">
+            {/* <div className="container mx-auto">
                 <Toggles type={'Trending'} data={toggle01} />
                 <Movies defaultValue="popular" isSlider={true} />
 
@@ -26,7 +25,7 @@ function Home() {
 
                 <Toggles type={'Now playing in theaters'} data={toggle03} />
                 <Movies defaultValue="upcoming" />
-            </div>
+            </div> */}
         </div>
     );
 }

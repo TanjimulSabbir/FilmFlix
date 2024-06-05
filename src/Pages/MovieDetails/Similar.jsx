@@ -6,9 +6,10 @@ import Slider from "react-slick";
 import { treandingSliderSettings } from "../../components/Tools/SliderSettings";
 import { titleText } from "../../components/accessories/TextTitle";
 import { useState } from "react";
-import SimilarDetails from "./ModalDetails";
+import ModalDetails from "./ModalDetails";
 import Error from "../../components/accessories/Error";
 import NotFoundError from "../../components/accessories/NotFoundError";
+import toast from "react-hot-toast";
 
 export default function Similar() {
     const [movieId, setMovieId] = useState({});
@@ -39,20 +40,18 @@ export default function Similar() {
         setSelectedMovie(null);
     };
 
-    console.log(movies, "from Similar")
-
     return (
         <div className="py-11">
             {titleText("Playing similar on theaters")}
-            {content ? <div className="slider-container mt-9">
+            {movies?.results?.length > 0 ? <div className="slider-container mt-9">
                 <Slider {...treandingSliderSettings}>
                     {content}
                 </Slider>
-            </div> : <NotFoundError message="similar movies"/>}
+            </div> : <NotFoundError message="similar movies" />}
             {selectedMovie && (
                 <div className="fixed inset-0 w-full h-full flex justify-center items-center z-40 bg-[#080808c6]">
                     <div className="relative flex items-center justify-center">
-                        {!detailsError && <SimilarDetails movie={movie} handleCloseModal={handleCloseModal} />}
+                        {!detailsError ? <ModalDetails movie={movie} handleCloseModal={handleCloseModal} /> : toast.error("Data not found!")}
                     </div>
                 </div>
             )}

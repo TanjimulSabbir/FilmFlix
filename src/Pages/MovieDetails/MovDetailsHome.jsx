@@ -12,13 +12,14 @@ import { addClickedMovieDetailsData } from "../../Redux/Features/movies/moviesSl
 import { useEffect } from "react";
 import { documentTitle } from "../../components/Tools/Others";
 import Recommendations from "./Recommendations";
-import toast from "react-hot-toast"
+import NotFoundError from "../../components/accessories/NotFoundError";
+import toast from "react-hot-toast";
 
 function MovDetailsHome() {
   const id = useParams().id
   const pathType = useLocation().pathname.split("/")[1];
 
-  const { data: movie = {}, isLoading, isError, error } = useGetMovieDetailsQuery({ id, type: pathType }, { refetchOnFocus: false, refetchOnMountOrArgChange: false, });
+  const { data: movie = {}, isLoading, isError, error } = useGetMovieDetailsQuery({ id, type: pathType });
 
   const dispatch = useDispatch();
 
@@ -26,27 +27,30 @@ function MovDetailsHome() {
   if (isLoading) {
     content = <Loading />
   }
-  if (isError) {
-    content = "Data fetching error"
-  }
 
-  if (!isLoading && !isError) {
+  toast(`${movie.id}`)
+
+  if (!isLoading && !isError && movie.id) {
     dispatch(addClickedMovieDetailsData(movie))
     content = <>
       <Section01 movie={movie} />
       <Section02 movie={movie} />
       <Section03 />
       <Similar />
-      <Section04 id={id} type={pathType}/>
+      <Section04 id={id} type={pathType} />
       <Section05 />
       <Recommendations />
     </>
   }
 
   useEffect(() => {
-    documentTitle(movie.title) // Update the document title
+    documentTitle(movie?.title) // Update the document title
   }, [id, movie]);
 
+  if (isError || !movie?.id) {
+    content = <NotFoundError message="Data" />
+  }
+  console.log(movie)
   return (
     <div className="container mx-auto h-full">
       {content}

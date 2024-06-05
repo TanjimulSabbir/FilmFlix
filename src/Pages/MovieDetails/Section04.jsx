@@ -20,7 +20,7 @@ export default function Section04({ id, type }) {
     if (isLoading) {
         return <Loading />
     }
-    if (isError || imagesData.posters?.length === 0) {
+    if (isError || imagesData?.posters?.length === 0) {
         return <NotFoundError message="images" />
     }
     console.log(imagesData, "Images Data")

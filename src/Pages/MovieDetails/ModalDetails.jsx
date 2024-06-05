@@ -7,11 +7,14 @@ import { scrollToTop } from '../../components/Tools/ScrollTop';
 import { useState } from 'react';
 import Videos from './Videos';
 import "../../style/animation.css"
+import NotFoundError from '../../components/accessories/NotFoundError';
 
-export default function SimilarDetails({ movie, handleCloseModal }) {
+export default function ModalDetails({ movie, handleCloseModal }) {
+    const [openTrailer, setOpenTrailer] = useState(false);
+  
     const { id, original_title, release_date, overview, genres, runtime, poster_path, backdrop_path, vote_average, tagline, spoken_languages, status } = movie || {};
 
-    const [openTrailer, setOpenTrailer] = useState(false);
+
 
     return (
         <div className="topSlider w-full md:w-2/3 fixed mx-auto inset-0 flex items-center justify-center z-[60]">
