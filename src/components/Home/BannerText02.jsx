@@ -13,14 +13,12 @@ function BannerText02({ movie }) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(openTrailer, "from Banner");
     }, [openTrailer]);
 
     const handleTrailer = () => {
         const newTrailerState = !openTrailer;
         setOpenTrailer(newTrailerState);
         dispatch(getSliderValue(newTrailerState));
-        toast.success(newTrailerState ? "Trailer opened" : "Trailer closed");
     };
 
     return (

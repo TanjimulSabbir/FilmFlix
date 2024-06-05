@@ -23,18 +23,17 @@ function BannerText01({ movie }) {
         {/* <p className="">| {genres[0]?.name}</p> */}
       </div>
 
-      <p className="mb-12">{overview}</p>
+      <p className="mb-12 text-sm">{overview}</p>
 
       <div className="space-x-4 flex">
+        <button className={`${style.btn} flex items-center space-x-1 bg-green-600 border-none`} onClick={() => handleShowToast('We are working for this feature. Thank you!')}>
+          <GoPlus />
+          <span>Add Watchlist</span>
+        </button>
 
         <button className={`${style.btn} ${style.brdr} flex items-center space-x-1`} onClick={() => handleShowToast('We are working for this feature. Thank you!')}>
           <CiBookmark />
           <span>Buy ticket</span>
-        </button>
-
-        <button className={`${style.btn} flex items-center space-x-1 bg-green-600 border-none`} onClick={() => handleShowToast('We are working for this feature. Thank you!')}>
-          <GoPlus />
-          <span>Add Watchlist</span>
         </button>
       </div>
     </div>
