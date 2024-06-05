@@ -11,7 +11,7 @@ import NotFoundError from '../../components/accessories/NotFoundError';
 
 export default function ModalDetails({ movie, handleCloseModal }) {
     const [openTrailer, setOpenTrailer] = useState(false);
-  
+
     const { id, original_title, release_date, overview, genres, runtime, poster_path, backdrop_path, vote_average, tagline, spoken_languages, status } = movie || {};
 
 
