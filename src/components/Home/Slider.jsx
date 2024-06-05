@@ -26,7 +26,7 @@ function SlickSlider() {
         content = Movies.results.map(movie => (
             <div key={movie.id} className="relative">
                 <Banner id={movie.id} />
-                <div className="fade-in">
+                <div className="downSlider">
                     <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.original_title} srcSet="" />
                 </div>
             </div>

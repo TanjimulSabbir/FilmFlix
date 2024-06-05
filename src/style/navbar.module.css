@@ -5,6 +5,37 @@
     justify-content: center;
 }
 
+@keyframes bg {
+    from {
+        transform: translateX(100%);
+
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes bgOff {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+.positionedBg {
+    animation: bg .5s ease-in-out;
+    background: #000;
+}
+
+.positionedBgTranspa {
+    animation: bgOff .7s ease-in-out;
+    background: #00000000;
+}
+
 .SearchBtn {
     color: var(--tmdbLightBlue);
 }

@@ -9,11 +9,11 @@ import "../../style/animation.css";
 
 function Section01() {
     const movie = useSelector(state => state.movieData.clickedMovieDetails)
-    const { id, adult, backdrop_path, belongs_to_collection, budget, genres, homepage, imdb_id, original_language, original_title, overview, popularity, poster_path, production_companies, production_countries, release_date, revenue, runtime, spoken_languages, status, tagline, title, video, vote_average, vote_count
+    const { id, genres, original_title, popularity, poster_path, release_date, runtime, spoken_languages, vote_average, vote_count
     } = movie || {};
 
     return (
-        <div className='topSliderSlow mb-10 border border-yellow-600'>
+        <div className='topSliderSlow mb-10'>
             <div className="mb-4 flex items-center justify-between">
                 <div className="topSlider">
                     <h2 className="text-4xl inline-block">{original_title}</h2>

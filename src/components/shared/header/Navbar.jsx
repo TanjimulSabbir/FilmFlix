@@ -5,22 +5,22 @@ import logo from "../../../assets/Logo/logo.png";
 import "../../../style/animation.css"
 import SinglePath from "./singlePath";
 import useScrollPosition from "../../accessories/useScrollPosition";
+import toast from "react-hot-toast";
 
 function Navbar() {
     const scrollY = useScrollPosition();
-    const location = useLocation();
+    const CurrentPath = useLocation().pathname;
 
     const allPathLinks = [{ title: "Movies", path: "/movies" }, { title: "TV Shows", path: "/tvshows" }, { title: "Genres", path: "" }]
 
 
     const maxScroll = 500;
     const opacity = Math.min(scrollY / maxScroll, 1);
-
+    toast(scrollY)
     return (
-        <div className={`h-20 w-full z-50 flex items-center justify-center ${location.pathname === "/" ? "bg-transparent fixed top-0" : "bg-auto sticky top-0"}`}
-            style={{ backgroundColor: `rgba(0, 0, 0, ${opacity})` }}>
+        <div className={`h-20 w-full z-50 flex items-center justify-center ${CurrentPath === "/" ? "fixed top-0" : `sticky top-0`} ${scrollY ? `${style.positionedBg}` : `${style.positionedBgTranspa}`}`}>
 
-            <div className={`w-full z-50 `}
+            <div className={`w-full z-50`}
             >
                 <div className="flex items-center justify-between container mx-auto">
                     <div className="flex items-center space-x-10">
