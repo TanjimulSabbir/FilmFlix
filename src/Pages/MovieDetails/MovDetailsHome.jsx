@@ -14,6 +14,7 @@ import { documentTitle } from "../../components/Tools/Others";
 import Recommendations from "./Recommendations";
 import NotFoundError from "../../components/accessories/NotFoundError";
 import toast from "react-hot-toast";
+import WelComeText from "../../UI/WelcomeText";
 
 function MovDetailsHome() {
   const id = useParams().id
@@ -25,11 +26,8 @@ function MovDetailsHome() {
 
   let content;
   if (isLoading) {
-    content = <Loading />
+    content = <WelComeText />
   }
-
-  toast(`${movie.id}`)
-
   if (!isLoading && !isError && movie.id) {
     dispatch(addClickedMovieDetailsData(movie))
     content = <>

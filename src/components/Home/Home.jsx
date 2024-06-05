@@ -16,7 +16,7 @@ function Home() {
             <div ref={sliderRef}>
                 <SlickSlider />
             </div>
-            {/* <div className="container mx-auto">
+            <div className="container mx-auto">
                 <Toggles type={'Trending'} data={toggle01} />
                 <Movies defaultValue="popular" isSlider={true} />
 
@@ -25,7 +25,7 @@ function Home() {
 
                 <Toggles type={'Now playing in theaters'} data={toggle03} />
                 <Movies defaultValue="upcoming" />
-            </div> */}
+            </div>
         </div>
     );
 }

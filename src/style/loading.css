@@ -1,18 +1,18 @@
 .loader {
-  width: 30px;
+  width: 40px;
   aspect-ratio: 1;
-  --_c: no-repeat radial-gradient(farthest-side, #25b09b 92%, #0000);
+  --_c: no-repeat radial-gradient(farthest-side, #25b09b 92%, #0bb74100);
   background:
     var(--_c) top,
     var(--_c) left,
     var(--_c) right,
     var(--_c) bottom;
-  background-size: 12px 12px;
+  background-size: 12px 10px;
   animation: l7 1s infinite;
 }
 
 @keyframes l7 {
   to {
-    transform: rotate(.5turn)
+    transform: rotate(.8turn)
   }
 }

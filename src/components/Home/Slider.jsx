@@ -9,19 +9,20 @@ import { useSelector } from "react-redux";
 import { TopBannerSliderSettings } from "../Tools/SliderSettings";
 import "../../style/animation.css"
 import NotFoundError from "../accessories/NotFoundError";
-import InitialLoading from "../../UI/WelcomeText";
+import WelComeText from "../../UI/WelcomeText";
 
 
 function SlickSlider() {
     const { data: Movies = [], isLoading, isError, error } = useGetMoviesQuery('now_playing', { refetchOnFocus: false, refetchOnMountOrArgChange: false, });
-    const [imageSrc, setImageSrc] = useState("")
 
     const sliderState = useSelector(state => state?.slider?.sliderPlay);
     let content;
 
     if (isLoading) {
-        content = <InitialLoading />;
-    } else if (isError) {
+        content = <WelComeText />;
+    }
+
+    if (isError) {
         content = <NotFoundError message="Movies" />;
     } else if (!isLoading && !isError && Movies?.results?.length > 0) {
         content = Movies.results.map(movie => (
