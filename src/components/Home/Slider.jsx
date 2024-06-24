@@ -27,7 +27,7 @@ function SlickSlider() {
     } else if (!isLoading && !isError && Movies?.results?.length > 0) {
         content = Movies.results.map(movie => (
             <div key={movie.id} className="relative min-h-full">
-                {/* <Banner id={movie.id} /> */}
+                <Banner id={movie.id} />
                 <div className="downSlider h-full">
                     <img className="h-full" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.original_title} srcSet="" />
                 </div>
