@@ -3,7 +3,7 @@ import { IoSearchSharp } from "react-icons/io5";
 import style from "../../../style/navbar.module.css";
 import logo from "../../../assets/Logo/logo.png";
 import "../../../style/animation.css"
-import SinglePath from "./singlePath";
+import SinglePath from "./SinglePath";
 import useScrollPosition from "../../accessories/useScrollPosition";
 
 function Navbar() {
