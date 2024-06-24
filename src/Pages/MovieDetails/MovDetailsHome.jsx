@@ -2,7 +2,6 @@ import { useLocation, useParams } from "react-router-dom";
 import { useGetMovieDetailsQuery } from "../../Redux/Features/Api/movieApi";
 import Section01 from "./Section01";
 import Section02 from "./Section02";
-import Loading from "../../components/accessories/Loading";
 import Section03 from "./Section03";
 import Section04 from "./Section04";
 import Similar from "./Similar";
@@ -13,7 +12,6 @@ import { useEffect } from "react";
 import { documentTitle } from "../../components/Tools/Others";
 import Recommendations from "./Recommendations";
 import NotFoundError from "../../components/accessories/NotFoundError";
-import toast from "react-hot-toast";
 import WelComeText from "../../UI/WelcomeText";
 
 function MovDetailsHome() {

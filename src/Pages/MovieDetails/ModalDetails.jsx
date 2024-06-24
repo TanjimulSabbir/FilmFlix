@@ -7,7 +7,6 @@ import { scrollToTop } from '../../components/Tools/ScrollTop';
 import { useState } from 'react';
 import Videos from './Videos';
 import "../../style/animation.css"
-import NotFoundError from '../../components/accessories/NotFoundError';
 
 export default function ModalDetails({ movie, handleCloseModal }) {
     const [openTrailer, setOpenTrailer] = useState(false);
