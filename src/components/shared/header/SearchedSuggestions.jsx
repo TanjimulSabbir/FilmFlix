@@ -4,7 +4,7 @@ import { useGetKeywordSearchQuery } from "../../../Redux/Features/Api/movieApi";
 import LoadingInline from "../../accessories/InlineLoading";
 import NotFoundError from "../../accessories/NotFoundError";
 
-export default function SearchedSuggestions({ inputText,handleSearchBtn }) {
+export default function SearchedSuggestions({ inputText, handleSearchBtn }) {
     const { data: keyWords, isLoading, isError, } = useGetKeywordSearchQuery(inputText);
     const [openModalDetails, setOpenModalDetails] = useState(false);
     const [detailsMovie, setDetailsMovie] = useState(null);
@@ -23,7 +23,7 @@ export default function SearchedSuggestions({ inputText,handleSearchBtn }) {
     }
     const handleCloseModal = (showDetails) => {
         setOpenModalDetails(!openModalDetails)
-        if(showDetails==="showDetails"){
+        if (showDetails === "showDetails") {
             handleSearchBtn()
         }
     }
