@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import SearchedSuggestions from "./SearchedSuggestions";
 
 export default function SearchModal({ handleSearchBtn, openSearchModal }) {
-    const [inputText, setInputText] = useState();
+    const [inputText, setInputText] = useState("dune");
     const [text, setText] = useState("")
 
     const handleInput = (event) => {

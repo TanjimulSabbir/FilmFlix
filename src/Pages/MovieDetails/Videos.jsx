@@ -1,20 +1,19 @@
 import { useLocation } from "react-router-dom";
 import { useGetMovieVideosQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
-import Error from "../../components/accessories/Error";
 import "../../style/animation.css"
 import NotFoundError from "../../components/accessories/NotFoundError";
 
 export default function Videos({ id, howMuch, title, type }) {
-    const pathType = useLocation().pathname.split("/")[1] || type;
+    const pathType = useLocation().pathname.split("/")[1]
 
-    const { data: videos, isLoading, isError } = useGetMovieVideosQuery({ id, type: pathType });
+    const { data: videos, isLoading, isError } = useGetMovieVideosQuery({ id, type: type || pathType });
     console.log(videos, id, title, "video");
     let content;
     if (isLoading) {
         content = <Loading />;
     } else if (isError) {
-        content = <NotFoundError message="videos" />;
+        content = <NotFoundError message="Trailer" />;
     } else {
         const trailerVideo = videos?.results?.find(item => item.type === "Trailer");
         if (!trailerVideo) {
