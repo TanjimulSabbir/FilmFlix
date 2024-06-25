@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import moment from 'moment';
 
 import { PiDotBold, PiPlayCircleFill } from 'react-icons/pi';
 import { IoIosStar } from 'react-icons/io';
@@ -17,9 +18,13 @@ export default function GenreMovie({ movie }) {
 
     const { id, original_title, original_name, release_date, overview, genres, runtime, poster_path, backdrop_path, vote_average, tagline, spoken_languages, original_language, status, first_air_date } = movie || {};
 
+
+    const isReleaseDatePassed = (releaseDate) => {
+        return moment().isAfter(releaseDate, 'YYYY-MM-DD');
+    };
     return (
         <div className="topSlider">
-            <div className='flex flex-col space-y-10 md:flex-row-reverse md:space-y-0 md:flex-row md:space-x-10 justify-center shadow-2xl rounded-xl bg-[#2e2e2e]'>
+            <div className='flex flex-col space-y-10 md:flex-row-reverse md:space-y-0 md:space-x-10 justify-center shadow-2xl rounded-xl bg-[#101010]'>
                 <div className='w-full'>
                     {!openTrailer ? <img className='leftSlider h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title || original_name} /> : <Videos id={id} howMuch={"1"} title={original_title || original_name} type="movie" />}
 
@@ -38,7 +43,7 @@ export default function GenreMovie({ movie }) {
                     <div className='topSlider mb-5'>
                         <p className="flex items-center">
                             <span className='w-1/3 '>Status</span>
-                            <span >{status || first_air_date && "Released"}</span>
+                            <span >{status || isReleaseDatePassed(release_date)?"Released":"Upcoming"}</span>
                         </p>
                         <p className='fade-in flex items-center'>
                             <span className='w-1/3 '>Languages</span>
