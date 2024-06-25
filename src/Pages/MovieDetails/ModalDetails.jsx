@@ -11,13 +11,13 @@ import "../../style/animation.css"
 export default function ModalDetails({ movie, handleCloseModal }) {
     const [openTrailer, setOpenTrailer] = useState(false);
 
-    const { id, original_title, original_name, release_date, overview, genres, runtime, poster_path, backdrop_path, vote_average, tagline, spoken_languages, status } = movie || {};
-
+    const { id, original_title, original_name, release_date, overview, genres, runtime, poster_path, backdrop_path, vote_average, tagline, spoken_languages, original_language, status, first_air_date } = movie || {};
+    const type = movie.media_type;
     return (
         <div className="topSlider w-full md:w-2/3 fixed mx-auto inset-0 flex items-center justify-center z-[60]">
             <div className='flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 justify-center shadow-2xl rounded-2xl bg-[#2e2e2e]'>
                 <div className='w-full'>
-                    {!openTrailer ? <img className='leftSlider h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title || original_name} /> : <Videos id={id} howMuch={"1"} title={original_title || original_name} />}
+                    {!openTrailer ? <img className='leftSlider h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title || original_name} /> : <Videos id={id} howMuch={"1"} title={original_title || original_name} type={type} />}
 
                 </div>
                 <div className='relative w-full px-2 py-7'>
@@ -34,7 +34,7 @@ export default function ModalDetails({ movie, handleCloseModal }) {
                     <div className='topSlider mb-5'>
                         <p className="flex items-center">
                             <span className='w-1/3 '>Status</span>
-                            <span >{status}</span>
+                            <span >{status || first_air_date && "Released"}</span>
                         </p>
                         <p className='fade-in flex items-center'>
                             <span className='w-1/3 '>Languages</span>
@@ -43,7 +43,7 @@ export default function ModalDetails({ movie, handleCloseModal }) {
                                     {index > 0 && <PiDotBold />}
                                     <span>{item.name}</span>
                                 </>
-                            ))}
+                            )) || original_language}
                             </p>
                         </p>
 

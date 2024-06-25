@@ -3,6 +3,7 @@ import ModalDetails from "../../../Pages/MovieDetails/ModalDetails";
 import { useGetKeywordSearchQuery } from "../../../Redux/Features/Api/movieApi";
 import LoadingInline from "../../accessories/InlineLoading";
 import NotFoundError from "../../accessories/NotFoundError";
+import toast from "react-hot-toast";
 
 export default function SearchedSuggestions({ inputText, handleSearchBtn }) {
     const { data: keyWords, isLoading, isError, } = useGetKeywordSearchQuery(inputText);
@@ -18,6 +19,9 @@ export default function SearchedSuggestions({ inputText, handleSearchBtn }) {
     }
 
     const handleModal = (movie) => {
+        if(movie.media_type==="person"){
+            return toast.success("Currently, cast details is unavailable. Working on person details.")
+        }
         handleCloseModal()
         setDetailsMovie(movie)
     }
@@ -46,7 +50,7 @@ export default function SearchedSuggestions({ inputText, handleSearchBtn }) {
                 </div>
             ))
     }
-    console.log(keyWords)
+    console.log(keyWords, "searchedModal")
     return (
         <div className="h-screen overflow-scroll rounded-lg">
             {content}

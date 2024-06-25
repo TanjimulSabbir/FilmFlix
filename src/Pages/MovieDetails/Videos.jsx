@@ -5,12 +5,12 @@ import Error from "../../components/accessories/Error";
 import "../../style/animation.css"
 import NotFoundError from "../../components/accessories/NotFoundError";
 
-export default function Videos({ id, howMuch, title }) {
-    const pathType = useLocation().pathname.split("/")[1];
+export default function Videos({ id, howMuch, title, type }) {
+    const pathType = useLocation().pathname.split("/")[1] || type;
 
     const { data: videos, isLoading, isError } = useGetMovieVideosQuery({ id, type: pathType });
+    console.log(videos, id, title, "video");
     let content;
-
     if (isLoading) {
         content = <Loading />;
     } else if (isError) {
