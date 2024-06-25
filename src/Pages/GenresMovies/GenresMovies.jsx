@@ -1,11 +1,11 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useGetDiscoverMoviesQuery } from "../../Redux/Features/Api/movieApi";
 import LoadingInline from "../../components/accessories/InlineLoading";
 import GenreMovie from "./GenreMovie";
+import { TitleText } from "../../components/accessories/TextTitle";
 
 export default function GenresMovies() {
-    const urlPath = useLocation().pathname;
-    const genreId = useParams().genreId;
+    const { genreId, genType } = useParams();
     const { data: genresData, isLoading, isError, } = useGetDiscoverMoviesQuery({ type: "movie", path: `&with_genres=${genreId}` });
 
     let content;
@@ -16,6 +16,7 @@ export default function GenresMovies() {
 
     return (
         <div className="container mx-auto space-y-10">
+            <TitleText text={genType}/>
             {content}
         </div>
     )

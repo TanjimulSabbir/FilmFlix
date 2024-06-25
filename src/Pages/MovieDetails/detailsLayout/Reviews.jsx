@@ -3,7 +3,7 @@ import useGetData from "../../../components/Tools/useGetData";
 import { PiArrowRight, PiDotBold } from "react-icons/pi";
 import { TextRuntime, getYear } from "../../../components/Tools/Others";
 import Review from "./Review";
-import { titleText } from "../../../components/accessories/TextTitle";
+import { TitleText } from "../../../components/accessories/TextTitle";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../../../style/animation.css"
@@ -44,7 +44,7 @@ export default function Reviews() {
           </p>
         </div>
       </div>
-      <h2 className="mt-7 text-3xl rightSliderSlow">{titleText("User Reviews")}</h2>
+      <h2 className="mt-7 text-3xl rightSliderSlow">{TitleText("User Reviews")}</h2>
 
       {
         reviewsData?.length > 0 ? reviewsData?.map(review => <Review key={review.id} review={review} />) : <NotFoundError message="reviews"/>

@@ -4,10 +4,9 @@ import Loading from "../../components/accessories/Loading";
 import MovieItem from "../../components/Home/Banner02/MovieItem";
 import Slider from "react-slick";
 import { treandingSliderSettings } from "../../components/Tools/SliderSettings";
-import { titleText } from "../../components/accessories/TextTitle";
+import { TitleText } from "../../components/accessories/TextTitle";
 import { useState } from "react";
 import ModalDetails from "./ModalDetails";
-import Error from "../../components/accessories/Error";
 import NotFoundError from "../../components/accessories/NotFoundError";
 import toast from "react-hot-toast";
 
@@ -42,7 +41,7 @@ export default function Similar() {
 
     return (
         <div className="py-11">
-            {titleText("Recommendations")}
+            {TitleText("Recommendations")}
             {movies?.results?.length > 0 ? <div className="slider-container mt-9">
                 <Slider {...treandingSliderSettings}>
                     {content}

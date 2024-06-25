@@ -2,7 +2,7 @@ import useGetData from "../../components/Tools/useGetData";
 import Slider from "react-slick";
 import { imagesSliderSettings } from "../../components/Tools/SliderSettings";
 import Videos from "./Videos";
-import { titleText } from "../../components/accessories/TextTitle";
+import { TitleText } from "../../components/accessories/TextTitle";
 import { useState } from "react";
 import { ImCross } from "react-icons/im";
 import { useGetAllDataSlashQuery } from "../../Redux/Features/Api/movieApi";
@@ -35,7 +35,7 @@ export default function Section04({ id, type }) {
 
     return (
         <div className="py-11">
-            {titleText("Photos")}
+            {TitleText("Photos")}
             {imagesData.posters?.length > 0 ? <div className="slider-container mt-9">
                 <Slider {...imagesSliderSettings}>
                     {imagesData?.posters?.map((poster, index) => {

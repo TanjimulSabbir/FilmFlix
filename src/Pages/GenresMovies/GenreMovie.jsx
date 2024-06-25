@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 import { PiDotBold, PiPlayCircleFill } from 'react-icons/pi';
@@ -12,10 +12,7 @@ import Videos from '../MovieDetails/Videos';
 
 export default function GenreMovie({ movie }) {
     const [openTrailer, setOpenTrailer] = useState(false);
-    const type = movie?.media_type;
-    const urlPathType = useLocation().pathname.split("/")[1]
-    const pathType = type || urlPathType;
-
+   
     const { id, original_title, original_name, release_date, overview, genres, runtime, poster_path, backdrop_path, vote_average, tagline, spoken_languages, original_language, status, first_air_date } = movie || {};
 
 
