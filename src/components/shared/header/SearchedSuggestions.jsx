@@ -7,8 +7,8 @@ export default function SearchedSuggestions({ inputText }) {
     let content;
     if (isLoading) {
         content = <LoadingInline />
-    } else if (!isLoading && isError) {
-        content = <NotFoundError message="Movies" />
+    } else if (!isLoading && keyWords?.results.length === 0 || isError) {
+        content = <NotFoundError message="keyword" />
     } else {
         content =
             keyWords?.results.map(keyword => (

@@ -1,4 +1,4 @@
-import "../style/Loading.css"
+import "../../style/loading.css"
 
 export default function LoadingInline() {
     return (
