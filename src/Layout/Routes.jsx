@@ -5,8 +5,9 @@ import Login from "../Pages/auth/Login";
 import MovDetailsHome from "../Pages/MovieDetails/MovDetailsHome";
 import MoviesHome from "../Pages/Movies/MoviesHome";
 import TvHome from "../Pages/TvSeries/TvHome";
-import More from "../Pages/More/More";
+import More from "../Pages/GenresMovies/GenresMovies";
 import NotFound from "../components/accessories/NotFound";
+import GenresMovies from "../Pages/GenresMovies/GenresMovies";
 
 const router = createBrowserRouter([
     {
@@ -26,8 +27,8 @@ const router = createBrowserRouter([
                 element: <MoviesHome />
             },
             {
-                path: "/movies/:genreId",
-                element: <MoviesHome />
+                path: "/genres/:genreId",
+                element: <GenresMovies />
             },
             {
                 path: "/more",
