@@ -53,7 +53,7 @@ export default function SearchModal({ handleSearchBtn, openSearchModal }) {
                             clipRule="evenodd" />
                     </svg>}
                 </label>
-                <SearchedSuggestions inputText={inputText} />
+                <SearchedSuggestions inputText={inputText} handleSearchBtn={handleSearchBtn}/>
             </div>
             <button className="absolute top-7 right-3" onClick={handleSearchBtn}>
                 <IoCloseCircle className="text-2xl text-red-600" />

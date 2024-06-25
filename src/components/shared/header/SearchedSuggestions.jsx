@@ -1,15 +1,30 @@
+import { useState } from "react";
+import ModalDetails from "../../../Pages/MovieDetails/ModalDetails";
 import { useGetKeywordSearchQuery } from "../../../Redux/Features/Api/movieApi";
 import LoadingInline from "../../accessories/InlineLoading";
 import NotFoundError from "../../accessories/NotFoundError";
 
-export default function SearchedSuggestions({ inputText }) {
+export default function SearchedSuggestions({ inputText,handleSearchBtn }) {
     const { data: keyWords, isLoading, isError, } = useGetKeywordSearchQuery(inputText);
+    const [openModalDetails, setOpenModalDetails] = useState(false);
+    const [detailsMovie, setDetailsMovie] = useState(null);
 
-    const findKeywordTitle = (keyword) => {
-        if (keyword.media_type === "tv") {
-            return keyword.original_name
-        } else if (keyword.media_type === "movie") {
-            return keyword.original_title
+    const findKeywordTitle = (movie) => {
+        if (movie.media_type === "tv") {
+            return movie.original_name
+        } else if (movie.media_type === "movie") {
+            return movie.original_title
+        }
+    }
+
+    const handleModal = (movie) => {
+        handleCloseModal()
+        setDetailsMovie(movie)
+    }
+    const handleCloseModal = (showDetails) => {
+        setOpenModalDetails(!openModalDetails)
+        if(showDetails==="showDetails"){
+            handleSearchBtn()
         }
     }
 
@@ -20,11 +35,14 @@ export default function SearchedSuggestions({ inputText }) {
         content = <NotFoundError message="keyword" />
     } else {
         content =
-            keyWords?.results.map(keyword => (
-                <div key={keyword.id} className="topSlider border-y bg-[#000000dc] py-2 px-3 cursor-pointer flex items-center gap-x-3">
-                    <img className="w-10 h-10 rounded-full" src={`https://image.tmdb.org/t/p/original${keyword.poster_path}`} />
+            keyWords?.results.map(movie => (
+                <div key={movie.id}>
+                    <div className="topSlider border-y bg-[#000000dc] py-2 px-3 cursor-pointer flex items-center gap-x-3" onClick={() => handleModal(movie)}>
+                        <img className="w-10 h-10 rounded-full" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />
 
-                    <span className="text-green-600">{findKeywordTitle(keyword)} </span> in <span className="font-bold">{keyword.media_type.toUpperCase()}</span>
+                        <span className="text-green-600">{findKeywordTitle(movie)} </span> in <span className="font-bold">{movie.media_type.toUpperCase()}</span>
+                    </div>
+
                 </div>
             ))
     }
@@ -32,6 +50,7 @@ export default function SearchedSuggestions({ inputText }) {
     return (
         <div className="h-screen overflow-scroll rounded-lg">
             {content}
+            {openModalDetails && <ModalDetails movie={detailsMovie} handleCloseModal={handleCloseModal} />}
         </div>
     );
 }
