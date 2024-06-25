@@ -11,7 +11,6 @@ import Loading from "../../accessories/Loading";
 
 export default function SearchModal({ handleSearchBtn, openSearchModal }) {
     const [inputText, setInputText] = useState();
-    const { data: keyWords, isLoading, isError, } = useGetKeywordSearchQuery(inputText);
 
     const handleInput = (event) => {
         const data = event.target?.value;
@@ -24,9 +23,7 @@ export default function SearchModal({ handleSearchBtn, openSearchModal }) {
     }
 
     const debnce = debounce(handleSearch, 700);
-    if (!isLoading) {
-        console.log(keyWords);
-    }
+   
     useEffect(() => {
         if (openSearchModal) {
             document.body.style.overflow = "hidden";
@@ -54,7 +51,7 @@ export default function SearchModal({ handleSearchBtn, openSearchModal }) {
                             clipRule="evenodd" />
                     </svg>}
                 </label>
-                {isLoading ? <Loading /> : <SearchedSuggestions keyWords={keyWords?.results} />}
+                <SearchedSuggestions inputText={inputText} />
             </div>
             <button className="absolute top-7 right-3" onClick={handleSearchBtn}>
                 <IoCloseCircle className="text-2xl text-red-600" />
