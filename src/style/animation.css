@@ -61,6 +61,16 @@
     }
 }
 
+@keyframes searchModal {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}
+
 .topSlider {
     animation: top 1s ease-in-out;
 }
@@ -103,4 +113,8 @@
 
 .fade-out {
     animation: fade-out 1s ease-in-out;
+}
+
+.searchModalAnimation {
+    animation: searchModal .5s ease-in;
 }

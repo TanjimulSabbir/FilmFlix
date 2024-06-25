@@ -5,10 +5,18 @@ import logo from "../../../assets/Logo/logo.png";
 import "../../../style/animation.css"
 import SinglePath from "./SinglePath";
 import useScrollPosition from "../../accessories/useScrollPosition";
+import { useState } from "react";
+import SearchModal from "./SearchModal";
 
 function Navbar() {
+    const [openSearchModal, setOpenSearchModal] = useState(false);
+
     const scrollY = useScrollPosition();
     const CurrentPath = useLocation().pathname;
+
+    const handleSearchBtn = () => {
+        setOpenSearchModal(!openSearchModal)
+    }
 
     const allPathLinks = [{ title: "Movies", path: "/movies" }, { title: "TV Shows", path: "/tvshows" }, { title: "Genres", path: "" }]
     return (
@@ -29,10 +37,11 @@ function Navbar() {
                         {/* Auth buttons */}
                         <button className={`${style.activeLink}`}>Login</button>
                         <button className={`${style.activeLink}`}>Join Us</button>
-                        <button className={style.SearchBtn}><IoSearchSharp className="text-2xl" /></button>
+                        <button className={style.SearchBtn} onClick={handleSearchBtn}><IoSearchSharp className="text-2xl" /></button>
                     </div>
                 </div>
             </div>
+            <SearchModal handleSearchBtn={handleSearchBtn} openSearchModal={openSearchModal} />
         </div>
     );
 }

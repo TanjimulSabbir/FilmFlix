@@ -44,8 +44,13 @@ export const movieApi = apiSlice.injectEndpoints({
                 }
                 return { url };
             }
-        })
+        }),
+        getKeywordSearch: builder.query({
+            query: (queryText) => {
+                return { url: `/search/keyword?${API_KEY}&query=${queryText}` }
+            }
+        }),
     })
 })
 
-export const { useGetMoviesQuery, useGetMovieDetailsQuery, useGetMovieVideosQuery, useGetDiscoverMoviesQuery, useGetCastsQuery, useGetAllDataSlashQuery } = movieApi;
+export const { useGetMoviesQuery, useGetMovieDetailsQuery, useGetMovieVideosQuery, useGetDiscoverMoviesQuery, useGetCastsQuery, useGetAllDataSlashQuery, useGetKeywordSearchQuery } = movieApi;
