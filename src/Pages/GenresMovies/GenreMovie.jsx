@@ -1,26 +1,27 @@
-import { PiDotBold, PiPlayCircleFill } from 'react-icons/pi';
-import { TextRuntime, getReleaseDate } from '../../components/Tools/Others';
-import { IoIosStar } from 'react-icons/io';
-import { Link, useLocation } from 'react-router-dom';
-import { MdClose } from 'react-icons/md';
-import { scrollToTop } from '../../components/Tools/ScrollTop';
 import { useState } from 'react';
-import Videos from './Videos';
-import "../../style/animation.css"
+import { Link, useLocation } from 'react-router-dom';
 
-export default function ModalDetails({ movie, handleCloseModal }) {
+import { PiDotBold, PiPlayCircleFill } from 'react-icons/pi';
+import { IoIosStar } from 'react-icons/io';
+
+import "../../style/animation.css"
+import { scrollToTop } from '../../components/Tools/ScrollTop';
+import { TextRuntime, getReleaseDate } from '../../components/Tools/Others';
+import Videos from '../MovieDetails/Videos';
+
+export default function GenreMovie({ movie }) {
     const [openTrailer, setOpenTrailer] = useState(false);
     const type = movie?.media_type;
-    const urlPathType=useLocation().pathname.split("/")[1]
+    const urlPathType = useLocation().pathname.split("/")[1]
     const pathType = type || urlPathType;
 
     const { id, original_title, original_name, release_date, overview, genres, runtime, poster_path, backdrop_path, vote_average, tagline, spoken_languages, original_language, status, first_air_date } = movie || {};
 
     return (
-        <div className="topSlider w-full md:w-2/3 fixed mx-auto inset-0 flex items-center justify-center z-[60]">
-            <div className='flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 justify-center shadow-2xl rounded-2xl bg-[#2e2e2e]'>
+        <div className="topSlider">
+            <div className='flex flex-col space-y-10 md:flex-row-reverse md:space-y-0 md:flex-row md:space-x-10 justify-center shadow-2xl rounded-xl bg-[#2e2e2e]'>
                 <div className='w-full'>
-                    {!openTrailer ? <img className='leftSlider h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title || original_name} /> : <Videos id={id} howMuch={"1"} title={original_title || original_name} type={type} />}
+                    {!openTrailer ? <img className='leftSlider h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title || original_name} /> : <Videos id={id} howMuch={"1"} title={original_title || original_name} type="movie" />}
 
                 </div>
                 <div className='relative w-full px-2 py-7'>
@@ -78,12 +79,12 @@ export default function ModalDetails({ movie, handleCloseModal }) {
                             <PiPlayCircleFill />
                             <span> {openTrailer ? "Quit Trailer" : "Watch Trailer"}</span>
                         </button>
-                        <Link to={`/${pathType}/${id}`} onClick={() => { handleCloseModal("showDetails"); scrollToTop() }} className='fade-in-slow min-w-fit flex items-center space-x-1 py-2 px-5 md:px-9 rounded-xl border border-green-500 text-green-600 cursor-pointer transition-all duration-500 ease-linear hover:bg-green-600 hover:text-white justify-center'>
+                        <Link to={`/movie/${id}`} onClick={() => { handleCloseModal("showDetails"); scrollToTop() }} className='fade-in-slow min-w-fit flex items-center space-x-1 py-2 px-5 md:px-9 rounded-xl border border-green-500 text-green-600 cursor-pointer transition-all duration-500 ease-linear hover:bg-green-600 hover:text-white justify-center'>
                             {/* <PiPlayCircleFill/> */}
                             <span>Show details</span>
                         </Link>
                     </div>
-                    <MdClose className='leftSlider absolute top-5 right-5 tex-2xl cursor-pointer transition-all duration-500 delay-300 hover:scale-150' onClick={handleCloseModal} />
+                   
                 </div>
             </div>
         </div>
