@@ -3,28 +3,23 @@ import { RxCross1 } from "react-icons/rx";
 import "../../../style/animation.css"
 import { debounce } from "../../accessories/Debounce";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import SearchedSuggestions from "./SearchedSuggestions";
-
 
 export default function SearchModal({ handleSearchBtn, openSearchModal }) {
     const [inputText, setInputText] = useState();
+    const [text, setText] = useState("")
 
-    const handleInput = (event, type) => {
-        if (type === "search") {
-            const data = event.target.value;
-            debnce(data)
-        } else {
-            setInputText("")
-        }
+    const handleInput = (event) => {
+        const data = event.target.value;
+        debnce(data)
+        setText(data)
     }
 
-    const handleSearch = (text) => {
-        setInputText(text)
-        toast(text)
+    const handleSearch = (debouncedText) => {
+        setInputText(debouncedText)
     }
 
-    const debnce = debounce(handleSearch, 700);
+    const debnce = debounce(handleSearch, 500);
 
     useEffect(() => {
         if (openSearchModal) {
@@ -38,14 +33,16 @@ export default function SearchModal({ handleSearchBtn, openSearchModal }) {
         };
     }, [openSearchModal]);
     const removeInput = () => {
+        setText("");
         setInputText("")
     }
     return (
         openSearchModal && <div className="searchModalAnimation fixed w-full h-screen inset-0 bg-[#00000080] z-50 backdrop-blur-sm">
             <div className="px-4 mt-5 md:w-1/3 mx-auto">
                 <label className="input input-bordered flex items-center gap-2">
-                    <input type="text" className="grow topSlider" placeholder="Search" onChange={(event) => handleInput(event, "search")} />
-                    {inputText ? <RxCross1 onClick={() => handleInput(event, "remove")} /> : <svg
+                    <input type="text" className="grow topSlider" placeholder="Search" onChange={(event) => handleInput(event)} value={text} />
+
+                    {inputText ? <RxCross1 className="cursor-pointer text-red-600" onClick={() => removeInput()} /> : <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 16"
                         fill="currentColor"
