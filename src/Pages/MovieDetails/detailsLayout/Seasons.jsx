@@ -6,7 +6,7 @@ import Season from "./Season";
 import "../../../style/animation.css"
 export default function Episods() {
     const movie = useSelector(state => state.movieData.clickedMovieDetails)
-    const { id, seasons, last_episode_to_air } = movie || {};
+    const { last_episode_to_air } = movie || {};
 
     const [isOpen, setIsOpen] = useState(true);
 

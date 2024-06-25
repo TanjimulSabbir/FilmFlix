@@ -12,7 +12,7 @@ import Videos from '../MovieDetails/Videos';
 
 export default function GenreMovie({ movie }) {
     const [openTrailer, setOpenTrailer] = useState(false);
-   
+
     const { id, original_title, original_name, release_date, overview, genres, runtime, poster_path, backdrop_path, vote_average, tagline, spoken_languages, original_language, status, first_air_date } = movie || {};
 
 
@@ -40,7 +40,7 @@ export default function GenreMovie({ movie }) {
                     <div className='topSlider mb-5'>
                         <p className="flex items-center">
                             <span className='w-1/3 '>Status</span>
-                            <span >{status || isReleaseDatePassed(release_date)?"Released":"Upcoming"}</span>
+                            <span >{status || isReleaseDatePassed(release_date) ? "Released" : "Upcoming"}</span>
                         </p>
                         <p className='fade-in flex items-center'>
                             <span className='w-1/3 '>Languages</span>
@@ -75,18 +75,18 @@ export default function GenreMovie({ movie }) {
                     </div>
                     <div className='w-full flex flex-wrap items-center gap-5'>
                         <button onClick={() => setOpenTrailer(!openTrailer)}
-                            className='leftSlider min-w-fit flex items-center space-x-1 py-2 px-3 md:px-6 border border-green-500 rounded-xl bg-green-500 transition-all duration-500 hover:bg-green-600 justify-center'
+                            className='leftSlider min-w-fit flex items-center space-x-1 py-2 px-3 md:px-6 border border-[#11293d] rounded-xl bg-[#062541] transition-all duration-500 hover:bg-[#062541] justify-center'
 
                         >
                             <PiPlayCircleFill />
                             <span> {openTrailer ? "Quit Trailer" : "Watch Trailer"}</span>
                         </button>
-                        <Link to={`/movie/${id}`} onClick={() => { handleCloseModal("showDetails"); scrollToTop() }} className='fade-in-slow min-w-fit flex items-center space-x-1 py-2 px-5 md:px-9 rounded-xl border border-green-500 text-green-600 cursor-pointer transition-all duration-500 ease-linear hover:bg-green-600 hover:text-white justify-center'>
+                        <Link to={`/movie/${id}`} onClick={() => scrollToTop()} className='fade-in-slow min-w-fit flex items-center space-x-1 py-2 px-5 md:px-9 rounded-xl border border-green-500 text-green-600 cursor-pointer transition-all duration-500 ease-linear hover:bg-green-600 hover:text-white justify-center'>
                             {/* <PiPlayCircleFill/> */}
                             <span>Show details</span>
                         </Link>
                     </div>
-                   
+
                 </div>
             </div>
         </div>

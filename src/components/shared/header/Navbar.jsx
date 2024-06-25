@@ -25,7 +25,7 @@ function Navbar() {
         setOpenSearchModal(!openSearchModal)
     }
 
-    const allPathLinks = [{ title: "Movies", path: "/movies" }, { title: "TV Shows", path: "/tvshows" }, { title: "Genres", path: "" }]
+    const allPathLinks = [{ title: "Movies", path: "/movie" }, { title: "TV Shows", path: "/tv" }, { title: "Genres", path: "/genres" }]
     return (
         <div className={`h-20 w-full z-40 flex items-center justify-center ${CurrentPath === "/" ? "fixed top-0" : `sticky top-0`} ${scrollY ? `${style.positionedBg}` : `${style.positionedBgTranspa}`}`}>
 

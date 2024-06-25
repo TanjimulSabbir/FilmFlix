@@ -1,13 +1,14 @@
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+
 import useGetData from "../../../components/Tools/useGetData";
 import { PiArrowRight, PiDotBold } from "react-icons/pi";
 import { TextRuntime, getYear } from "../../../components/Tools/Others";
 import Review from "./Review";
-import { TitleText } from "../../../components/accessories/TextTitle";
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
 import "../../../style/animation.css"
 import NotFoundError from "../../../components/accessories/NotFoundError";
+import TitleText from "../../../components/accessories/TextTitle";
 
 export default function Reviews() {
   const movie = useSelector(state => state.movieData.clickedMovieDetails);
@@ -17,7 +18,6 @@ export default function Reviews() {
   } = movie || {};
 
   const pathType = useLocation().pathname.split("/")[1]
-
   const intialReviewsData = useGetData({ type: pathType, id, keyword: "reviews" });
 
   const handleLoadMoreData = () => {
@@ -27,7 +27,6 @@ export default function Reviews() {
   }
 
   const reviewsData = intialReviewsData?.results?.slice(0, loadMore);
-
 
   return (
     <div>

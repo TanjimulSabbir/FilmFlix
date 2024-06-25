@@ -5,19 +5,17 @@ import Reviews from './detailsLayout/Reviews';
 import Others from './detailsLayout/Others';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import toast from 'react-hot-toast';
 
 const Videos = React.lazy(() => import('./Videos'));
-
 
 function Section05() {
     const movie = useSelector(state => state.movieData.clickedMovieDetails)
     const { id, number_of_seasons } = movie || {};
     const hashPath = window.location.hash;
     const path = useLocation().pathname.split("/")[1];
-    toast.success(path)
+
     const paths = [
-        { title: `Seasons (${path === "tv" ? number_of_seasons : "0"})`, pathName: "#episods", element: hashPath === "#episods" && <Seasons /> },
+        { title: `Seasons (${path === "tv" ? number_of_seasons : "0"})`, pathName: "#episods", element: path === "tv" && hashPath === "#episods" && <Seasons /> },
         { title: "User Reviews", pathName: "#reviews", element: <Reviews /> },
         {
             title: "Videos", pathName: "#videos", element: <React.Suspense fallback={<p className='text-green-500'>Loading...</p>}>

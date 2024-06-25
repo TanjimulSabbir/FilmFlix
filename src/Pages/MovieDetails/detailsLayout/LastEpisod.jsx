@@ -4,11 +4,11 @@ import { BsDot } from "react-icons/bs";
 
 /* eslint-disable react/prop-types */
 export default function LastEpisod({ last_episode_to_air }) {
-    const { air_date, episode_number, episode_type, id, name, overview, production_code, runtime, season_number, show_id, still_path, vote_average, vote_count } = last_episode_to_air;
+    const { air_date, episode_number, episode_type, name, overview, runtime, season_number, still_path, vote_average, vote_count } = last_episode_to_air;
 
     return (
         <div className="rightSlider">
-            <h1 className="text-3xl mb-7 font-extrabold">Last Episod <span className="text-gray-400 text-sm flex items-center">(Episod: {episode_number}    <BsDot /> Season: {season_number})</span></h1>
+            <h1 className="text-3xl mb-7 font-extrabold">Last Episod <span className="text-gray-400 text-sm flex items-center">(Episod: {episode_number}  <BsDot /> Season: {season_number})</span></h1>
             <div className='w-full h-full flex flex-col md:flex-row gap-10 '>
                 <div className='w-1/2'>
                     <img className='h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${still_path}`} alt={name} />

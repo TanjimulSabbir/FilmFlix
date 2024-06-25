@@ -7,13 +7,18 @@ export default function SinglePath({ link }) {
     const path = useLocation().pathname;
     if (link.title === "Genres") {
         return <div className="btnContainer ">
-            <button className={`${style.activeLink}`}>Genres</button>
+            <button className={`${style.activeLink} ${path.includes(link.path) ? style.active : ''}`}>Genres</button>
             <div className="absoluteContainer">
                 <Genres />
             </div>
         </div>
     }
     return (
-        <Link to={link.path} className={path.includes(link.path.split("s")[0]) && `${style.active}`}>{link.title}</Link>
+        <Link
+            to={link.path}
+            className={`${style.activeLink} ${path.includes(link.path) ? style.active : ''}`}
+        >
+            {link.title}
+        </Link>
     )
 }
