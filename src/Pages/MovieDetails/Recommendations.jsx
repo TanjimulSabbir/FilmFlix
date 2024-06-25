@@ -1,14 +1,17 @@
 import { useLocation, useParams } from "react-router-dom";
+import { useState } from "react";
+
 import { useGetAllDataSlashQuery, useGetMovieDetailsQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
 import MovieItem from "../../components/Home/Banner02/MovieItem";
 import Slider from "react-slick";
 import { treandingSliderSettings } from "../../components/Tools/SliderSettings";
-import { TitleText } from "../../components/accessories/TextTitle";
-import { useState } from "react";
+
+
 import ModalDetails from "./ModalDetails";
 import NotFoundError from "../../components/accessories/NotFoundError";
 import toast from "react-hot-toast";
+import TitleText from "../../components/accessories/TextTitle";
 
 export default function Similar() {
     const [movieId, setMovieId] = useState({});

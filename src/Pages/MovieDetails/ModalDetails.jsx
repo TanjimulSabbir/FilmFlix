@@ -7,6 +7,7 @@ import { scrollToTop } from '../../components/Tools/ScrollTop';
 import { useState } from 'react';
 import Videos from './Videos';
 import "../../style/animation.css"
+import moment from 'moment';
 
 export default function ModalDetails({ movie, handleCloseModal }) {
     const [openTrailer, setOpenTrailer] = useState(false);
@@ -15,7 +16,10 @@ export default function ModalDetails({ movie, handleCloseModal }) {
     const pathType = type || urlPathType;
 
     const { id, original_title, original_name, release_date, overview, genres, runtime, poster_path, backdrop_path, vote_average, tagline, spoken_languages, original_language, status, first_air_date } = movie || {};
-
+   
+    const isReleaseDatePassed = (releaseDate) => {
+        return moment().isAfter(releaseDate, 'YYYY-MM-DD');
+    };
     return (
         <div className="topSlider w-full md:w-2/3 fixed mx-auto inset-0 flex items-center justify-center z-[60]">
             <div className='flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 justify-center shadow-2xl rounded-2xl bg-[#2e2e2e]'>
@@ -37,7 +41,7 @@ export default function ModalDetails({ movie, handleCloseModal }) {
                     <div className='topSlider mb-5'>
                         <p className="flex items-center">
                             <span className='w-1/3 '>Status</span>
-                            <span >{status || first_air_date && "Released"}</span>
+                            <span >{status || isReleaseDatePassed(release_date)? "Released":"Upcoming"}</span>
                         </p>
                         <p className='fade-in flex items-center'>
                             <span className='w-1/3 '>Languages</span>

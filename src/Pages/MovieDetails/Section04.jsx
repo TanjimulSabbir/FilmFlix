@@ -1,14 +1,12 @@
-import useGetData from "../../components/Tools/useGetData";
+import { useState } from "react";
+
 import Slider from "react-slick";
 import { imagesSliderSettings } from "../../components/Tools/SliderSettings";
-import Videos from "./Videos";
-import { TitleText } from "../../components/accessories/TextTitle";
-import { useState } from "react";
 import { ImCross } from "react-icons/im";
 import { useGetAllDataSlashQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
-import Error from "../../components/accessories/Error";
 import NotFoundError from "../../components/accessories/NotFoundError";
+import TitleText from "../../components/accessories/TextTitle";
 
 export default function Section04({ id, type }) {
     // const imagesData = useGetData({ type: type, id, });

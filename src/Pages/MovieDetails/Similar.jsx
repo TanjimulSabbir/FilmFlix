@@ -1,13 +1,13 @@
+import { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
+
 import { useGetAllDataSlashQuery, useGetMovieDetailsQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
 import MovieItem from "../../components/Home/Banner02/MovieItem";
 import Slider from "react-slick";
 import { treandingSliderSettings } from "../../components/Tools/SliderSettings";
-import { TitleText } from "../../components/accessories/TextTitle";
-import { useState } from "react";
+import TitleText from "../../components/accessories/TextTitle";
 import ModalDetails from "./ModalDetails";
-import Error from "../../components/accessories/Error";
 import NotFoundError from "../../components/accessories/NotFoundError";
 import toast from "react-hot-toast";
 

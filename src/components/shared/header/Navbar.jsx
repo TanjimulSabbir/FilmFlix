@@ -1,12 +1,19 @@
 import { useLocation, Link } from "react-router-dom";
-import { IoSearchSharp } from "react-icons/io5";
+import { useState } from "react";
+
+import { BsBookmarkPlusFill } from "react-icons/bs";
+
+
+
 import style from "../../../style/navbar.module.css";
 import logo from "../../../assets/Logo/logo.png";
 import "../../../style/animation.css"
 import SinglePath from "./SinglePath";
 import useScrollPosition from "../../accessories/useScrollPosition";
-import { useState } from "react";
 import SearchModal from "./SearchModal";
+import { IoSearchSharp } from "react-icons/io5";
+
+
 
 function Navbar() {
     const [openSearchModal, setOpenSearchModal] = useState(false);
@@ -35,8 +42,10 @@ function Navbar() {
                     <div className="flex items-center space-x-10">
 
                         {/* Auth buttons */}
-                        <button className={`${style.activeLink}`}>Login</button>
-                        <button className={`${style.activeLink}`}>Join Us</button>
+                        <button className={`${style.activeLink} flex items-center space-x-1`}>
+                            <BsBookmarkPlusFill /> <span>Watchlist</span>
+                        </button>
+                        <button className={`${style.activeLink}`}>Sign in</button>
                         <button className={style.SearchBtn} onClick={handleSearchBtn}><IoSearchSharp className="text-2xl" /></button>
                     </div>
                 </div>

@@ -65,7 +65,7 @@
     opacity: 0;
     top: 40px;
     transform: translateX(-35%);
-    transition: visibility 700ms, opacity 700ms ease-in-out;
+    transition: visibility 500ms, opacity 300ms ease-in-out;
 }
 
 .btnContainer:hover .absoluteContainer {

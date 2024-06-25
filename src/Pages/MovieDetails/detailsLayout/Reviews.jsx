@@ -31,8 +31,9 @@ export default function Reviews() {
 
   return (
     <div>
-      <div className="topSlider flex items-center gap-x-5">
-        <img className="w-24 h-24 rounded-full" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" srcSet="" />
+      <div className="topSlider flex items-center space-x-5">
+        <img className="w-20 h-20 rounded-2xl" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" srcSet="" />
+
         <div>
           <h2 className="text-3xl inline-block">{original_title}</h2>
           <p className="flex items-center">
@@ -47,7 +48,7 @@ export default function Reviews() {
       <h2 className="mt-7 text-3xl rightSliderSlow">{TitleText("User Reviews")}</h2>
 
       {
-        reviewsData?.length > 0 ? reviewsData?.map(review => <Review key={review.id} review={review} />) : <NotFoundError message="reviews"/>
+        reviewsData?.length > 0 ? reviewsData?.map(review => <Review key={review.id} review={review} />) : <NotFoundError message="reviews" />
       }
 
       <p

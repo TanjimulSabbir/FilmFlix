@@ -4,6 +4,7 @@ import { useGetKeywordSearchQuery } from "../../../Redux/Features/Api/movieApi";
 import LoadingInline from "../../accessories/InlineLoading";
 import NotFoundError from "../../accessories/NotFoundError";
 import toast from "react-hot-toast";
+import moment from "moment";
 
 export default function SearchedSuggestions({ inputText, handleSearchBtn }) {
     const { data: keyWords, isLoading, isError, } = useGetKeywordSearchQuery(inputText);
@@ -31,7 +32,7 @@ export default function SearchedSuggestions({ inputText, handleSearchBtn }) {
             handleSearchBtn()
         }
     }
-
+    
     let content;
     if (isLoading) {
         content = <LoadingInline />

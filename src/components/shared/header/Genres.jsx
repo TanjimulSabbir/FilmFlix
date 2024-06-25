@@ -17,11 +17,11 @@ function Genres() {
     if (isloading) return <Loading />
 
     return (
-        <div className="grid grid-cols-3 items-center  bg-[#000000f7] rounded-lg p-5 z-50 shadow-xl">
-            {data?.genres?.map(genre => <div key={genre.id} className="flex items-center space-x-1 py-2 text-gray-300 cursor-pointer transition duration-500 hover:text-green-500">
+        <div className="grid grid-cols-3 items-center bg-[#000000f7] rounded-lg p-5 z-50 shadow-xl">
+            {data?.genres?.map(genre => <Link to={`/genres/${genre.name}/${genre.id}`} key={genre.id} className="flex items-center space-x-1 py-2 text-xs text-gray-300 cursor-pointer transition duration-300 hover:text-green-500">
                 <FaCaretRight className="text-[10px]" />
-                <Link to={`/genres/${genre.name}/${genre.id}`} className="text-xs">{genre.name}</Link>
-            </div>)}
+                 {genre.name}
+            </Link>)}
         </div>
 
     )

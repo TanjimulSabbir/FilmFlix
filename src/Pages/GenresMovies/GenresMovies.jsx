@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 import { useGetDiscoverMoviesQuery } from "../../Redux/Features/Api/movieApi";
 import LoadingInline from "../../components/accessories/InlineLoading";
 import GenreMovie from "./GenreMovie";
-import { TitleText } from "../../components/accessories/TextTitle";
+import TitleText from "../../components/accessories/TextTitle";
+
 
 export default function GenresMovies() {
     const { genreId, genType } = useParams();
