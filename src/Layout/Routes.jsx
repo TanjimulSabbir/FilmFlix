@@ -5,9 +5,9 @@ import Login from "../Pages/auth/Login";
 import MovDetailsHome from "../Pages/MovieDetails/MovDetailsHome";
 import MoviesHome from "../Pages/Movies/MoviesHome";
 import TvHome from "../Pages/TvSeries/TvHome";
-import More from "../Pages/GenresMovies/GenresMovies";
 import NotFound from "../components/accessories/NotFound";
-import GenresMovies from "../Pages/GenresMovies/GenresMovies";
+import GenresMovies from "../Pages/Genres/GenresMovies";
+
 
 const router = createBrowserRouter([
     {
@@ -29,10 +29,6 @@ const router = createBrowserRouter([
             {
                 path: "/genres/:genType/:genreId",
                 element: <GenresMovies />
-            },
-            {
-                path: "/more",
-                element: <More />
             },
             {
                 path: "/login",
