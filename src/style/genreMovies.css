@@ -1,9 +1,8 @@
 .wishListBtn,
 .trailerBtn {
     background-color: transparent;
-    border: 1px solid rgb(210, 208, 208);
     cursor: pointer;
-    transition: color 0.3ms ease-in;
+    transition: color 0.5ms ease-in;
     position: relative;
     /* overflow: hidden; */
     z-index: 1;

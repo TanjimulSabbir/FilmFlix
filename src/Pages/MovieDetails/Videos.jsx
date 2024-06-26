@@ -11,7 +11,7 @@ export default function Videos({ id, howMuch, title, type }) {
     const { data: videos, isLoading, isError } = useGetMovieVideosQuery({ id, type: type || pathType });
     console.log(videos, id, title, "video");
     let content;
-    if (videos) {
+    if (isLoading) {
         content = <LoadingInline />;
     } else if (isError) {
         content = <NotFoundError message="Trailer" />;

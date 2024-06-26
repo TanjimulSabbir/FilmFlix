@@ -1,5 +1,5 @@
 .loader {
-  width: 40px;
+  width: 30px;
   aspect-ratio: 1;
   --_c: no-repeat radial-gradient(farthest-side, #25b09b 92%, #010101);
   background:
@@ -7,8 +7,8 @@
     var(--_c) left,
     var(--_c) right,
     var(--_c) bottom;
-    background-color: #01010100;
-  background-size: 12px 12px;
+    background-color: #03030300;
+  background-size: 8px 8px;
   animation: l7 1s infinite;
 }
 
