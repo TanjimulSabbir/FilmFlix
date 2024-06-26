@@ -15,6 +15,7 @@ import LoadingInline from '../../components/accessories/InlineLoading';
 import { useDispatch } from 'react-redux';
 import { setWatchListMovies } from '../../Redux/Features/Watchlist/watchListSlice';
 
+
 export default function GenreMovie({ movie }) {
     const [openTrailer, setOpenTrailer] = useState(false);
     const [imageLoading, setImageLoading] = useState(true);

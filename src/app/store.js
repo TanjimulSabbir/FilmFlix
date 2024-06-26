@@ -5,8 +5,9 @@ import moviesSlice from '../Redux/Features/movies/moviesSlice';
 import watchListSlice from '../Redux/Features/Watchlist/watchListSlice';
 
 
+
 const store = configureStore({
-    reducer: { [apiSlice.reducerPath]: apiSlice.reducer, slider: sliderSlice, movieData: moviesSlice, watchListMovies: watchListSlice },
+    reducer: { [apiSlice.reducerPath]: apiSlice.reducer, slider: sliderSlice, movieData: moviesSlice, watchListMovies: watchListSlice  },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware)
 });
 
