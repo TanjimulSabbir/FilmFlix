@@ -12,6 +12,8 @@ import { TextRuntime, getReleaseDate } from '../../components/Tools/Others';
 import Videos from '../MovieDetails/Videos';
 import "../../style/genreMovies.css"
 import LoadingInline from '../../components/accessories/InlineLoading';
+import { useDispatch } from 'react-redux';
+import { setWatchListMovies } from '../../Redux/Features/Watchlist/watchListSlice';
 
 export default function GenreMovie({ movie }) {
     const [openTrailer, setOpenTrailer] = useState(false);
@@ -27,6 +29,11 @@ export default function GenreMovie({ movie }) {
     const isReleaseDatePassed = (releaseDate) => {
         return moment().isAfter(releaseDate, 'YYYY-MM-DD');
     };
+
+    const dispatch = useDispatch();
+    const handleWatchList = (movie) => {
+        dispatch(setWatchListMovies(movie))
+    }
     return (
         <div className="topSlider">
             <div className='flex flex-col space-y-10 md:flex-row-reverse md:space-y-0 md:space-x-10 justify-center shadow-2xl rounded-xl bg-[#101010]'>
@@ -96,7 +103,7 @@ export default function GenreMovie({ movie }) {
                             <span>Show details</span>
                         </Link>
 
-                        <p className='wishListBtn leftSliderSlow min-w-fit flex items-center space-x-3 py-2 px-3 rounded-lg text-yellow-500 border border-yellow-500'>
+                        <p onClick={() => handleWatchList(movie)} className='wishListBtn leftSliderSlow min-w-fit flex items-center space-x-3 py-2 px-3 rounded-lg text-yellow-500 border border-yellow-500'>
                             <BsFillBookmarkPlusFill className="" />
                             <span>Add to Watchlist</span>
                         </p>
