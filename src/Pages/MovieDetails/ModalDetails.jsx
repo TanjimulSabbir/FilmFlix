@@ -8,23 +8,33 @@ import { useState } from 'react';
 import Videos from './Videos';
 import "../../style/animation.css"
 import moment from 'moment';
+import LoadingInline from '../../components/accessories/InlineLoading';
 
 export default function ModalDetails({ movie, handleCloseModal }) {
     const [openTrailer, setOpenTrailer] = useState(false);
     const type = movie?.media_type;
-    const urlPathType=useLocation().pathname.split("/")[1]
+    const urlPathType = useLocation().pathname.split("/")[1]
     const pathType = type || urlPathType;
 
     const { id, original_title, original_name, release_date, overview, genres, runtime, poster_path, backdrop_path, vote_average, tagline, spoken_languages, original_language, status, first_air_date } = movie || {};
-   
+
     const isReleaseDatePassed = (releaseDate) => {
         return moment().isAfter(releaseDate, 'YYYY-MM-DD');
+    };
+    const [imageLoading, setImageLoading] = useState(true);
+
+    const handleImageLoad = () => {
+        setImageLoading(false);
     };
     return (
         <div className="topSlider w-full md:w-2/3 fixed mx-auto inset-0 flex items-center justify-center z-[60]">
             <div className='flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 justify-center shadow-2xl rounded-2xl bg-[#2e2e2e]'>
-                <div className='w-full'>
-                    {!openTrailer ? <img className='leftSlider h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title || original_name} /> : <Videos id={id} howMuch={"1"} title={original_title || original_name} type={type} />}
+                <div className='w-full relative'>
+                    {
+                        imageLoading && <p className='absolute inset-0 h-full flex items-center justify-center'><LoadingInline />  </p>
+                    }
+
+                    {!openTrailer ? <img className='leftSlider h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title || original_name} onLoad={handleImageLoad} /> : <Videos id={id} howMuch={"1"} title={original_title || original_name} type={type} />}
 
                 </div>
                 <div className='relative w-full px-2 py-7'>
@@ -41,7 +51,7 @@ export default function ModalDetails({ movie, handleCloseModal }) {
                     <div className='topSlider mb-5'>
                         <p className="flex items-center">
                             <span className='w-1/3 '>Status</span>
-                            <span >{status || isReleaseDatePassed(release_date)? "Released":"Upcoming"}</span>
+                            <span >{status || isReleaseDatePassed(release_date) ? "Released" : "Upcoming"}</span>
                         </p>
                         <p className='fade-in flex items-center'>
                             <span className='w-1/3 '>Languages</span>
@@ -77,7 +87,6 @@ export default function ModalDetails({ movie, handleCloseModal }) {
                     <div className='w-full flex flex-wrap items-center gap-5'>
                         <button onClick={() => setOpenTrailer(!openTrailer)}
                             className='leftSlider min-w-fit flex items-center space-x-1 py-2 px-3 md:px-6 border border-green-500 rounded-xl bg-green-500 transition-all duration-500 hover:bg-green-600 justify-center'
-
                         >
                             <PiPlayCircleFill />
                             <span> {openTrailer ? "Quit Trailer" : "Watch Trailer"}</span>
@@ -87,7 +96,7 @@ export default function ModalDetails({ movie, handleCloseModal }) {
                             <span>Show details</span>
                         </Link>
                     </div>
-                    <MdClose className='leftSlider absolute top-5 right-5 tex-2xl cursor-pointer transition-all duration-500 delay-300 hover:scale-150' onClick={handleCloseModal} />
+                    <MdClose className='leftSlider absolute top-5 right-5 tex-2xl cursor-pointer transition-all duration-500 hover:text-3xl hover:text-red-600' onClick={handleCloseModal} />
                 </div>
             </div>
         </div>

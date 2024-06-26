@@ -31,9 +31,9 @@ export default function GenreMovie({ movie }) {
         <div className="topSlider">
             <div className='flex flex-col space-y-10 md:flex-row-reverse md:space-y-0 md:space-x-10 justify-center shadow-2xl rounded-xl bg-[#101010]'>
                 <div className='w-full relative'>
-                    <p className='absolute inset-0 h-full flex items-center justify-center'>
-                        {imageLoading && <LoadingInline />}
-                    </p>
+                    {
+                        imageLoading && <p className='absolute inset-0 h-full flex items-center justify-center'><LoadingInline />  </p>
+                    }
                     {!openTrailer ? <img className='leftSlider h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title || original_name} onLoad={handleImageLoad} /> : <Videos id={id} howMuch={"1"} title={original_title || original_name} type="movie" />}
                 </div>
                 <div className='relative w-full px-2 py-7'>
@@ -100,9 +100,7 @@ export default function GenreMovie({ movie }) {
                             <BsFillBookmarkPlusFill className="" />
                             <span>Add to Watchlist</span>
                         </p>
-
                     </div>
-
                 </div>
             </div>
         </div>
