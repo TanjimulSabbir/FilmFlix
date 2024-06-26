@@ -10,6 +10,7 @@ import SinglePath from "./SinglePath";
 import useScrollPosition from "../../accessories/useScrollPosition";
 import SearchModal from "./SearchModal";
 import { IoSearchSharp } from "react-icons/io5";
+import "../../../style/animation.css"
 
 
 
@@ -40,11 +41,12 @@ function Navbar() {
                     <div className="flex items-center space-x-10">
 
                         {/* Auth buttons */}
-                        <button className={`${style.activeLink} flex items-center space-x-1 text-green-600`}>
-                            <BsFillBookmarkPlusFill className=""/> <span>Watchlist</span>
+                        <button className="rightSlider hover:text-yellow-500 duration-300 flex items-center space-x-1 text-yellow-600">
+                            <BsFillBookmarkPlusFill />
+                            <span>Watchlist</span>
                         </button>
-                        <button className={`${style.activeLink}`}>Sign in</button>
-                        <button className={style.SearchBtn} onClick={handleSearchBtn}><IoSearchSharp className="text-2xl" /></button>
+                        <button className={`downSlider ${style.activeLink}`}>Sign in</button>
+                        <button className={`leftSlider ${style.SearchBtn}`} onClick={handleSearchBtn}><IoSearchSharp className="text-2xl" /></button>
                     </div>
                 </div>
             </div>

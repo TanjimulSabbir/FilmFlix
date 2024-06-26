@@ -34,7 +34,7 @@ export default function GenreMovie({ movie }) {
                     {
                         imageLoading && <p className='absolute inset-0 h-full flex items-center justify-center'><LoadingInline />  </p>
                     }
-                    {!openTrailer ? <img className='leftSlider h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title || original_name} onLoad={handleImageLoad} /> : <Videos id={id} howMuch={"1"} title={original_title || original_name} type="movie" />}
+                    {!openTrailer ? <img className='rightSlider h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title || original_name} onLoad={handleImageLoad} /> : <Videos id={id} howMuch={"1"} title={original_title || original_name} type="movie" />}
                 </div>
                 <div className='relative w-full px-2 py-7'>
                     <p className="text-3xl font-extrabold">{original_title || original_name}</p>
@@ -45,7 +45,7 @@ export default function GenreMovie({ movie }) {
                         </>
                     ))}
                     </p>
-                    <p className="my-5 text-sm">{overview}</p>
+                    <p className="topSlider my-5 text-sm">{overview}</p>
 
                     <div className='topSlider mb-5'>
                         <p className="flex items-center">
@@ -85,7 +85,7 @@ export default function GenreMovie({ movie }) {
                     </div>
                     <div className='w-full flex flex-wrap items-center gap-5'>
                         <p onClick={() => setOpenTrailer(!openTrailer)}
-                            className='leftSlider trailerBtn min-w-fit flex items-center space-x-1 py-2 px-3 md:px-6 rounded-lg justify-center border border-white'
+                            className='trailerBtn min-w-fit flex items-center space-x-1 py-2 px-3 md:px-6 rounded-lg justify-center border border-white leftSlider'
 
                         >
                             <PiPlayCircleFill />
@@ -96,7 +96,7 @@ export default function GenreMovie({ movie }) {
                             <span>Show details</span>
                         </Link>
 
-                        <p className='rightSlider wishListBtn min-w-fit flex items-center space-x-3 py-2 px-3 rounded-lg text-yellow-500 border border-yellow-500'>
+                        <p className='wishListBtn leftSliderSlow min-w-fit flex items-center space-x-3 py-2 px-3 rounded-lg text-yellow-500 border border-yellow-500'>
                             <BsFillBookmarkPlusFill className="" />
                             <span>Add to Watchlist</span>
                         </p>
