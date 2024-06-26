@@ -1,9 +1,7 @@
 import { useLocation, Link } from "react-router-dom";
 import { useState } from "react";
 
-import { BsBookmarkPlusFill } from "react-icons/bs";
-
-
+import { BsFillBookmarkPlusFill } from "react-icons/bs";
 
 import style from "../../../style/navbar.module.css";
 import logo from "../../../assets/Logo/logo.png";
@@ -42,8 +40,8 @@ function Navbar() {
                     <div className="flex items-center space-x-10">
 
                         {/* Auth buttons */}
-                        <button className={`${style.activeLink} flex items-center space-x-1`}>
-                            <BsBookmarkPlusFill /> <span>Watchlist</span>
+                        <button className={`${style.activeLink} flex items-center space-x-1 text-green-600`}>
+                            <BsFillBookmarkPlusFill className=""/> <span>Watchlist</span>
                         </button>
                         <button className={`${style.activeLink}`}>Sign in</button>
                         <button className={style.SearchBtn} onClick={handleSearchBtn}><IoSearchSharp className="text-2xl" /></button>

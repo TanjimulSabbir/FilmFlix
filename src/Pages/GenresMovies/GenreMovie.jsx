@@ -4,11 +4,13 @@ import moment from 'moment';
 
 import { PiDotBold, PiPlayCircleFill } from 'react-icons/pi';
 import { IoIosStar } from 'react-icons/io';
+import { BsFillBookmarkPlusFill } from 'react-icons/bs';
 
 import "../../style/animation.css"
 import { scrollToTop } from '../../components/Tools/ScrollTop';
 import { TextRuntime, getReleaseDate } from '../../components/Tools/Others';
 import Videos from '../MovieDetails/Videos';
+import "../../style/genreMovies.css"
 
 export default function GenreMovie({ movie }) {
     const [openTrailer, setOpenTrailer] = useState(false);
@@ -74,17 +76,23 @@ export default function GenreMovie({ movie }) {
                         <p className='text-xs text-green-600 mt-5'>{tagline}</p>
                     </div>
                     <div className='w-full flex flex-wrap items-center gap-5'>
-                        <button onClick={() => setOpenTrailer(!openTrailer)}
-                            className='leftSlider min-w-fit flex items-center space-x-1 py-2 px-3 md:px-6 border border-[#11293d] rounded-xl bg-[#062541] transition-all duration-500 hover:bg-[#062541] justify-center'
+                        <p onClick={() => setOpenTrailer(!openTrailer)}
+                            className='leftSlider trailerBtn min-w-fit flex items-center space-x-1 py-2 px-3 md:px-6 rounded-lg justify-center border border-white'
 
                         >
                             <PiPlayCircleFill />
                             <span> {openTrailer ? "Quit Trailer" : "Watch Trailer"}</span>
-                        </button>
-                        <Link to={`/movie/${id}`} onClick={() => scrollToTop()} className='fade-in-slow min-w-fit flex items-center space-x-1 py-2 px-5 md:px-9 rounded-xl border border-green-500 text-green-600 cursor-pointer transition-all duration-500 ease-linear hover:bg-green-600 hover:text-white justify-center'>
+                        </p>
+                        <Link to={`/movie/${id}`} onClick={() => scrollToTop()} className='fade-in-slow min-w-fit flex items-center space-x-1 py-2 px-5 md:px-9 rounded-lg border border-green-500 text-green-600 cursor-pointer transition-all duration-500 ease-linear hover:bg-green-600 hover:text-white justify-center'>
                             {/* <PiPlayCircleFill/> */}
                             <span>Show details</span>
                         </Link>
+
+                        <p className='rightSlider wishListBtn min-w-fit flex items-center space-x-3 py-2 px-3 rounded-lg text-yellow-500'>
+                            <BsFillBookmarkPlusFill className="" />
+                            <span>Add to Watchlist</span>
+                        </p>
+
                     </div>
 
                 </div>

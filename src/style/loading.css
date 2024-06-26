@@ -1,13 +1,14 @@
 .loader {
   width: 40px;
   aspect-ratio: 1;
-  --_c: no-repeat radial-gradient(farthest-side, #25b09b 92%, #0bb74100);
+  --_c: no-repeat radial-gradient(farthest-side, #25b09b 92%, #010101);
   background:
     var(--_c) top,
     var(--_c) left,
     var(--_c) right,
     var(--_c) bottom;
-  background-size: 12px 10px;
+    background-color: #01010100;
+  background-size: 12px 12px;
   animation: l7 1s infinite;
 }
 

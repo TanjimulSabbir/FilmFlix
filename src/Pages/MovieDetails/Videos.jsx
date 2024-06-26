@@ -3,6 +3,7 @@ import { useGetMovieVideosQuery } from "../../Redux/Features/Api/movieApi";
 import Loading from "../../components/accessories/Loading";
 import "../../style/animation.css"
 import NotFoundError from "../../components/accessories/NotFoundError";
+import LoadingInline from "../../components/accessories/InlineLoading";
 
 export default function Videos({ id, howMuch, title, type }) {
     const pathType = useLocation().pathname.split("/")[1]
@@ -10,8 +11,8 @@ export default function Videos({ id, howMuch, title, type }) {
     const { data: videos, isLoading, isError } = useGetMovieVideosQuery({ id, type: type || pathType });
     console.log(videos, id, title, "video");
     let content;
-    if (isLoading) {
-        content = <Loading />;
+    if (videos) {
+        content = <LoadingInline />;
     } else if (isError) {
         content = <NotFoundError message="Trailer" />;
     } else {
