@@ -1,6 +1,5 @@
 import BannerText from "./BannerText";
 import { useGetMovieDetailsQuery } from "../../Redux/Features/Api/movieApi";
-import Loading from "../accessories/Loading";
 import NotFoundError from "../accessories/NotFoundError";
 import InitialLoading from "../../UI/WelcomeText";
 
@@ -19,7 +18,7 @@ function Banner({ id }) {
         content = <BannerText movie={MovieDetails} />
     }
     return (
-        <div className="w-full absolute top-0 flex items-center justify-center z-20 bg-[#000000c1] h-full bg-blend-multiply">
+        <div className="w-full absolute top-0 flex items-center justify-center z-20 bg-[#000000c1]  h-screen md:h-full bg-blend-multiply">
             <div className="container -mt-10">
                 {content}
             </div>

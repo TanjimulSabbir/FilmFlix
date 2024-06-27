@@ -3,7 +3,6 @@ import moment from "moment";
 import Trailer from "./Trailer";
 import { useState, useEffect } from "react";
 import style from "../../style/bannerText.module.css";
-import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { getSliderValue } from "../../Redux/Features/Slider/sliderSlice";
 
@@ -22,7 +21,7 @@ function BannerText02({ movie }) {
     };
 
     return (
-        <div className="rightSlider w-1/2 flex items-start justify-end text-white">
+        <div className="rightSlider hidden w-1/2 lg:flex items-start justify-end text-white">
             <div>
                 <h1 className={`${style.theatePlayDate} leading-none hover:scale-105`}>
                     <span className="mr-5 tracking-wider">on</span>
@@ -33,8 +32,8 @@ function BannerText02({ movie }) {
 
                 <div className="mt-5">
                     <button className={`${style.trailerBtn} flex items-center space-x-2`} onClick={handleTrailer}>
-                        <BsPlayCircle className=" text-3xl text-green-600" />
-                        <span className="">
+                        <BsPlayCircle className="text-3xl text-green-600" />
+                        <span>
                             {openTrailer ? "Quit Trailer" : "Watch Trailer"}
                         </span>
                     </button>

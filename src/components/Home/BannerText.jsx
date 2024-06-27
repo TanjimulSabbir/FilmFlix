@@ -4,7 +4,7 @@ import "../../style/animation.css"
 
 function BannerText({movie}) {
     return (
-        <div className="w-full flex lg:items-center">
+        <div className="w-full lg:flex lg:items-center">
             <BannerText01 movie={movie} />
             <BannerText02 movie={movie} />
         </div>

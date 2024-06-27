@@ -1,5 +1,11 @@
-.btn {
+.lgBtn {
   padding: 13px 30px;
+  border-radius: 4px;
+  transition: 700ms ease-in-out;
+}
+
+.smBtn {
+  padding: 7px 20px;
   border-radius: 4px;
   transition: 700ms ease-in-out;
 }
@@ -9,7 +15,8 @@
   color: #20c33b;
 }
 
-.btn:hover {
+.lgBtn:hover,
+.smBtn:hover {
   background: #16c734;
   color: whitesmoke;
 }
@@ -46,6 +53,7 @@
 .trailerBtn {
   transition: 700ms ease-in-out;
 }
-.trailerBtn:hover{
+
+.trailerBtn:hover {
   color: #20c33b;
 }

@@ -12,7 +12,7 @@ function BannerText01({ movie }) {
   };
 
   return (
-    <div className="leftSlider w-1/2 text-white select-text">
+    <div className="leftSlider px-5 lg:px-0 lg:w-1/2 text-white select-text">
       <h2 className={`${style.movieTitle} text-3xl mb-4`}>{original_title}</h2>
 
       {/* title details */}
@@ -26,12 +26,12 @@ function BannerText01({ movie }) {
       <p className="mb-12 text-sm">{overview}</p>
 
       <div className="space-x-4 flex">
-        <button className={`${style.btn} flex items-center space-x-1 bg-green-600 border-none`} onClick={() => handleShowToast('We are working for this feature. Thank you!')}>
+        <button className={`${style.smBtn} lg:${style.lgBtn} flex items-center space-x-1 bg-green-600 border-none`} onClick={() => handleShowToast('We are working for this feature. Thank you!')}>
           <GoPlus />
           <span>Add Watchlist</span>
         </button>
 
-        <button className={`${style.btn} ${style.brdr} flex items-center space-x-1`} onClick={() => handleShowToast('We are working for this feature. Thank you!')}>
+        <button className={`${style.smBtn} lg:${style.lgBtn} ${style.brdr} flex items-center space-x-1`} onClick={() => handleShowToast('We are working for this feature. Thank you!')}>
           <CiBookmark />
           <span>Buy ticket</span>
         </button>
