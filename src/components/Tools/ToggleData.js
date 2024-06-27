@@ -12,7 +12,6 @@ const ToggleData = () => {
 
     const toggle02 = [
         { title: 'Today', path: `primary_release_date.gte=${currentDate}&primary_release_date.lte=${DaysLater(1)}`, type: "movie" },
-
         { title: 'This week', path: `primary_release_date.gte=${currentDate}&primary_release_date.lte=${DaysLater(6)}`, type: "movie" },
     ];
     const toggle03 = [

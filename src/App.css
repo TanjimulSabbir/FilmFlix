@@ -59,12 +59,11 @@
 } */
 
 .absoluteContainer {
-    width: 400px;
     position: absolute;
     visibility: hidden;
     opacity: 0;
     top: 40px;
-    transform: translateX(-35%);
+    /* transform: translateX(-35%); */
     transition: visibility 500ms, opacity 300ms ease-in-out;
 }
 

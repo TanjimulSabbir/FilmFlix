@@ -20,8 +20,6 @@ function BannerText01({ movie }) {
   const dispatch = useDispatch();
 
   const handleWatchList = (movie) => {
-    toast.success("clicked")
-    console.log(movie)
     dispatch(setWatchListMovies(movie))
   }
 

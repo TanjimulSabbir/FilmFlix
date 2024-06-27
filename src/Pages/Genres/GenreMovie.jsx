@@ -15,7 +15,7 @@ import Videos from '../MovieDetails/Videos';
 import LoadingInline from '../../components/accessories/InlineLoading';
 import { useDispatch } from 'react-redux';
 import { setWatchListMovies } from '../../Redux/Features/Watchlist/watchListSlice';
-import toast from 'react-hot-toast';
+import NotFoundError from '../../components/accessories/NotFoundError';
 
 
 export default function GenreMovie({ movie }) {
@@ -35,8 +35,6 @@ export default function GenreMovie({ movie }) {
 
     const dispatch = useDispatch();
     const handleWatchList = (movie) => {
-        toast.success("clicked")
-        console.log(movie)
         dispatch(setWatchListMovies(movie))
     }
     return (

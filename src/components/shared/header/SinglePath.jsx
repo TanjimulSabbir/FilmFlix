@@ -7,7 +7,7 @@ export default function SinglePath({ link, hoverEffect, toggleDrawer, sm }) {
     const path = useLocation().pathname;
     if (link.title === "Genres") {
         return <div className="btnContainer">
-            <button className={`${sm !== "sm" ? style.activeLink : hoverEffect} ${sm !== "sm" && path.includes(link.path) ? style.active : hoverEffect}  flex items-center space-x-3 lg:space-x-0`}
+            <button className={`${sm !== "sm" ? style.activeLink : hoverEffect} ${sm !== "sm" && path.includes(link.path) ? style.active : hoverEffect} flex items-center space-x-3 lg:space-x-0`}
             >
                 {link.icon}
                 <span>

@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 
+const localData = JSON.parse(localStorage.getItem("watchlist"));
 const initialState = {
-    watchListMovies: JSON.parse(localStorage.getItem("watchlist")) || []
+    watchListMovies: []
 };
 
 const watchListSlice = createSlice({
@@ -16,7 +17,7 @@ const watchListSlice = createSlice({
             if (!alreadyAdded) {
                 state.watchListMovies.push(action.payload);
                 localStorage.setItem("watchlist", JSON.stringify(state.watchListMovies));
-                toast.success("Movie added to watchlist!");
+                toast.success(`${action.payload?.title} added to watchlist!`);
             } else {
                 toast.error("You have already added this movie!");
             }

@@ -1,23 +1,25 @@
 import { useLocation, Link } from "react-router-dom";
 import { useState } from "react";
 
-import { BsFillBookmarkPlusFill } from "react-icons/bs";
-
+import "../../../style/animation.css";
 import style from "../../../style/navbar.module.css";
+
+import { BsFillBookmarkPlusFill } from "react-icons/bs";
+import { IoSearchSharp } from "react-icons/io5";
+
 import logo from "../../../assets/Logo/logo.png";
-import "../../../style/animation.css"
 import SinglePath from "./SinglePath";
 import useScrollPosition from "../../accessories/useScrollPosition";
 import SearchModal from "./SearchModal";
-import { IoSearchSharp } from "react-icons/io5";
-import "../../../style/animation.css"
-import Drawer from "./Drawer";
-import SmallNavbar from "./smallNavbar";
+import SmallNavbar from "./SmallNavbar";
+import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 
 
 function Navbar() {
     const [openSearchModal, setOpenSearchModal] = useState(false);
+    const movies = useSelector(state => state.watchListMovies.watchListMovies)
 
     const scrollY = useScrollPosition();
     const CurrentPath = useLocation().pathname;
@@ -43,9 +45,11 @@ function Navbar() {
                         <div className="flex items-center space-x-10">
 
                             {/* Auth buttons */}
-                            <button className="rightSlider hover:text-yellow-500 duration-300 flex items-center space-x-1 text-yellow-600">
+                            <button onClick={()=>toast.error("Currently, Watchlist details is not available. We are working for this. Thank you.")} className="rightSlider hover:text-yellow-500 duration-300 flex items-center space-x-1 text-yellow-600">
                                 <BsFillBookmarkPlusFill />
-                                <span>Watchlist</span>
+                                <span className="relative">
+                                    <span>Watchlist</span> <span className="">({movies?.length || 0})</span>
+                                </span>
                             </button>
                             <button className={`downSlider ${style.activeLink}`}>Sign in</button>
                             <button className={`leftSlider ${style.SearchBtn}`} onClick={handleSearchBtn}><IoSearchSharp className="text-2xl" /></button>
