@@ -46,7 +46,7 @@ function MovDetailsHome() {
   if (isError || !movie?.id) {
     content = <NotFoundError message="Data" />
   }
-  console.log(movie)
+ 
   return (
     <div className="container w-full mx-auto h-full overflow-x-hidden">
       {content}
