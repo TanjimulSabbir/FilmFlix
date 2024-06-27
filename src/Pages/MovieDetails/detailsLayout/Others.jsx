@@ -6,7 +6,7 @@ import "../../../style/animation.css"
 
 export default function Others() {
   const movie = useSelector(state => state.movieData.clickedMovieDetails)
-  const { id, adult, backdrop_path, belongs_to_collection, budget, genres, homepage, imdb_id, original_language, original_title, overview, popularity, poster_path, production_companies, production_countries, release_date, revenue, runtime, spoken_languages, status, tagline, title, video, vote_average, vote_count
+  const { homepage, imdb_id, production_companies, production_countries, release_date, spoken_languages, status, tagline, 
   } = movie || {};
 
   const getArrayInfo = ({ ArrayData, type }) => {
@@ -24,19 +24,19 @@ export default function Others() {
   return (
     <div className="topSlider w-full pb-7">
       <div className="rightSlider flex space-x-5 py-4 border-y border-gray-600">
-        <span className="text-lg font-bold">Tagline</span>
+        <span className="text-base md:text-lg font-bold">Tagline</span>
         <p className="text-sky-500">{tagline}</p>
       </div>
       <div className="leftSlider flex space-x-5 py-4 border-y border-gray-600">
-        <span className="text-lg font-bold">Release Date</span>
+        <span className="text-base md:text-lg font-bold">Release Date</span>
         <p className="text-sky-500">{getReleaseDate(release_date)}</p>
       </div>
       <div className="topSliderSlow flex space-x-5 py-4 border-b border-gray-600">
-        <span className="text-lg font-bold">Countries Of Origin</span>
+        <span className="text-base md:text-lg font-bold">Countries Of Origin</span>
         <p className="flex flex-wrap items-center gap-2">{getArrayInfo({ ArrayData: production_countries, type: "name" })}</p>
       </div>
       <div className="rightSlider flex space-x-5 py-4 border-b border-gray-600">
-        <span className="text-lg font-bold">Official Sites</span>
+        <span className="text-base md:text-lg font-bold">Official Sites</span>
         <p className="flex flex-wrap items-center gap-2 ">
           <Link to={homepage} className="text-sky-500">Homepage</Link>
           <PiDotBold />
@@ -45,11 +45,11 @@ export default function Others() {
       </div>
 
       <div className="fade-in flex space-x-5 py-4 border-b border-gray-600">
-        <span className="text-lg font-bold">Languages</span>
+        <span className="text-base md:text-lg font-bold">Languages</span>
         <p className="flex flex-wrap items-center gap-2">{getArrayInfo({ ArrayData: spoken_languages, type: "name" })}</p>
       </div>
       <div className="topSliderSlow  flex space-x-5 py-4 border-b border-gray-600">
-        <span className="text-lg font-bold">Production Companies</span>
+        <span className="text-base md:text-lg font-bold">Production Companies</span>
         <p className="flex flex-wrap items-center gap-2">{getArrayInfo({ ArrayData: production_companies, type: "name" })}</p>
       </div>
     </div>

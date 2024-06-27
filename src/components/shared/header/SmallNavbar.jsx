@@ -48,7 +48,7 @@ function SmallNavbar() {
                 <Link exact to="/" className={style.logo}>
                     <img src={logo} alt="search" width={80} height={80} />
                 </Link>
-                {allPathLinks.map(item => <SinglePath toggleDrawer={toggleDrawer} key={item.title} link={item} hoverEffect={hoverEffect} />)}
+                {allPathLinks.map(item => <SinglePath toggleDrawer={toggleDrawer} key={item.title} link={item} hoverEffect={hoverEffect} sm="sm" />)}
                 <p onClick={toggleDrawer} className={`text-yellow-600 transition-colors duration-500 hover:text-yellow-500 flex items-center space-x-3 cursor-pointer`}>
                     <BsFillBookmarkPlusFill className="w-7 h-7" />
                     <span>Watchlist</span>

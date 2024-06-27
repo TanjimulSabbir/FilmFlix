@@ -3,11 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import Genres from "./Genres";
 import style from "../../../style/navbar.module.css"
 
-export default function SinglePath({ link, hoverEffect, toggleDrawer }) {
+export default function SinglePath({ link, hoverEffect, toggleDrawer, sm }) {
     const path = useLocation().pathname;
     if (link.title === "Genres") {
         return <div className="btnContainer">
-            <button className={`${hoverEffect} ${style.activeLink} ${path.includes(link.path) ? style.active : ''} flex items-center space-x-3 lg:space-x-0`}>
+            <button className={`${sm !== "sm" ? style.activeLink : hoverEffect} ${sm !== "sm" && path.includes(link.path) ? style.active : hoverEffect}  flex items-center space-x-3 lg:space-x-0`}
+            >
                 {link.icon}
                 <span>
                     Genres
@@ -16,13 +17,13 @@ export default function SinglePath({ link, hoverEffect, toggleDrawer }) {
             <div onClick={toggleDrawer} className="absoluteContainer">
                 <Genres />
             </div>
-        </div>
+        </div >
     }
     return (
         <Link
             onClick={toggleDrawer}
             to={link.path}
-            className={`${hoverEffect} ${style.activeLink} ${path.includes(link.path) ? style.active : ''} flex flex-col lg:flex-row`}
+            className={`${sm !== "sm" ? style.activeLink : hoverEffect} ${sm !== "sm" && path.includes(link.path) ? style.active : hoverEffect} flex flex-col lg:flex-row`}
         >
 
             <p className="flex items-center">

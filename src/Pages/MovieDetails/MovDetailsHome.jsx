@@ -48,7 +48,7 @@ function MovDetailsHome() {
   }
   console.log(movie)
   return (
-    <div className="container mx-auto h-full">
+    <div className="container w-full mx-auto h-full overflow-x-hidden">
       {content}
     </div>
   )

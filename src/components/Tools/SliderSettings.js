@@ -8,7 +8,15 @@ export const TopBannerSliderSettings = {
     waitForAnimate: false,
     autoplay: true,
     autoplaySpeed: 3000,
-    arrows: false
+    arrows: false,
+    responsive: [
+        {
+            breakpoint: 480,
+            settings: {
+                dots: false
+            }
+        },
+    ]
 };
 
 export const treandingSliderSettings = {
@@ -16,7 +24,7 @@ export const treandingSliderSettings = {
     dots: false,
     infinite: true,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     autoplay: true,
     speed: 1000,
     autoplaySpeed: 2000,
@@ -35,7 +43,7 @@ export const treandingSliderSettings = {
             breakpoint: 600,
             settings: {
                 slidesToShow: 2,
-                slidesToScroll: 2,
+                slidesToScroll: 3,
                 initialSlide: 2,
                 arrows: false
             }
@@ -44,7 +52,7 @@ export const treandingSliderSettings = {
             breakpoint: 480,
             settings: {
                 slidesToShow: 3,
-                slidesToScroll: 2,
+                slidesToScroll: 3,
                 arrows: false
             }
         }

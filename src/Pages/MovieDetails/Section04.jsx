@@ -52,7 +52,7 @@ export default function Section04({ id, type }) {
                 <div onClick={handleCloseModal} className="topSlider fixed inset-0 w-full h-full flex justify-center items-center bg-black bg-opacity-70 z-40 cursor-pointer">
                     <div className="relative">
                         <ImCross onClick={handleCloseModal} className="fixed text-3xl right-10 top-5 text-red-500 cursor-pointer z-50" />
-                        <img className="w-[70%] h-[80%] mx-auto" src={selectedImage} alt="" />
+                        <img className="" src={selectedImage} alt="" />
                     </div>
                 </div>
             )}

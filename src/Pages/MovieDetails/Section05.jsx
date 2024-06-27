@@ -42,7 +42,7 @@ function Section05() {
 
     return (
         <>
-            <div className='flex  lg:space-x-7'>
+            <div className='flex justify-between md:justify-start md:space-x-7'>
                 {paths.map(path => <Links key={path.title} items={path} hashPath={hashPath} />)}
             </div>
             <div className='pt-10 pb-14'>

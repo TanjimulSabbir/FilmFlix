@@ -7,7 +7,7 @@ function Layout() {
         <div>
             <Navbar />
             <Outlet />
-            <Toaster position="bottom-right" />
+            <Toaster position="top-center" />
         </div>
     )
 }

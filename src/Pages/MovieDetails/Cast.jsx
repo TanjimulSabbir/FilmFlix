@@ -33,10 +33,10 @@ function Cast({ id }) {
             return (
                 <div key={item.id} onClick={() => toast.error("Currently, Cast details is not available. We are working on it. Thank you.")}>
                     <div className={`${style.castContainer} flex items-center space-x-2 justify-center`}>
-                        <img className={`${style.castImage} w-16 h-24 lg:w-24 lg:h-32 rounded-full p-[1px]`} src={`https://image.tmdb.org/t/p/original${item.profile_path}`} alt="" srcSet="" />
+                        <img className={`${style.castImage} w-16 h-auto lg:w-24 lg:h-auto rounded-full p-[1px]`} src={`https://image.tmdb.org/t/p/original${item.profile_path}`} alt="" srcSet="" />
                         <p className={`${style.CastText} flex flex-col`}>
                             <span className="lg:text-xl">{item.original_name}</span>
-                            <span className="text-gray-500 text-sm">{item.character}</span>
+                            <span className="text-gray-500 text-xs md:text-sm">{item.character}</span>
                         </p>
                     </div>
                 </div>
