@@ -17,7 +17,7 @@ function Movies({ defaultValue, isSlider, path }) {
 
     const { data: movies, isLoading, isError, } = useGetDiscoverMoviesQuery({ type: "movie", path: !path ? `sort_by=${queryKeyword.keyword || defaultValue}` : queryKeyword.path });
 
-    let content;
+    let content; 
     if (isLoading) content = <LoadingInline />
     if (!isLoading && isError) content = <NotFoundError message="Movies" />;
 

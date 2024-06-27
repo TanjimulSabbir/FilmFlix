@@ -7,7 +7,7 @@ export default function SinglePath({ link, hoverEffect, toggleDrawer }) {
     const path = useLocation().pathname;
     if (link.title === "Genres") {
         return <div className="btnContainer">
-            <button className={`${hoverEffect} lg:${style.activeLink} lg:${path.includes(link.path) ? style.active : ''} flex items-center space-x-3`}>
+            <button className={`${hoverEffect} ${style.activeLink} ${path.includes(link.path) ? style.active : ''} flex items-center space-x-3 lg:space-x-0`}>
                 {link.icon}
                 <span>
                     Genres
@@ -22,12 +22,12 @@ export default function SinglePath({ link, hoverEffect, toggleDrawer }) {
         <Link
             onClick={toggleDrawer}
             to={link.path}
-            className={`${hoverEffect} lg:${style.activeLink} lg:${path.includes(link.path) ? style.active : ''} flex flex-col lg:flex-row`}
+            className={`${hoverEffect} ${style.activeLink} ${path.includes(link.path) ? style.active : ''} flex flex-col lg:flex-row`}
         >
 
             <p className="flex items-center">
                 {link.icon}
-                <span className="ml-3"> {link.title}</span>
+                <span className="ml-3 lg:ml-0"> {link.title}</span>
             </p>
 
         </Link>
