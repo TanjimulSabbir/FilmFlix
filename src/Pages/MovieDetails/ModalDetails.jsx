@@ -9,6 +9,7 @@ import Videos from './Videos';
 import "../../style/animation.css"
 import moment from 'moment';
 import LoadingInline from '../../components/accessories/InlineLoading';
+import NotFoundError from '../../components/accessories/NotFoundError';
 
 export default function ModalDetails({ movie, handleCloseModal }) {
     const [openTrailer, setOpenTrailer] = useState(false);
@@ -31,7 +32,7 @@ export default function ModalDetails({ movie, handleCloseModal }) {
             <div className='flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 justify-center shadow-2xl rounded-2xl bg-[#2e2e2e]'>
                 <div className='w-full relative'>
                     {
-                        imageLoading && <p className='absolute inset-0 h-full flex items-center justify-center'><LoadingInline />  </p>
+                        backdrop_path ? imageLoading && <p className='absolute inset-0 h-full flex items-center justify-center'><LoadingInline />  </p> : <NotFoundError message="image" />
                     }
 
                     {!openTrailer ? <img className='leftSlider h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title || original_name} onLoad={handleImageLoad} /> : <Videos id={id} howMuch={"1"} title={original_title || original_name} type={type} />}

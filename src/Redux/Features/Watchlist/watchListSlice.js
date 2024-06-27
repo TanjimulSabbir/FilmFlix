@@ -10,7 +10,8 @@ const watchListSlice = createSlice({
     initialState,
     reducers: {
         setWatchListMovies: (state, action) => {
-            const alreadyAdded = state.watchListMovies.some(movie => movie.id === action.payload.id);
+            const alreadyAdded = state.watchListMovies?.some(movie => movie.id === action.payload.id);
+            console.log(state.watchListMovies);
 
             if (!alreadyAdded) {
                 state.watchListMovies.push(action.payload);

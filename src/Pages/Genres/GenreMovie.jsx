@@ -6,14 +6,16 @@ import { PiDotBold, PiPlayCircleFill } from 'react-icons/pi';
 import { IoIosStar } from 'react-icons/io';
 import { BsFillBookmarkPlusFill } from 'react-icons/bs';
 
+
 import "../../style/animation.css"
+import "../../style/genreMovies.css"
 import { scrollToTop } from '../../components/Tools/ScrollTop';
 import { TextRuntime, getReleaseDate } from '../../components/Tools/Others';
 import Videos from '../MovieDetails/Videos';
-import "../../style/genreMovies.css"
 import LoadingInline from '../../components/accessories/InlineLoading';
 import { useDispatch } from 'react-redux';
 import { setWatchListMovies } from '../../Redux/Features/Watchlist/watchListSlice';
+import toast from 'react-hot-toast';
 
 
 export default function GenreMovie({ movie }) {
@@ -33,6 +35,8 @@ export default function GenreMovie({ movie }) {
 
     const dispatch = useDispatch();
     const handleWatchList = (movie) => {
+        toast.success("clicked")
+        console.log(movie)
         dispatch(setWatchListMovies(movie))
     }
     return (
@@ -40,8 +44,9 @@ export default function GenreMovie({ movie }) {
             <div className='flex flex-col space-y-10 md:flex-row-reverse md:space-y-0 md:space-x-10 justify-center shadow-2xl rounded-xl bg-[#101010]'>
                 <div className='w-full relative'>
                     {
-                        imageLoading && <p className='absolute inset-0 h-full flex items-center justify-center'><LoadingInline />  </p>
+                        backdrop_path ? imageLoading && <p className='absolute inset-0 h-full flex items-center justify-center'><LoadingInline />  </p> : <NotFoundError message="image" />
                     }
+
                     {!openTrailer ? <img className='rightSlider h-full rounded-lg' src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={original_title || original_name} onLoad={handleImageLoad} /> : <Videos id={id} howMuch={"1"} title={original_title || original_name} type="movie" />}
                 </div>
                 <div className='relative w-full px-2 py-7'>
