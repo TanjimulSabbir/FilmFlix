@@ -1,15 +1,29 @@
 import style from "../../style/bannerText.module.css";
+
 import { CiBookmark } from "react-icons/ci";
-import { GoPlus } from "react-icons/go";
+import { BsFillBookmarkPlusFill } from "react-icons/bs";
+
 import { TextRuntime, getYear } from "../Tools/Others";
+import { setWatchListMovies } from "../../Redux/Features/Watchlist/watchListSlice.js"
 import toast from "react-hot-toast";
+
+import { useDispatch } from 'react-redux';
 
 function BannerText01({ movie }) {
   const { original_title, overview, release_date, runtime, genres } = movie || {};
 
+
   const handleShowToast = (message) => {
     toast.error(message)
   };
+
+  const dispatch = useDispatch();
+
+  const handleWatchList = (movie) => {
+    toast.success("clicked")
+    console.log(movie)
+    dispatch(setWatchListMovies(movie))
+  }
 
   return (
     <div className="leftSlider px-5 lg:px-0 lg:w-1/2 text-white select-text">
@@ -26,10 +40,10 @@ function BannerText01({ movie }) {
       <p className="mb-12 text-sm">{overview}</p>
 
       <div className="space-x-4 flex">
-        <button className={`${style.smBtn} lg:${style.lgBtn} flex items-center space-x-1 bg-green-600 border-none`} onClick={() => handleShowToast('We are working for this feature. Thank you!')}>
-          <GoPlus />
-          <span>Add Watchlist</span>
-        </button>
+        <p onClick={() => handleWatchList(movie)} className='wishListBtn leftSliderSlow min-w-fit flex items-center space-x-3 py-2 px-3 rounded-lg text-yellow-500 border border-yellow-500'>
+          <BsFillBookmarkPlusFill className="" />
+          <span>Add to Watchlist</span>
+        </p>
 
         <button className={`${style.smBtn} lg:${style.lgBtn} ${style.brdr} flex items-center space-x-1`} onClick={() => handleShowToast('We are working for this feature. Thank you!')}>
           <CiBookmark />

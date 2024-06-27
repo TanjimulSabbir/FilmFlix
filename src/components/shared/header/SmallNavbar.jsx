@@ -35,7 +35,7 @@ function SmallNavbar() {
     }
     const hoverEffect = "transition-colors duration-500 hover:text-green-600"
 
-    const allPathLinks = [{ title: "Movies", path: "/movie", icon: <MdLocalMovies className=" w-7 h-7" /> }, { title: "TV Shows", path: "/tv", icon: <CgTv className="w-7 h-7" /> }, { title: "Genres", path: "/genres", icon: <PiFilmSlateThin className=" w-7 h-7" /> }]
+    const allPathLinks = [{ title: "Movies", path: "/movie", icon: <MdLocalMovies className=" w-7 h-7" /> }, { title: "TV Shows", path: "/tv", icon: <CgTv className="w-7 h-7" /> }, { title: "Genres", path: "/genres", icon: <PiFilmSlateThin className="w-7 h-7" /> }]
     return (
         <div className={`lg:hidden sticky top-0 bg-black z-50 ${drawerOpen ? "rightSlider" : "downSlider"}`}>
             <div className="flex items-center justify-between px-3 h-14">
@@ -47,7 +47,7 @@ function SmallNavbar() {
                 </Link>}
             </div>
 
-            {drawerOpen && <div className={`${drawerOpen ? "rightSlider" : "fade-in"} fixed h-screen w-[250px] space-y-5 pl-7 pt-14 bg-black`}>
+            {drawerOpen && <div className={`${drawerOpen ? "rightSlider" : "fade-in"} fixed h-screen w-[250px] space-y-5 pl-7 pt-11 bg-black`}>
                 <Link exact to="/" className={style.logo}>
                     <img src={logo} alt="search" width={80} height={80} />
                 </Link>

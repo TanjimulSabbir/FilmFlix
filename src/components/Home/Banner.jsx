@@ -20,7 +20,7 @@ function Banner({ id }) {
     return (
         <div className="w-full absolute top-0 flex items-center justify-center z-20 bg-[#000000c1]  h-screen md:h-full bg-blend-multiply">
             <div className="container lg:-mt-10">
-                {/* {content} */}
+                {content}
             </div>
         </div>
     );

@@ -13,12 +13,12 @@ export default function Toggles({ data, type }) {
     }
     return (
         <div className="flex items-center space-x-5 mt-10 mb-6 text-base">
-            <h1 className="text-[22px] tracking-wider font-semibold">{type}</h1>
+            <h1 className="text-lg lg:text-[22px] tracking-wider font-semibold">{type}</h1>
             <div className="flex items-center justify-between border border-gray-600 rounded-3xl">
                 {data?.map(item => {
                     return (
                         <p key={item.title}
-                            className={`cursor-pointer py-[3px] px-6 text-base 
+                            className={`cursor-pointer py-[3px] px-6 text-sm lg:text-base 
                             ${(slectToggle === item.title) ? style.Toggled : "text-white"}`}
                             onClick={() => handleToggle(item)}>
                             {item.title}</p>
