@@ -44,7 +44,7 @@ export default function Similar() {
 
     return (
         <div className="py-11">
-            {TitleText("Recommendations")}
+            <TitleText text="Recommendations" />
             {movies?.results?.length > 0 ? <div className="slider-container mt-9">
                 <Slider {...treandingSliderSettings}>
                     {content}

@@ -31,20 +31,20 @@ export default function Reviews() {
   return (
     <div>
       <div className="topSlider flex items-center space-x-5">
-        <img className="w-20 h-20 rounded-2xl" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" srcSet="" />
+        <img className="w-20 h-auto rounded-2xl" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" srcSet="" />
 
         <div>
-          <h2 className="text-3xl inline-block">{original_title}</h2>
-          <p className="flex items-center">
+          <h2 className="text-xl md:text-2xl lg:text-3xl inline-block">{original_title}</h2>
+          <p className="flex items-center flex-wrap text-sm md:text-base">
             <span>{getYear(release_date)}</span>
-            <PiDotBold className="text-lg" />
-            <span>{genres.map((item, index) => `${index > 0 ? "/" : ""}${item.name}`)}</span>
-            <PiDotBold className="text-lg" />
+            <PiDotBold />
+            {/* <span className="min-w-fit">{genres.map((item, index) => `${index > 0 ? "/" : ""}${item.name}`)}</span> */}
+            <PiDotBold />
             <span>{TextRuntime(runtime)}</span>
           </p>
         </div>
       </div>
-      <h2 className="mt-7 text-3xl rightSliderSlow">{TitleText("User Reviews")}</h2>
+      <h2 className="mt-7 text-3xl rightSliderSlow"><TitleText text="User Reviews" /></h2>
 
       {
         reviewsData?.length > 0 ? reviewsData?.map(review => <Review key={review.id} review={review} />) : <NotFoundError message="reviews" />

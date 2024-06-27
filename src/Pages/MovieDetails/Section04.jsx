@@ -33,7 +33,7 @@ export default function Section04({ id, type }) {
 
     return (
         <div className="py-11">
-            {TitleText("Photos")}
+            <TitleText text="Photos" />
             {imagesData.posters?.length > 0 ? <div className="slider-container mt-9">
                 <Slider {...imagesSliderSettings}>
                     {imagesData?.posters?.map((poster, index) => {
@@ -45,14 +45,14 @@ export default function Section04({ id, type }) {
                         );
                     })}
                 </Slider>
-            </div> : "Images not found"}
+            </div> : <NotFoundError message="images" />}
 
             {/* Modal for displaying the selected image */}
             {selectedImage && (
-                <div onClick={handleCloseModal} className="fade-in fixed inset-0 w-full h-full flex justify-center items-center bg-black bg-opacity-70 z-40 cursor-pointer">
+                <div onClick={handleCloseModal} className="topSlider fixed inset-0 w-full h-full flex justify-center items-center bg-black bg-opacity-70 z-40 cursor-pointer">
                     <div className="relative">
                         <ImCross onClick={handleCloseModal} className="fixed text-3xl right-10 top-5 text-red-500 cursor-pointer z-50" />
-                        <img className="max-w-[70%] max-h-[80%] mx-auto" src={selectedImage} alt="" />
+                        <img className="w-[70%] h-[80%] mx-auto" src={selectedImage} alt="" />
                     </div>
                 </div>
             )}
