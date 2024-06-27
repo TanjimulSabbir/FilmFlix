@@ -20,7 +20,7 @@ export default function SearchedSuggestions({ inputText, handleSearchBtn }) {
     }
 
     const handleModal = (movie) => {
-        if(movie.media_type==="person"){
+        if (movie.media_type === "person") {
             return toast.success("Currently, cast details is unavailable. Working on person details.")
         }
         handleCloseModal()
@@ -32,7 +32,7 @@ export default function SearchedSuggestions({ inputText, handleSearchBtn }) {
             handleSearchBtn()
         }
     }
-    
+
     let content;
     if (isLoading) {
         content = <LoadingInline />
@@ -47,7 +47,6 @@ export default function SearchedSuggestions({ inputText, handleSearchBtn }) {
 
                         <span className="text-green-600">{findKeywordTitle(movie)} </span> in <span className="font-bold">{movie.media_type.toUpperCase()}</span>
                     </div>
-
                 </div>
             ))
     }

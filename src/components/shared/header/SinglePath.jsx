@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import Genres from "./Genres";
 import style from "../../../style/navbar.module.css"
 
-export default function SinglePath({ link, hoverEffect }) {
+export default function SinglePath({ link, hoverEffect, toggleDrawer }) {
     const path = useLocation().pathname;
     if (link.title === "Genres") {
         return <div className="btnContainer">
@@ -13,13 +13,14 @@ export default function SinglePath({ link, hoverEffect }) {
                     Genres
                 </span>
             </button>
-            <div className="absoluteContainer">
+            <div onClick={toggleDrawer} className="absoluteContainer">
                 <Genres />
             </div>
         </div>
     }
     return (
         <Link
+            onClick={toggleDrawer}
             to={link.path}
             className={`${hoverEffect} lg:${style.activeLink} lg:${path.includes(link.path) ? style.active : ''} flex flex-col lg:flex-row`}
         >

@@ -26,9 +26,6 @@ function SmallNavbar() {
         setDrawerOpen(!drawerOpen);
     };
 
-    const scrollY = useScrollPosition();
-    const CurrentPath = useLocation().pathname;
-
     const handleSearchBtn = () => {
         toggleDrawer()
         setOpenSearchModal(!openSearchModal)
@@ -51,7 +48,7 @@ function SmallNavbar() {
                 <Link exact to="/" className={style.logo}>
                     <img src={logo} alt="search" width={80} height={80} />
                 </Link>
-                {allPathLinks.map(item => <SinglePath key={item.title} link={item} hoverEffect={hoverEffect} />)}
+                {allPathLinks.map(item => <SinglePath toggleDrawer={toggleDrawer} key={item.title} link={item} hoverEffect={hoverEffect} />)}
                 <p onClick={toggleDrawer} className={`text-yellow-600 transition-colors duration-500 hover:text-yellow-500 flex items-center space-x-3 cursor-pointer`}>
                     <BsFillBookmarkPlusFill className="w-7 h-7" />
                     <span>Watchlist</span>
@@ -63,7 +60,7 @@ function SmallNavbar() {
                 <p onClick={handleSearchBtn} className={`${hoverEffect} ${style.SearchBtn} flex items-center space-x-3 cursor-pointer`} ><IoSearchSharp className="w-7 h-7" /><span className="text-lg -mt-1">Search</span></p>
 
                 <SearchModal handleSearchBtn={handleSearchBtn} openSearchModal={openSearchModal} />
-                {drawerOpen && <IoClose onClick={toggleDrawer} className="absolute right-3 -top-3 h-7 w-7 cursor-pointer z-50" />}
+                {drawerOpen && <IoClose onClick={toggleDrawer} className="absolute right-3 -top-3 h-7 w-7 cursor-pointer z-40" />}
             </div>}
         </div >
     );
