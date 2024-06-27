@@ -21,7 +21,7 @@ function Home() {
                 <Movies defaultValue="popular" isSlider={true} />
 
                 <Toggles type={'Latest'} data={toggle02} />
-                <Movies defaultValue="top_rated" isSlider={true} />
+                <Movies defaultValue="top_rated" isSlider={true} path={true} />
 
                 <Toggles type={'Now playing in theaters'} data={toggle03} />
                 <Movies defaultValue="upcoming" />

@@ -1,28 +1,32 @@
 import { useSelector } from "react-redux";
-import { useGetDiscoverMoviesQuery } from "../../../Redux/Features/Api/movieApi";
-import Loading from "../../accessories/Loading";
-import MovieItem from "./MovieItem";
 import Slider from "react-slick";
-import { treandingSliderSettings } from "../../Tools/SliderSettings";
-import Error from "../../accessories/Error";
+
 import "../../../style/animation.css"
 import NotFoundError from "../../accessories/NotFoundError";
+import LoadingInline from "../../accessories/InlineLoading";
 
-function Movies({ defaultValue, isSlider }) {
+import { useGetDiscoverMoviesQuery } from "../../../Redux/Features/Api/movieApi";
+import MovieItem from "./MovieItem";
+import { treandingSliderSettings } from "../../Tools/SliderSettings";
+
+
+
+function Movies({ defaultValue, isSlider, path }) {
     const queryStateKeyword = useSelector(state => state.movieData.items);
-    const queryKeyword = queryStateKeyword.length > 0 ? queryStateKeyword[0] : defaultValue
-    const { data: movies, isLoading, isError, } = useGetDiscoverMoviesQuery({ type: "movie", path: `sort_by=${queryKeyword}` });
+    const queryKeyword = queryStateKeyword?.length > 0 && queryStateKeyword[0];
+
+    const { data: movies, isLoading, isError, } = useGetDiscoverMoviesQuery({ type: "movie", path: !path ? `sort_by=${queryKeyword.keyword || defaultValue}` : queryKeyword.path });
 
     let content;
-    if (isLoading) content = <Loading />
+    if (isLoading) content = <LoadingInline />
     if (!isLoading && isError) content = <NotFoundError message="Movies" />;
 
     if (!isLoading && !isError && movies?.results?.length > 0) {
-        content = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} isSlider={isSlider} type="movie" />)
+        content = movies.results?.map(movie => <MovieItem key={movie.id} movie={movie} isSlider={isSlider} type="movie" />)
     }
-   
+
     return (
-        !isSlider ? <div className="leftSlider grid grid-cols-5 gap-y-10 items-center justify-center">
+        !isSlider ? <div className="leftSlider grid grid-cols-3 lg:grid-cols-5 gap-y-10 items-center justify-center overflow-scroll">
             {content}
         </div> :
             <div className={"slider-container"}>
