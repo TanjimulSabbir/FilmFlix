@@ -8,7 +8,7 @@ function Popularity({ popularity }) {
 
     return (
         <div>
-            <p className="uppercase">Popularity</p>
+            <p className="lg:uppercase text-[#279bf9]">Popularity</p>
             <p className={`${levelColor} font-bold`}>{level}</p>
         </div>
     );
