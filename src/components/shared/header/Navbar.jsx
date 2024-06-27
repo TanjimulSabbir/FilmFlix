@@ -28,32 +28,35 @@ function Navbar() {
 
     const allPathLinks = [{ title: "Movies", path: "/movie" }, { title: "TV Shows", path: "/tv" }, { title: "Genres", path: "/genres" }]
     return (
-        // <div className={`h-20 w-full z-40 flex items-center justify-center ${CurrentPath === "/" ? "fixed top-0" : `sticky top-0`} ${scrollY ? `${style.positionedBg}` : `${style.positionedBgTranspa}`}`}>
+        <>
+            <div className={`h-20 w-full z-40 lg:flex items-center justify-center ${CurrentPath === "/" ? "fixed top-0" : `sticky top-0`} ${scrollY ? `${style.positionedBg}` : `${style.positionedBgTranspa}`} hidden`}>
 
-        //     <div className={`w-full z-50`}>
-        //         <div className="flex items-center justify-between container mx-auto">
-        //             <div className="flex items-center space-x-10">
-        //                 <Link exact to="/" className={style.logo}>
-        //                     <img src={logo} alt="search" width={80} height={80} />
-        //                 </Link>
+                <div className={`w-full z-50`}>
+                    <div className="flex items-center justify-between container mx-auto">
+                        <div className="flex items-center space-x-10">
+                            <Link exact to="/" className={style.logo}>
+                                <img src={logo} alt="search" width={80} height={80} />
+                            </Link>
 
-        //                 {allPathLinks.map(item => <SinglePath key={item.title} link={item} />)}
-        //             </div>
-        //             <div className="flex items-center space-x-10">
+                            {allPathLinks.map(item => <SinglePath key={item.title} link={item} />)}
+                        </div>
+                        <div className="flex items-center space-x-10">
 
-        //                 {/* Auth buttons */}
-        //                 <button className="rightSlider hover:text-yellow-500 duration-300 flex items-center space-x-1 text-yellow-600">
-        //                     <BsFillBookmarkPlusFill />
-        //                     <span>Watchlist</span>
-        //                 </button>
-        //                 <button className={`downSlider ${style.activeLink}`}>Sign in</button>
-        //                 <button className={`leftSlider ${style.SearchBtn}`} onClick={handleSearchBtn}><IoSearchSharp className="text-2xl" /></button>
-        //             </div>
-        //         </div>
-        //     </div>
-        //     <SearchModal handleSearchBtn={handleSearchBtn} openSearchModal={openSearchModal} />
-        // </div>
-        <SmallNavbar />
+                            {/* Auth buttons */}
+                            <button className="rightSlider hover:text-yellow-500 duration-300 flex items-center space-x-1 text-yellow-600">
+                                <BsFillBookmarkPlusFill />
+                                <span>Watchlist</span>
+                            </button>
+                            <button className={`downSlider ${style.activeLink}`}>Sign in</button>
+                            <button className={`leftSlider ${style.SearchBtn}`} onClick={handleSearchBtn}><IoSearchSharp className="text-2xl" /></button>
+                        </div>
+                    </div>
+                </div>
+                <SearchModal handleSearchBtn={handleSearchBtn} openSearchModal={openSearchModal} />
+            </div>
+            <SmallNavbar />
+        </>
+
     );
 }
 

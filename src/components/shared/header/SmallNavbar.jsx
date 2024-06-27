@@ -30,35 +30,42 @@ function SmallNavbar() {
     const CurrentPath = useLocation().pathname;
 
     const handleSearchBtn = () => {
+        toggleDrawer()
         setOpenSearchModal(!openSearchModal)
     }
+    const hoverEffect = "transition-colors duration-500 hover:text-green-600"
 
     const allPathLinks = [{ title: "Movies", path: "/movie", icon: <MdLocalMovies className=" w-7 h-7" /> }, { title: "TV Shows", path: "/tv", icon: <CgTv className="w-7 h-7" /> }, { title: "Genres", path: "/genres", icon: <PiFilmSlateThin className=" w-7 h-7" /> }]
     return (
-        <div className={`${drawerOpen ? "rightSlider" : "downSlider"} relative z-50`}>
-            {
-                !drawerOpen && <IoMenuSharp onClick={toggleDrawer} className="absolute left-7 top-1 h-7 w-7 cursor-pointer z-50" />
-            }
+        <div className={`lg:hidden sticky top-0 bg-black z-50 ${drawerOpen ? "rightSlider" : "downSlider"}`}>
+            <div className="flex items-center justify-between px-3 h-14">
+                {
+                    !drawerOpen && <IoMenuSharp onClick={toggleDrawer} className="h-7 w-7 cursor-pointer z-50" />
+                }
+                {!drawerOpen && <Link exact to="/" className={style.logo}>
+                    <img src={logo} alt="search" width={80} height={80} />
+                </Link>}
+            </div>
 
-            {drawerOpen && <div className={`${drawerOpen ? "rightSlider" : "fade-in"} fixed h-screen w-[250px] bg-[#000000ed] space-y-5 pl-7 pt-14`}>
+            {drawerOpen && <div className={`${drawerOpen ? "rightSlider" : "fade-in"} fixed h-screen w-[250px] space-y-5 pl-7 pt-14 bg-black`}>
                 <Link exact to="/" className={style.logo}>
                     <img src={logo} alt="search" width={80} height={80} />
                 </Link>
-                {allPathLinks.map(item => <SinglePath key={item.title} link={item} />)}
-                <p className="hover:text-yellow-500 duration-300 flex items-center space-x-3 text-yellow-600">
+                {allPathLinks.map(item => <SinglePath key={item.title} link={item} hoverEffect={hoverEffect} />)}
+                <p onClick={toggleDrawer} className={`text-yellow-600 transition-colors duration-500 hover:text-yellow-500 flex items-center space-x-3 cursor-pointer`}>
                     <BsFillBookmarkPlusFill className="w-7 h-7" />
                     <span>Watchlist</span>
                 </p>
-                <p className={`lg:${style.activeLink} flex items-center space-x-3`}> <FiUser className="w-7 h-7" /> <span>
+                <p onClick={toggleDrawer} className={`${hoverEffect} flex items-center space-x-3 cursor-pointer `}> <FiUser className="w-7 h-7" /> <span>
                     Sign in</span>
                 </p>
 
-                <p className={`${style.SearchBtn} flex items-center space-x-3 cursor-pointer`} onClick={handleSearchBtn}><IoSearchSharp className="w-7 h-7" /><span className="text-lg">Search</span></p>
+                <p onClick={handleSearchBtn} className={`${hoverEffect} ${style.SearchBtn} flex items-center space-x-3 cursor-pointer`} ><IoSearchSharp className="w-7 h-7" /><span className="text-lg -mt-1">Search</span></p>
 
                 <SearchModal handleSearchBtn={handleSearchBtn} openSearchModal={openSearchModal} />
                 {drawerOpen && <IoClose onClick={toggleDrawer} className="absolute right-3 -top-3 h-7 w-7 cursor-pointer z-50" />}
             </div>}
-        </div>
+        </div >
     );
 }
 
