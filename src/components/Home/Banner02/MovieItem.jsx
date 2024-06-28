@@ -29,10 +29,10 @@ function MovieItem({ movie, ClickedMovieDetails, type }) {
         <>
             <div className="downSlider relative itemContainter">
                 <div className="relative" onClick={hanldeShowDetails}>
-                    <img className="rounded-md mb-2 px-2" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
+                    <img className="rounded-lg mb-2 px-1 lg:px-2" src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
                     <div className="absolute inset-0 bg-[#000000c5] flex items-center justify-center text-white opacity-0 transition-opacity duration-500 hover:opacity-100 cursor-pointer">
                         {/* <p>{original_title}</p> */}
-                        <img src={playBtn} className="cursor-pointer" alt="" srcSet="" />
+                        <img src={playBtn} className="cursor-pointer rounded-lg" alt="" srcSet="" />
                     </div>
                 </div>
                 <div className="flex items-center justify-between px-3">

@@ -40,7 +40,7 @@
 } */
 
 .itemContainter {
-    transition: 100ms ease-in;
+    transition: 300ms ease-in;
     transform-origin: left;
 }
 

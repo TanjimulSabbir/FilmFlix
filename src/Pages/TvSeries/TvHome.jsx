@@ -11,6 +11,7 @@ import Loading from "../../components/accessories/Loading";
 import MovieItem from "../../components/Home/Banner02/MovieItem";
 import Error from "../../components/accessories/Error";
 import LoadingInline from "../../components/accessories/InlineLoading";
+import { LuCommand } from "react-icons/lu";
 
 export default function TvHome() {
   const [path, setPath] = useState("sort_by=now_playing");
@@ -18,6 +19,7 @@ export default function TvHome() {
   const [openSections, setOpenSections] = useState([]);
   const [genresKeywords, setGenresKeywords] = useState([]);
   const [content, setContent] = useState(null);
+  const [drawerOpen, setDrawerOpen] = useState(null);
 
   const toggleSection = ({ keywordTitle, index }) => {
     setOpenSections(prevItems => {
@@ -97,10 +99,16 @@ export default function TvHome() {
     }
   }, [isFetching, isLoading, isError, TvShowsData]);
 
+  const handleDrawer = () => {
+    setDrawerOpen(!drawerOpen)
+  }
   return (
-    <div className="h-full w-full flex bg-black">
-      <div className="relative w-[200px] sm:w-[250px]">
-        <div className="sticky pt-14 pb-4 pl-3 sm:pl-5 min-h-full md:pl-10 w-[200px] sm:w-[250px] z-30 rounded">
+    <div className="h-full w-full flex bg-black mt-11 lg:mt-0">
+      <div className={`fixed lg:hidden ${drawerOpen ? "topSlider" : "rightSlider"} h-12 flex justify-center inset-0 w-full top-12 left-0 z-50`}>
+        <p onClick={handleDrawer} className="w-full bg-green-600 py-2 border border-green-600 flex items-center justify-center space-x-1"> <LuCommand className="w-5 h-5" /> <span>Filter Movies</span></p>
+      </div>
+      <div className={`absolute bg-black h-screen lg:h-auto lg:relative ${drawerOpen ? "block rightSlider" : "hidden"} lg:block w-[200px] sm:w-[250px] z-40 lg:z-30`}>
+        <div className="sticky lg:pt-14 pb-4 pl-3 sm:pl-5 min-h-full md:pl-10 w-[200px] sm:w-[250px] z-30 rounded">
           {genresTvData.map((item, index) => (
             <div key={item.keywordTitle} className="relative">
 

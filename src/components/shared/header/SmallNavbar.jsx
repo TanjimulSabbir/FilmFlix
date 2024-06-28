@@ -35,7 +35,7 @@ function SmallNavbar() {
 
     const allPathLinks = [{ title: "Movies", path: "/movie", icon: <MdLocalMovies className=" w-7 h-7" /> }, { title: "TV Shows", path: "/tv", icon: <CgTv className="w-7 h-7" /> }, { title: "Genres", path: "/genres", icon: <PiFilmSlateThin className="w-7 h-7" /> }]
     return (
-        <div className={`lg:hidden sticky top-0 bg-black z-50 ${drawerOpen ? "rightSlider" : "downSlider"}`}>
+        <div className={`lg:hidden sticky top-0 bg-black z-[999] ${drawerOpen ? "rightSlider" : "downSlider"}`}>
             <div className="flex items-center justify-between px-3 h-14">
                 {
                     !drawerOpen && <IoMenuSharp onClick={toggleDrawer} className="h-7 w-7 cursor-pointer z-50" />
