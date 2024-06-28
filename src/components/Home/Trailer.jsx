@@ -33,7 +33,7 @@ function Trailer({ id, handleTrailer }) {
     }
 
     return (
-        <div onClick={handleTrailer} className={`fixed inset-0 w-screen h-screen bg-[#000000a8] flex items-center justify-center`} title="Close Trailer">
+        <div onClick={handleTrailer} className={`fixed inset-0 w-screen h-screen bg-[#000000a8] flex items-center justify-center z-10`} title="Close Trailer">
             {content}
         </div>
     );

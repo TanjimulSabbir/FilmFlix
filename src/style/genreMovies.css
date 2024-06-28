@@ -1,12 +1,14 @@
 .wishListBtn,
-.trailerBtn {
+.trailerBtn,
+.wishListBtnHome,
+.ticketBtnHome {
     background-color: transparent;
     cursor: pointer;
-    transition: color 0.5ms ease-in;
+    /* transition: color 0.5ms ease-in; */
     position: relative;
-    /* overflow: hidden; */
     z-index: 1;
     /* this is very important*/
+    transition: all 0.7s ease-in-out;
 }
 
 .wishListBtn::before {
@@ -23,6 +25,38 @@
     transform: scaleX(0);
 }
 
+.wishListBtnHome::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(228, 202, 4);
+    z-index: -1;
+    transition: all 0.5s ease-in-out;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+
+.ticketBtnHome::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #04e4bf;
+    z-index: -1;
+    transition: all 0.5s ease-in-out;
+    transform-origin: inherit;
+    transform: scaleX(0);
+}
+
+.ticketBtnHome::before:hover {
+    color: black;
+}
+
 .trailerBtn::before {
     content: '';
     position: absolute;
@@ -37,23 +71,22 @@
     transform: scaleX(0);
 }
 
-.wishListBtn:hover::before {
-    transform: scaleX(1);
-    border-radius: 5px;
-
-}
-
-.trailerBtn:hover::before {
+.trailerBtn:hover::before,
+.wishListBtn:hover::before,
+.wishListBtnHome:hover::before,
+.ticketBtnHome:hover::before {
     transform: scaleX(1);
     border-radius: 5px;
 }
 
-.wishListBtn:hover {
+.wishListBtn:hover,
+.wishListBtnHome:hover {
     color: rgb(0, 0, 0);
+    border: 1px solid #dfdf02
 }
 
-
-.trailerBtn:hover {
+.trailerBtn:hover,
+.ticketBtnHome:hover {
     color: rgb(0, 0, 0);
     border: 1px solid #04e4bf;
 }
