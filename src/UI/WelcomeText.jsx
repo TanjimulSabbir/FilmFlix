@@ -1,4 +1,3 @@
-import style from "../style/welcomeText.module.css"
 import logoText from "../assets/videos/FlimFlex.gif"
 export default function WelComeText() {
     return (

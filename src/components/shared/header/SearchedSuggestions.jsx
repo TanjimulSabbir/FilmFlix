@@ -1,10 +1,12 @@
 import { useState } from "react";
-import ModalDetails from "../../../Pages/MovieDetails/ModalDetails";
 import { useGetKeywordSearchQuery } from "../../../Redux/Features/Api/movieApi";
+
+import toast from "react-hot-toast";
+
+import ModalDetails from "../../../Pages/MovieDetails/ModalDetails";
 import LoadingInline from "../../accessories/InlineLoading";
 import NotFoundError from "../../accessories/NotFoundError";
-import toast from "react-hot-toast";
-import moment from "moment";
+
 
 export default function SearchedSuggestions({ inputText, handleSearchBtn }) {
     const { data: keyWords, isLoading, isError, } = useGetKeywordSearchQuery(inputText);
@@ -52,7 +54,7 @@ export default function SearchedSuggestions({ inputText, handleSearchBtn }) {
     }
     console.log(keyWords, "searchedModal")
     return (
-        <div className="h-screen overflow-y-scroll rounded-lg">
+        <div className={`h-screen ${keyWords?.results?.length > 0 && "overflow-scroll"} rounded-lg`}>
             {content}
             {openModalDetails && <ModalDetails movie={detailsMovie} handleCloseModal={handleCloseModal} />}
         </div>

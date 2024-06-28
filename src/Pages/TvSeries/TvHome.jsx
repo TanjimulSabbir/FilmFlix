@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import moment from "moment";
 import toast from "react-hot-toast";
+
 import { useGetDiscoverMoviesQuery } from "../../Redux/Features/Api/movieApi";
 
 import TvSeries from "./TvSeries";
@@ -9,6 +10,7 @@ import { genresTvData, getTvNewKeyword } from "../../components/Tools/filteredKe
 import Loading from "../../components/accessories/Loading";
 import MovieItem from "../../components/Home/Banner02/MovieItem";
 import Error from "../../components/accessories/Error";
+import LoadingInline from "../../components/accessories/InlineLoading";
 
 export default function TvHome() {
   const [path, setPath] = useState("sort_by=now_playing");
@@ -86,25 +88,14 @@ export default function TvHome() {
 
   useEffect(() => {
     if (isFetching || isLoading) {
-      setContent(<Loading />);
+      setContent(<LoadingInline />);
     } else if (!isLoading && !isError && TvShowsData && TvShowsData.results?.length > 0) {
       const tvContent = TvShowsData.results.map(tv => <MovieItem key={tv.id} movie={tv} type="tv" />);
       setContent(tvContent);
-    } else if (!isLoading && !isError && (!TvShowsData || !TvShowsData.results || TvShowsData.results.length === 0)) {
-      setContent(<p>No TvShows found!</p>);
+    } else if (!isLoading && isError && (!TvShowsData || !TvShowsData.results || TvShowsData.results.length === 0)) {
+      setContent(<Error message="No tvshows found!" />);
     }
   }, [isFetching, isLoading, isError, TvShowsData]);
-
-
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const result = await fetch("https://api.themoviedb.org/3/genre/tv/list?api_key=95735e862c8d7543ceee5364740d5db4");
-  //     const data = await result.json();
-  //     console.log({ data }, "tvGenresData")
-  //   }
-  //   getData()
-  // }, [])
 
   return (
     <div className="h-full w-full flex bg-black">
@@ -147,7 +138,7 @@ export default function TvHome() {
           ))}
         </div>
       </div>
-    <TvSeries content={content} />
+      <TvSeries content={content} />
     </div>
   );
 }

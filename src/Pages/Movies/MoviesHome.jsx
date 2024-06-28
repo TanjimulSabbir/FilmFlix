@@ -9,6 +9,7 @@ import MovieItem from "../../components/Home/Banner02/MovieItem";
 import Error from "../../components/accessories/Error";
 import moment from "moment";
 import toast from "react-hot-toast";
+import LoadingInline from "../../components/accessories/InlineLoading";
 
 export default function MoviesHome() {
   const [path, setPath] = useState("sort_by=now_playing");
@@ -84,12 +85,12 @@ export default function MoviesHome() {
 
   useEffect(() => {
     if (isFetching || isLoading) {
-      setContent(<Loading />);
-    } else if (!isLoading && !isError && movies && movies.results.length > 0) {
-      const moviesContent = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} type="movie"/>);
+      setContent(<LoadingInline />);
+    } if (!isLoading && !isError && movies && movies.results.length > 0) {
+      const moviesContent = movies.results.map(movie => <MovieItem key={movie.id} movie={movie} type="movie" />);
       setContent(moviesContent);
-    } else if (!isLoading && !isError && (!movies || movies.results.length === 0)) {
-      setContent(<p>No movies found!</p>);
+    } if (!isLoading && isError && (!movies || movies.results.length === 0)) {
+      setContent(<Error message="No movies found!" />);
     }
   }, [isFetching, isLoading, isError, movies]);
 

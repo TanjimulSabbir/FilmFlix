@@ -19,13 +19,13 @@ function Home() {
                 <SlickSlider />
             </div>
             <div className="container mx-auto">
-                <Toggles type={'Trending'} data={toggle01} />
+                <Toggles type='Trending' data={toggle01} />
                 <Movies defaultValue="popular" isSlider={true} />
 
-                <Toggles type={'Latest'} data={toggle02} />
+                <Toggles type='Latest' data={toggle02} />
                 <Movies defaultValue={toggle02[0].path} isSlider={true} path={true} />
 
-                <Toggles type={'Now playing in theaters'} data={toggle03} />
+                <Toggles type='Now playing in theaters' data={toggle03} />
                 <Movies defaultValue="upcoming" />
             </div>
         </div>
