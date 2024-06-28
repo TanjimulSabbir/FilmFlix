@@ -41,10 +41,10 @@ export default function ModalDetails({ movie, handleCloseModal }) {
                 <div className='relative w-full px-2 py-7'>
                     <p className="text-3xl font-extrabold">{original_title || original_name}</p>
                     <p className='my-3 flex items-center'>{genres?.map((item, index) => (
-                        <>
+                        <span key={item?.name}>
                             {index > 0 && <PiDotBold />}
                             <span>{item.name}</span>
-                        </>
+                        </span>
                     ))}
                     </p>
                     <p className="my-5 text-sm">{overview}</p>
