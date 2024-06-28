@@ -8,15 +8,7 @@ export const TopBannerSliderSettings = {
     waitForAnimate: false,
     autoplay: true,
     autoplaySpeed: 3000,
-    arrows: false,
-    responsive: [
-        {
-            breakpoint: 480,
-            settings: {
-                dots: false
-            }
-        },
-    ]
+    arrows: false
 };
 
 export const treandingSliderSettings = {
