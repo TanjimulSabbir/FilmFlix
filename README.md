@@ -55,23 +55,33 @@ FlimFlix is not just another movie web application; it's a comprehensive platfor
 ### Local Development
 
 1. Clone the repository:
-   bash git clone: https://github.com/TanjimulSabbir/FilmFlix.git
-
-2. Navigate to the project directory
-    ```cd FlimFlix
+    ```bash
+    git clone https://github.com/TanjimulSabbir/FilmFlix.git
     ```
 
-3. Install dependencies
-    ```npm install
+2. Navigate to the project directory:
+    ```bash
+    cd FilmFlix
     ```
 
-4. Start the development server
-    ```npm run dev
+3. Install dependencies:
+    ```bash
+    npm install
     ```
 
-5. Building the Project
-    ```npm run build
+4. Start the development server:
+    ```bash
+    npm run dev
     ```
+   <small> The application will be available at [http://localhost:5173/](http://localhost:5173/)</small>
+
+    
+<p>5. Building the Project</p>
+
+To build the project for production, run:
+```bash
+npm run build
+```
 
 ## Live Demo
 
