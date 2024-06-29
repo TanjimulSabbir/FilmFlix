@@ -56,7 +56,7 @@ export default function SearchedSuggestions({ inputText, handleSearchBtn }) {
     return (
         <div className={`h-screen ${keyWords?.results?.length > 0 && "overflow-scroll"} rounded-lg`}>
             {content}
-            {openModalDetails && <ModalDetails movie={detailsMovie} handleCloseModal={handleCloseModal} />}
+            {openModalDetails && <ModalDetails movie={detailsMovie} handleCloseModal={handleCloseModal} modalOpen={openModalDetails} />}
         </div>
     );
 }

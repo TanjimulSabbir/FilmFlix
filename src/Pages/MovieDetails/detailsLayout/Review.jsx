@@ -3,6 +3,7 @@ import moment from "moment";
 import { IoIosStar } from "react-icons/io";
 import { SlLike } from "react-icons/sl";
 import { SlDislike } from "react-icons/sl";
+import ShowLess from "../../../components/accessories/ShowLess";
 
 /* eslint-disable no-unused-vars */
 export default function Review({ review }) {
@@ -26,13 +27,13 @@ export default function Review({ review }) {
                         <span className="flex items-center space-x-1">
                             <IoIosStar className="text-yellow-500" />
                             <span>
-                                <span className="font-bold"> {rating?.toFixed(1)||"unrated"}</span>
+                                <span className="font-bold"> {rating?.toFixed(1) || "unrated"}</span>
                                 <span className="text-xs"> /10</span>
                             </span>
                         </span>
                     </div>
                 </div>
-                <p>{content}</p>
+                <ShowLess content={content} />
             </div>
             <div className="fade-in-slow flex items-center space-x-5 mt-5">
                 <button className="flex items-center space-x-1 border border-gray-100 px-4 py-1 rounded-2xl focus:bg-sky-600">

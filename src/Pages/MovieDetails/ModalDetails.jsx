@@ -41,7 +41,7 @@ export default function ModalDetails({ movie, handleCloseModal }) {
                 <div className='relative w-full px-2 py-7'>
                     <p className="text-3xl font-extrabold">{original_title || original_name}</p>
                     <p className='my-3 flex items-center'>{genres?.map((item, index) => (
-                        <span key={item?.name} className='flex items-center'>
+                        <span key={item?.name} className='flex items-center text-sm md:text-base'>
                             {index > 0 && <PiDotBold />}
                             <span>{item.name}</span>
                         </span>
@@ -97,7 +97,9 @@ export default function ModalDetails({ movie, handleCloseModal }) {
                             <span>Show details</span>
                         </Link>
                     </div>
-                    <MdClose className='leftSlider absolute top-5 right-5 tex-2xl cursor-pointer transition-all duration-500 hover:text-3xl hover:text-red-600' onClick={handleCloseModal} />
+                    <div className='absolute top-5 right-5'>
+                        <MdClose className='leftSlider w-5 h-5 cursor-pointer transition-all duration-500 hover:h-7 hover:w-7 hover:text-red-600' onClick={handleCloseModal} />
+                    </div>
                 </div>
             </div>
         </div>

@@ -53,7 +53,7 @@ export default function Similar() {
             {selectedMovie && (
                 <div className="fixed inset-0 w-full h-full flex justify-center items-center z-40 bg-[#080808c6]">
                     <div className="relative flex items-center justify-center">
-                        {!detailsError ? <ModalDetails movie={movie} handleCloseModal={handleCloseModal} /> : toast.error("Data not found!")}
+                        {!detailsError ? <ModalDetails movie={movie} handleCloseModal={handleCloseModal} modalOpen={selectedMovie} /> : toast.error("Something Wrong!")}
                     </div>
                 </div>
             )}

@@ -50,6 +50,22 @@
     }
 }
 
+@keyframes grow {
+    from {
+        opacity: .10;
+        scale: .9;
+    }
+
+    80% {
+        opacity: .50;
+    }
+
+    to {
+        opacity: .9;
+        scale: 1;
+    }
+}
+
 @keyframes fade-out {
     from {
         opacity: 1;
@@ -104,7 +120,15 @@
 }
 
 .fade-in {
-    animation: fade-in 2s ease-in-out;
+    animation: fade-in 2s linear;
+}
+
+.grow {
+    animation: grow 1s linear;
+}
+
+.growSlow {
+    animation: grow 2s linear;
 }
 
 .fade-in-slow {
