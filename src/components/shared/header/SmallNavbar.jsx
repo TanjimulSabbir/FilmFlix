@@ -29,7 +29,6 @@ function SmallNavbar() {
 
     const handleSearchBtn = () => {
         setOpenSearchModal(!openSearchModal)
-        toggleDrawer()
     }
     const hoverEffect = "transition-colors duration-500 hover:text-green-600"
 

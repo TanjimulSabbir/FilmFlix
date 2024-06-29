@@ -1,9 +1,10 @@
-import { IoCloseCircle } from "react-icons/io5";
+import { IoCloseCircle, IoCloseCircleOutline } from "react-icons/io5";
 import { RxCross1 } from "react-icons/rx";
 import "../../../style/animation.css"
 import { debounce } from "../../accessories/Debounce";
 import { useEffect, useState } from "react";
 import SearchedSuggestions from "./SearchedSuggestions";
+import { IoMdClose } from "react-icons/io";
 
 export default function SearchModal({ handleSearchBtn, openSearchModal }) {
     const [inputText, setInputText] = useState("dune");
@@ -38,7 +39,7 @@ export default function SearchModal({ handleSearchBtn, openSearchModal }) {
     }
     return (
         openSearchModal && <div className="searchModalAnimation fixed w-full h-screen inset-0 bg-[#00000080] z-50 backdrop-blur-sm">
-            <div className="px-4 mt-5 md:w-1/3 mx-auto">
+            <div className="md:px-4 mt-5 md:w-1/3 mx-auto">
                 <label className="input input-bordered flex items-center gap-2">
                     <input type="text" className="grow topSlider" placeholder="Search" onChange={(event) => handleInput(event)} value={text} />
 
@@ -53,10 +54,10 @@ export default function SearchModal({ handleSearchBtn, openSearchModal }) {
                             clipRule="evenodd" />
                     </svg>}
                 </label>
-                <SearchedSuggestions inputText={inputText} handleSearchBtn={handleSearchBtn}/>
+                <SearchedSuggestions inputText={inputText} handleSearchBtn={handleSearchBtn} />
             </div>
-            <button className="absolute -top-3 lg:top-7 right-3" onClick={handleSearchBtn}>
-                <IoCloseCircle className="text-2xl text-red-600" />
+            <button className="absolute -top-3 lg:top-7 left-3 flex items-center justify-center " onClick={handleSearchBtn}>
+                <IoMdClose className="w-7 h-7 text-red-600 cursor-pointer" />
             </button>
         </div>
     )
