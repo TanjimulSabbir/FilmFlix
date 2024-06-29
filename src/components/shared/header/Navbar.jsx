@@ -1,5 +1,7 @@
-import { useLocation, Link } from "react-router-dom";
 import { useState } from "react";
+import { useLocation, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 import "../../../style/animation.css";
 import style from "../../../style/navbar.module.css";
@@ -12,9 +14,6 @@ import SinglePath from "./SinglePath";
 import useScrollPosition from "../../accessories/useScrollPosition";
 import SearchModal from "./SearchModal";
 import SmallNavbar from "./SmallNavbar";
-import { useSelector } from "react-redux";
-import toast from "react-hot-toast";
-
 
 
 function Navbar() {
@@ -30,7 +29,7 @@ function Navbar() {
 
     const allPathLinks = [{ title: "Movies", path: "/movie" }, { title: "TV Shows", path: "/tv" }, { title: "Genres", path: "/genres" }]
     return (
-        <>
+        <div>
             <div className={`h-20 w-full z-40 lg:flex items-center justify-center ${CurrentPath === "/" ? "fixed top-0" : `sticky top-0`} ${scrollY ? `${style.positionedBg}` : `${style.positionedBgTranspa}`} hidden`}>
 
                 <div className={`w-full z-50`}>
@@ -45,13 +44,13 @@ function Navbar() {
                         <div className="flex items-center space-x-10">
 
                             {/* Auth buttons */}
-                            <button onClick={()=>toast.error("Currently, Watchlist details is not available. We are working for this. Thank you.")} className="rightSlider hover:text-yellow-500 duration-300 flex items-center space-x-1 text-yellow-600">
+                            <button onClick={() => toast.error("Currently, Watchlist details is not available. We are working for this. Thank you.")} className="rightSlider hover:text-yellow-500 duration-300 flex items-center space-x-1 text-yellow-600">
                                 <BsFillBookmarkPlusFill />
                                 <span className="relative">
                                     <span>Watchlist</span> <span className="">({movies?.length || 0})</span>
                                 </span>
                             </button>
-                            <button className={`downSlider ${style.activeLink}`}>Sign in</button>
+                            <button className={`downSlider ${style.SearchBtn}`}>Sign in</button>
                             <button className={`leftSlider ${style.SearchBtn}`} onClick={handleSearchBtn}><IoSearchSharp className="text-2xl" /></button>
                         </div>
                     </div>
@@ -59,7 +58,7 @@ function Navbar() {
                 <SearchModal handleSearchBtn={handleSearchBtn} openSearchModal={openSearchModal} />
             </div>
             <SmallNavbar />
-        </>
+        </div>
 
     );
 }

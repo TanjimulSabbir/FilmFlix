@@ -9,7 +9,7 @@ import { addGenresData } from "../../../Redux/Features/movies/moviesSlice";
 import LoadingInline from "../../accessories/InlineLoading";
 
 function Genres() {
-    const { data, isloading } = useGetAllDataSlashQuery({ type: "genre", id: "", keyword: "movie/list" });
+    const { data, isloading} = useGetAllDataSlashQuery({ type: "genre", id: "", keyword: "movie/list" });
 
     const disPatch = useDispatch();
     useEffect(() => {
