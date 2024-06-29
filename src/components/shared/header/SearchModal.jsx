@@ -44,7 +44,7 @@ export default function SearchModal({ handleSearchBtn, openSearchModal }) {
         openSearchModal && <div className="searchModalAnimation fixed w-full h-screen inset-0 bg-[#00000080] z-50 backdrop-blur-sm">
             <div className="md:px-4 mt-5 md:w-1/3 mx-auto">
                 <label className="input input-bordered flex items-center gap-2">
-                    <input type="text" className="grow topSlider" placeholder="Search" onChange={(event) => handleInput(event)} value={text} />
+                    <input type="text" className="grow topSlider text-black" placeholder="Search" onChange={(event) => handleInput(event)} value={text} />
 
                     {inputText ? <RxCross1 className="cursor-pointer text-red-600" onClick={() => removeInput()} /> : <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -59,8 +59,8 @@ export default function SearchModal({ handleSearchBtn, openSearchModal }) {
                 </label>
                 <SearchedSuggestions inputText={inputText} handleSearchBtn={handleSearchBtn} />
             </div>
-            <button className="absolute -top-3 lg:top-7 left-3 md:right-3" onClick={handleSearchBtn}>
-                <IoMdClose className="w-7 h-7 text-red-600 cursor-pointer" />
+            <button onClick={handleSearchBtn}>
+                <IoMdClose className="absolute -top-3 lg:top-7 left-3 lg:left-auto lg:right-3 w-7 h-7 text-red-600 cursor-pointer" />
             </button>
         </div>
     )
