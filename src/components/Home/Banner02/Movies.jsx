@@ -11,7 +11,6 @@ import { treandingSliderSettings } from "../../Tools/SliderSettings";
 import Error from "../../accessories/Error";
 
 
-
 function Movies({ defaultValue, isSlider, path }) {
     const queryStateKeyword = useSelector(state => state.movieData.items);
     const queryKeyword = queryStateKeyword?.length > 0 && queryStateKeyword[0];
