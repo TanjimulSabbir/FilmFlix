@@ -26,10 +26,10 @@ function SlickSlider() {
         content = <NotFoundError message="Movies" />;
     } else if (!isLoading && !isError && Movies?.results?.length > 0) {
         content = Movies.results.map(movie => (
-            <div key={movie.id} className="relative min-h-full">
+            <div key={movie.id} className="relative h-screen w-full">
                 <Banner id={movie.id} />
                 <div className="downSlider h-screen lg:h-full">
-                    <img className="h-full" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.original_title} srcSet="" />
+                    <img className="w-full h-full" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.original_title} srcSet="" />
                 </div>
             </div>
         ));
