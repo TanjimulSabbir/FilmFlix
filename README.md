@@ -78,7 +78,6 @@ FlimFlix is not just another movie web application; it's a comprehensive platfor
     
 <p>5. Building the Project</p>
 
-To build the project for production, run:
 ```bash
 npm run build
 ```
