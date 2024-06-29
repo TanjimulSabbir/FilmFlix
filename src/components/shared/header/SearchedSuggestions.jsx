@@ -52,9 +52,8 @@ export default function SearchedSuggestions({ inputText, handleSearchBtn }) {
                 </div>
             ))
     }
-    console.log(keyWords, "searchedModal")
     return (
-        <div className={`h-screen ${keyWords?.results?.length > 0 && "overflow-scroll"} rounded-lg`}>
+        <div className={`h-screen ${keyWords?.results?.length > 0 && "overflow-scroll"} rounded-lg overflow-y-scroll`}>
             {content}
             {openModalDetails && <ModalDetails movie={detailsMovie} handleCloseModal={handleCloseModal} modalOpen={openModalDetails} />}
         </div>
