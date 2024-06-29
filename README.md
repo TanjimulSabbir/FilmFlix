@@ -1,6 +1,6 @@
-# FlimFlix
+# 🎬 FlimFlix
 
-FlimFlix is an impressive movie web application designed to enhance your entertainment experience. Here are the key features of FlimFlix:
+FlimFlix is an impressive movie web application designed to enhance your entertainment experience.
 
 ## Features
 
@@ -37,3 +37,52 @@ Every click is accompanied by stunning animations that enhance the overall user 
 The interface is designed to be intuitive and visually appealing, ensuring an amazing experience for all users.
 
 FlimFlix is not just another movie web application; it's a comprehensive platform that brings the magic of movies right to your fingertips with style and ease.
+
+## Technologies Used
+
+- HTML
+- CSS
+- JavaScript
+- ReactJS
+- React-Redux
+- Redux Toolkit
+- TailwindCSS
+- Material UI
+- RTK Query
+
+## Getting Started
+
+### Local Development
+
+1. Clone the repository:
+   ```bash git clone https://github.com/TanjimulSabbir/FilmFlix.git
+   ```
+
+2. Navigate to the project directory
+```cd FlimFlix
+```
+
+3. Install dependencies
+```npm install
+```
+4. Start the development server
+``` npm run dev
+```
+5. Building the Project
+```npm run build
+```
+## Live Demo
+
+Check out the live demo of FlimFlix [here](http://your-live-demo-address.com).
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+## Author
+
+Tanjimul Islam Sabbir
