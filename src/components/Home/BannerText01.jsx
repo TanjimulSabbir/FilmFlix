@@ -14,7 +14,7 @@ function BannerText01({ movie }) {
   const { original_title, overview, release_date, runtime, genres } = movie || {};
 
   const handleShowToast = (message) => {
-    toast.error(message)
+    toast.success(message)
   };
 
   const dispatch = useDispatch();
@@ -39,11 +39,12 @@ function BannerText01({ movie }) {
 
       <div className="space-x-4 flex">
         <p onClick={() => handleWatchList(movie)} className='wishListBtnHome leftSliderSlow min-w-fit flex items-center space-x-3 py-2 px-3 rounded-lg border border-white'>
-          <BsFillBookmarkPlusFill/>
+          <BsFillBookmarkPlusFill />
           <span>Add to Watchlist</span>
         </p>
 
-        <button className={`ticketBtnHome flex items-center space-x-1 py-2 px-7 text-[#04e4bf] border border-[#04e4bf] rounded-lg`} onClick={() => handleShowToast('We are working for this feature. Thank you!')}>
+        <button className={`ticketBtnHome flex items-center space-x-1 py-2 px-7 text-[#04e4bf] border border-[#04e4bf] rounded-lg`} onClick={() => handleShowToast(`Currently, the Buy Ticket feature is experiencing issues.
+        Thank you for your patience.`)}>
           <CiBookmark />
           <span>Buy ticket</span>
         </button>

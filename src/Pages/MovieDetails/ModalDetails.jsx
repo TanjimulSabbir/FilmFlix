@@ -28,7 +28,7 @@ export default function ModalDetails({ movie, handleCloseModal }) {
         setImageLoading(false);
     };
     return (
-        <div className="topSlider w-full md:w-2/3 fixed mx-auto inset-0 flex items-center justify-center z-[60]">
+        <div className="topSlider w-full md:w-2/3 fixed mx-auto inset-0 flex items-center justify-center z-[60]overflow-y-scroll">
             <div className='flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 justify-center shadow-2xl rounded-2xl bg-[#2e2e2e]'>
                 <div className='w-full relative'>
                     {
