@@ -84,7 +84,7 @@ npm run build
 
 ## Live Demo
 
-Check out the live demo of FlimFlix [here](http://your-live-demo-address.com).
+Check out the live demo of FlimFlix [here](https://savvy-flimflix.netlify.app/).
 
 ## License
 
@@ -94,6 +94,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
-## Author
-
-Tanjimul Islam Sabbir
