@@ -1,10 +1,13 @@
-import { IoCloseCircle, IoCloseCircleOutline } from "react-icons/io5";
-import { RxCross1 } from "react-icons/rx";
-import "../../../style/animation.css"
-import { debounce } from "../../accessories/Debounce";
 import { useEffect, useState } from "react";
-import SearchedSuggestions from "./SearchedSuggestions";
+
+import { RxCross1 } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
+
+import "../../../style/animation.css"
+
+import { debounce } from "../../accessories/Debounce";
+import SearchedSuggestions from "./SearchedSuggestions";
+
 
 export default function SearchModal({ handleSearchBtn, openSearchModal }) {
     const [inputText, setInputText] = useState("dune");
@@ -56,7 +59,7 @@ export default function SearchModal({ handleSearchBtn, openSearchModal }) {
                 </label>
                 <SearchedSuggestions inputText={inputText} handleSearchBtn={handleSearchBtn} />
             </div>
-            <button className="absolute -top-3 lg:top-7 left-3 flex items-center justify-center " onClick={handleSearchBtn}>
+            <button className="absolute -top-3 lg:top-7 left-3 md:right-3" onClick={handleSearchBtn}>
                 <IoMdClose className="w-7 h-7 text-red-600 cursor-pointer" />
             </button>
         </div>

@@ -28,7 +28,8 @@ export const treandingSliderSettings = {
                 slidesToShow: 4,
                 slidesToScroll: 3,
                 infinite: true,
-                dots: true
+                dots: true,
+                arrows: true
             }
         },
         {
@@ -68,7 +69,8 @@ export const castSliderSettings = {
                 slidesToShow: 5,
                 slidesToScroll: 3,
                 infinite: true,
-                dots: true
+                dots: true,
+                arrows: true
             }
         },
         {
@@ -107,7 +109,8 @@ export const imagesSliderSettings = {
                 slidesToShow: 3,
                 slidesToScroll: 3,
                 infinite: true,
-                dots: true
+                dots: true,
+                arrows: true
             }
         },
         {
