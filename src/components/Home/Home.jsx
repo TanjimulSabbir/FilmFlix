@@ -9,9 +9,13 @@ import "../../style/animation.css";
 function Home() {
   const { toggle01, toggle02, toggle03 } = ToggleData();
   const sliderRef = useRef(null);
+
   useEffect(() => {
-    sliderRef.current.scrollIntoView({ behavior: "smooth" });
+    if (sliderRef.current) {
+      sliderRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   }, []);
+
   return (
     <div>
       <div ref={sliderRef}>
@@ -22,7 +26,11 @@ function Home() {
         <Movies defaultValue="popular" isSlider={true} />
 
         <Toggles type="Latest" data={toggle02} />
-        <Movies defaultValue={toggle02[0].path} isSlider={true} path={true} />
+        <Movies
+          defaultValue={toggle02[0].path}
+          isSlider={true}
+          path={toggle02[0].path}
+        />
 
         <Toggles type="Now playing in theaters" data={toggle03} />
         <Movies defaultValue="upcoming" />

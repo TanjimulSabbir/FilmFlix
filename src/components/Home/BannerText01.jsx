@@ -38,7 +38,7 @@ function BannerText01({ movie }) {
       <p className="mb-12 text-sm">{overview}</p>
 
       <div className="space-x-4 flex">
-        <p onClick={() => handleWatchList(movie)} className='wishListBtnHome leftSliderSlow min-w-fit flex items-center space-x-3 py-2 px-3 rounded-lg border border-white'>
+        <p onClick={() => handleWatchList(movie)} className='wishListBtnHome min-w-fit flex items-center space-x-3 py-2 px-3 rounded-lg border border-white'>
           <BsFillBookmarkPlusFill />
           <span>Add to Watchlist</span>
         </p>

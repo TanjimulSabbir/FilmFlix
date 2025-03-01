@@ -1,10 +1,9 @@
-import moment from "moment";
 import { useMemo } from "react";
+import moment from "moment";
 
-const ToggleData = () => {
+const useToggleData = () => {
     const currentDate = useMemo(() => moment().format('YYYY-MM-DD'), []);
 
-    // Correctly define DaysLater as a function
     const DaysLater = (days) => moment().add(days, 'days').format('YYYY-MM-DD');
 
     const today = DaysLater(1);
@@ -20,7 +19,6 @@ const ToggleData = () => {
         { title: 'This week', path: `release_date.gte=${currentDate}&release_date.lte=${thisWeek}`, type: "movie" },
     ];
 
-
     const toggle03 = [
         { title: 'Upcoming', type: "movie", keyword: "upcoming" },
         { title: 'Now Playing', type: "movie", keyword: "now_playing" },
@@ -29,4 +27,4 @@ const ToggleData = () => {
     return { toggle01, toggle02, toggle03 };
 };
 
-export default ToggleData;
+export default useToggleData;

@@ -3,7 +3,7 @@ import { API_KEY, apiSlice } from "./apiSlice";
 export const movieApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getMovies: builder.query({
-            query: (type) => ({
+            query: () => ({
                 url: `/movie/now_playing?${API_KEY}`,
             })
         }),
@@ -19,28 +19,30 @@ export const movieApi = apiSlice.injectEndpoints({
         }),
         getDiscoverMovies: builder.query({
             query: ({ type, path }) => {
-                console.log(path, "from get Discover");
-                if (path) {
-                    return { url: `/discover/${type}?${API_KEY}&release_date.gte=2025-03-02&release_date.lte=2025-03-08&sort_by=release_date.desc` }
-                }
-                if (path.includes("sort_by")) {
-                    const keywordKey = path.split("=")[1]
-                    return { url: `/${type}/${keywordKey}?${API_KEY}` }
-                }
-            }
+                console.log(path, "from getDiscoverMovies");
 
+                if (path && path.includes("sort_by")) {
+                    const keywordKey = path.split("=")[1];
+                    return { url: `/${type}/${keywordKey}?${API_KEY}` };
+                }
+
+                if (path) {
+                    return { url: `/discover/${type}?${API_KEY}&${path}&sort_by=primary_release_date.desc` };
+                }
+
+                return { url: `/discover/${type}?${API_KEY}&sort_by=popularity.desc` };
+            }
         }),
         getCasts: builder.query({
-            query: ({ type, id }) => {
-                return { url: `/${type}/${id}/credits?${API_KEY}` }
-            }
+            query: ({ type, id }) => ({
+                url: `/${type}/${id}/credits?${API_KEY}`
+            })
         }),
         getAllDataSlash: builder.query({
             query: ({ type, id, keyword }) => {
                 let url;
                 if (!id) {
                     url = `/${type}/${keyword}?${API_KEY}`;
-                    console.log(url)
                 } else {
                     url = `/${type}/${id}/${keyword}?${API_KEY}`;
                 }
@@ -48,11 +50,19 @@ export const movieApi = apiSlice.injectEndpoints({
             }
         }),
         getKeywordSearch: builder.query({
-            query: (queryText) => {
-                return { url: `/search/multi?${API_KEY}&query=${queryText}` }
-            }
+            query: (queryText) => ({
+                url: `/search/multi?${API_KEY}&query=${queryText}`
+            })
         }),
     })
-})
+});
 
-export const { useGetMoviesQuery, useGetMovieDetailsQuery, useGetMovieVideosQuery, useGetDiscoverMoviesQuery, useGetCastsQuery, useGetAllDataSlashQuery, useGetKeywordSearchQuery } = movieApi;
+export const {
+    useGetMoviesQuery,
+    useGetMovieDetailsQuery,
+    useGetMovieVideosQuery,
+    useGetDiscoverMoviesQuery,
+    useGetCastsQuery,
+    useGetAllDataSlashQuery,
+    useGetKeywordSearchQuery
+} = movieApi;
