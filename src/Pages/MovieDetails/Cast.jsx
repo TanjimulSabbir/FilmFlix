@@ -4,7 +4,7 @@ import Loading from "../../components/accessories/Loading";
 import { castSliderSettings } from "../../components/Tools/SliderSettings";
 import style from "../../style/cast.module.css";
 import { useDispatch } from "react-redux";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import { addCastData } from "../../Redux/Features/movies/moviesSlice";
 import { useLocation } from "react-router-dom";
 import { showFancyToast } from "../../utils/CustomeNotification";
@@ -20,21 +20,23 @@ function Cast({ id }) {
 
   // Default placeholder image
   const defaultImage = "https://via.placeholder.com/150?text=No+Image";
+  const [shownToasts, setShownToasts] = useState(new Set()); // Prevent multiple toast notifications
 
   useEffect(() => {
     if (!isLoading && !isError && castsData?.id) {
       dispatch(addCastData({ ...castsData }));
     }
-  }, [castsData, isLoading, isError, dispatch]);
+  }, [castsData?.id, isLoading, isError, dispatch]); // ✅ Only update if castsData.id changes
 
-  // Handle Image Error with Fancy UX
-  const handleImageError = (e, name) => {
-    e.target.src = defaultImage;
-    e.target.classList.add("opacity-50"); // Reduce opacity for better effect
-    showFancyToast(`No image found for ${name}, showing placeholder.`);
-  };
+  // Handle Missing Cast Details Toast (Prevents re-triggering)
+  const handleCastClick = useCallback(() => {
+    if (!shownToasts.has("cast-details")) {
+      showFancyToast("Oops! Cast details are unavailable.");
+      setShownToasts((prev) => new Set(prev).add("cast-details"));
+    }
+  }, [shownToasts]);
 
-  // Memoized content rendering
+  // Memoized content rendering to prevent unnecessary re-renders
   const content = useMemo(() => {
     if (isLoading) return <Loading />;
     if (isError)
@@ -44,11 +46,7 @@ function Cast({ id }) {
 
     if (castsData?.cast?.length) {
       return castsData.cast.map((item) => (
-        <div
-          key={item.id}
-          className="cursor-pointer"
-          onClick={() => showFancyToast("Oops! Cast details are unavailable.")}
-        >
+        <div key={item.id} className="cursor-pointer" onClick={handleCastClick}>
           <div
             className={`${style.castContainer} flex items-center space-x-2 justify-center`}
           >
@@ -60,7 +58,6 @@ function Cast({ id }) {
                   : defaultImage
               }
               alt={item.original_name}
-              onError={(e) => handleImageError(e, item.original_name)}
             />
             <p className={`${style.CastText} flex flex-col`}>
               <span className="lg:text-lg font-medium">
@@ -80,7 +77,7 @@ function Cast({ id }) {
         No cast information available.
       </p>
     );
-  }, [isLoading, isError, castsData]);
+  }, [isLoading, isError, castsData, handleCastClick]);
 
   return (
     <div className="slider-container mb-10">
