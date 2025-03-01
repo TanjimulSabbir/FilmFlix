@@ -21,7 +21,6 @@ export default function Section04({ id, type }) {
     if (isError || imagesData?.posters?.length === 0) {
         return <NotFoundError message="images" />
     }
-    console.log(imagesData, "Images Data")
 
     const handleImageClick = (photoPath) => {
         setSelectedImage(photoPath);

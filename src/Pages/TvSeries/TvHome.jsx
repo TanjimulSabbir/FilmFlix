@@ -81,9 +81,6 @@ export default function TvHome() {
     genresKeywords.length > 0 ? setPath(`with_genres=${genresKeywords.join(',')}`) : setPath(`with_genres=18,80,9648,`)
   }, [genresKeywords])
 
-
-  console.log({ TvShowsData }, "tvShowsData")
-
   useEffect(() => {
     refetch();
   }, [path]);

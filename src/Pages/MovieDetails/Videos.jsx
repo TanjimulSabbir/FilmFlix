@@ -9,7 +9,7 @@ export default function Videos({ id, howMuch, title, type }) {
     const pathType = useLocation().pathname.split("/")[1]
 
     const { data: videos, isLoading, isError } = useGetMovieVideosQuery({ id, type: type || pathType });
-    console.log(videos, id, title, "video");
+
     let content;
     if (isLoading) {
         content = <LoadingInline />;

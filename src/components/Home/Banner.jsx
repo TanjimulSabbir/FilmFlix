@@ -6,7 +6,6 @@ import Error from "../accessories/Error";
 
 function Banner({ id }) {
     const { data: MovieDetails, isLoading, isError } = useGetMovieDetailsQuery({ id, type: "movie" });
-    console.log(id)
     let content;
     if (isLoading) {
         content = <InitialLoading />

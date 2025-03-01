@@ -4,7 +4,6 @@ import Cast from "./Cast";
 function Section02() {
   const movie = useSelector(state => state.movieData.clickedMovieDetails)
   const { id, overview, poster_path, original_title } = movie || {};
-  console.log(poster_path);
   return (
     <div className="pb-3">
       <div className="lg:hidden pb-5 h-[200px] w-full">

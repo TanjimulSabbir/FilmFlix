@@ -38,8 +38,6 @@ function Section05() {
         }
     };
 
-    console.log({ hashPath, filteredPaths })
-
     return (
         <>
             <div className='flex justify-between md:justify-start md:space-x-7'>

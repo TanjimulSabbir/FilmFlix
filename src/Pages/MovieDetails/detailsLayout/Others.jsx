@@ -11,7 +11,6 @@ export default function Others() {
 
   const getArrayInfo = ({ ArrayData, type }) => {
     if (!ArrayData || ArrayData?.length === 0) return null;
-    console.log({ ArrayData, type }, "Arguments")
 
     return ArrayData.map((item, index) => (
       <p key={item.credit_id} className="flex items-center text-nowrap space-x-2">
