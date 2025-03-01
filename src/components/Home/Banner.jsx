@@ -12,7 +12,7 @@ function Banner({ id }) {
         content = <InitialLoading />
     }
     if (!isLoading && isError) {
-        content = <Error message="no movie found!" />
+        content = <Error message="No movie found!" />
     }
     if (!isLoading && !isError && MovieDetails) {
         content = <BannerText movie={MovieDetails} />

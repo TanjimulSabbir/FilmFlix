@@ -43,7 +43,7 @@ function BannerText01({ movie }) {
           <span>Add to Watchlist</span>
         </p>
 
-        <button className={`ticketBtnHome flex items-center space-x-1 py-2 px-7 text-[#04e4bf] border border-[#04e4bf] rounded-lg`} onClick={() => handleShowToast(`Currently, the Buy Ticket feature is experiencing issues.
+        <button className={`ticketBtnHome flex items-center space-x-1 py-2 px-3 md:px-7 text-[#04e4bf] border border-[#04e4bf] rounded-lg`} onClick={() => handleShowToast(`Currently, the Buy Ticket feature is experiencing issues.
         Thank you for your patience.`)}>
           <CiBookmark />
           <span>Buy ticket</span>
